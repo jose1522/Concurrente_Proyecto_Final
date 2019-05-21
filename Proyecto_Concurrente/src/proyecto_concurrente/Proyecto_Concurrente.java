@@ -8,14 +8,14 @@ package proyecto_concurrente;
 /**
  *
  * @author jose9
- */
-public class Proyecto_Concurrente {
+    */
+   public class Proyecto_Concurrente {
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        // TODO code application logic here
-    }
-    
-}
+       /**
+        * @param args the command line arguments
+        */
+       public static void main(String[] args) {
+           System.out.println("Hello world!");
+       }
+
+   }
