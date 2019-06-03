@@ -10,17 +10,15 @@ package proyecto_concurrente;
  * @author jose9
  */
 public class Usuario extends Persona{
-    private ContactosEmergencia [] contactosEmergencia;
     private Contraseña contraseña;
     OpcionesUsuario opcionesUsuario;
     private String fechaNacimiento;
     private String genero;
 
-    public Usuario(ContactosEmergencia[] contactosEmergencia, Contraseña contraseña, OpcionesUsuario opcionesUsuario, String fechaNacimiento, String genero, String id, String email, String nombre, String apellidos, String celular) {
+    public Usuario(ContactosEmergencia[] contactosEmergencia, Contraseña contraseña,  String fechaNacimiento, String genero, String id, String email, String nombre, String apellidos, String celular) {
         super(id, email, nombre, apellidos, celular);
-        this.contactosEmergencia = contactosEmergencia;
         this.contraseña = contraseña;
-        this.opcionesUsuario = opcionesUsuario;
+        this.opcionesUsuario = new OpcionesUsuario();
         this.fechaNacimiento = fechaNacimiento;
         this.genero = genero;
     }
@@ -31,14 +29,6 @@ public class Usuario extends Persona{
 
     public void setOpcionesUsuario(OpcionesUsuario opcionesUsuario) {
         this.opcionesUsuario = opcionesUsuario;
-    }
-    
-    public ContactosEmergencia[] getContactosEmergencia() {
-        return contactosEmergencia;
-    }
-
-    public void setContactosEmergencia(ContactosEmergencia[] contactosEmergencia) {
-        this.contactosEmergencia = contactosEmergencia;
     }
     
     public String getFechaNacimiento() {
