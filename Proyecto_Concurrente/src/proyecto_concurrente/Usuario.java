@@ -15,7 +15,7 @@ public class Usuario extends Persona{
     private String fechaNacimiento;
     private String genero;
 
-    public Usuario(ContactosEmergencia[] contactosEmergencia, Contraseña contraseña,  String fechaNacimiento, String genero, String id, String email, String nombre, String apellidos, String celular) {
+    public Usuario(Contraseña contraseña,  String fechaNacimiento, String genero, String id, String email, String nombre, String apellidos, String celular) {
         super(id, email, nombre, apellidos, celular);
         this.contraseña = contraseña;
         this.opcionesUsuario = new OpcionesUsuario();

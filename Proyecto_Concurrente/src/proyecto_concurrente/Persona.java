@@ -32,7 +32,7 @@ public class Persona {
         
     }
     
-    public void nuevoContactoEmergencia(ContactosEmergencia input){
+    public void nuevoContactoEmergencia(ContactoEmergencia input){
         
     }
     
