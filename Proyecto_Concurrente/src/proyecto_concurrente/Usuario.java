@@ -1,14 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package proyecto_concurrente;
 
-/**
- *
- * @author jose9
- */
+
 public class Usuario extends Persona{
     private Contraseña contraseña;
     OpcionesUsuario opcionesUsuario;
@@ -21,6 +14,38 @@ public class Usuario extends Persona{
         this.opcionesUsuario = new OpcionesUsuario();
         this.fechaNacimiento = fechaNacimiento;
         this.genero = genero;
+    }
+    
+    public boolean verificarContraseña(String input){
+        boolean output = false;
+        input = Util.hashString(input);
+        if (contraseña == null||input.equals(contraseña.getContraseña())){
+            output = true;
+        }
+        return output;
+    }
+    
+    public void modificarContraseña(String input, String nuevaContraseña){
+        boolean seguridadVerificada = this.verificarContraseña(input);
+        boolean verificacionNuevaContraseña = contraseña.validarSeguridad(nuevaContraseña);
+        verificacionNuevaContraseña = verificacionNuevaContraseña & contraseña.validarTamaño(input);
+        
+        if(seguridadVerificada&&verificacionNuevaContraseña){
+            contraseña.setContraseña(nuevaContraseña);
+        }
+    }
+    
+    public void nuevoContactoEmergencia(ContactoEmergencia input){
+        System.out.println("Crea un nuevo contacto de emergencia y lo envia al servidor por medio de una llamada API");
+    }
+    
+    public void nuevoEvento(Eventos input){
+        System.out.println("Crea un nuevo evento y lo envia al servidor por medio de una llamada API");
+    }
+    
+    public Eventos [] extraerEvento(){
+        System.out.println("Hace llamada API para extraer eventos");
+        return null;
     }
     
     public OpcionesUsuario getOpcionesUsuario() {

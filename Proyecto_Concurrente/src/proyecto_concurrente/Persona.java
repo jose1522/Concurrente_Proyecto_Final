@@ -23,27 +23,6 @@ public class Persona {
     }
 
       
-    public boolean verificarContraseña(String input){
-        boolean output = false;
-        return output;
-    }
-    
-    public void guardarContraseña(String input){
-        
-    }
-    
-    public void nuevoContactoEmergencia(ContactoEmergencia input){
-        
-    }
-    
-    public void nuevoEvento(Eventos input){
-        
-    }
-    
-    public Eventos [] extraerEvento(){
-        return null;
-    }
-
     public String getId() {
         return id;
     }

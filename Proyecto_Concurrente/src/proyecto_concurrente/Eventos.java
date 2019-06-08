@@ -7,7 +7,6 @@ import java.util.Date;
 public class Eventos {
     private String idUsuario;
     private Date fecha;
-    private String correo;
     private String tipoAlerta;
     private double longitud;
     private double latitud;
@@ -15,12 +14,18 @@ public class Eventos {
     public Eventos() {
         this.idUsuario = "";
         this.fecha = null;
-        this.correo = "";
         this.tipoAlerta = "";
         this.longitud = 0.0;
         this.latitud = 0.0;
     }
 
+    public Eventos(String idUsuario, Date fecha, String tipoAlerta, double longitud, double latitud) {
+        this.idUsuario = idUsuario;
+        this.fecha = fecha;
+        this.tipoAlerta = tipoAlerta;
+        this.longitud = longitud;
+        this.latitud = latitud;
+    }
 
     public String getIdUsuario() {
         return idUsuario;
@@ -28,14 +33,6 @@ public class Eventos {
 
     public void setIdUsuario(String idUsuario) {
         this.idUsuario = idUsuario;
-    }
-
-    public String getCorreo() {
-        return correo;
-    }
-
-    public void setCorreo(String correo) {
-        this.correo = correo;
     }
 
     public String getTipoAlerta() {
