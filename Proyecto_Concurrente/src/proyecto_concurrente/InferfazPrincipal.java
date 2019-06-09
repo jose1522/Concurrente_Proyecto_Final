@@ -163,10 +163,10 @@ public class InferfazPrincipal extends javax.swing.JFrame {
         );
         PrincipalLayout.setVerticalGroup(
             PrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PrincipalLayout.createSequentialGroup()
-                .addGap(45, 45, 45)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PrincipalLayout.createSequentialGroup()
+                .addContainerGap(54, Short.MAX_VALUE)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 420, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(58, Short.MAX_VALUE))
+                .addGap(49, 49, 49))
         );
 
         Body.add(Principal, "Principal");
@@ -448,13 +448,18 @@ public class InferfazPrincipal extends javax.swing.JFrame {
         jButton11.setText("Guardar");
 
         jButton13.setText("Cancelar");
+        jButton13.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton13ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout ContactosModificarLayout = new javax.swing.GroupLayout(ContactosModificar);
         ContactosModificar.setLayout(ContactosModificarLayout);
         ContactosModificarLayout.setHorizontalGroup(
             ContactosModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ContactosModificarLayout.createSequentialGroup()
-                .addGap(37, 37, 37)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ContactosModificarLayout.createSequentialGroup()
+                .addContainerGap(52, Short.MAX_VALUE)
                 .addGroup(ContactosModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(ContactosModificarLayout.createSequentialGroup()
                         .addComponent(jButton13)
@@ -472,13 +477,13 @@ public class InferfazPrincipal extends javax.swing.JFrame {
                                 .addComponent(jLabel6)
                                 .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addComponent(jTextField7)
-                        .addComponent(jTextField8)))
-                .addContainerGap(65, Short.MAX_VALUE))
+                        .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 368, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(50, 50, 50))
         );
         ContactosModificarLayout.setVerticalGroup(
             ContactosModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ContactosModificarLayout.createSequentialGroup()
-                .addGap(25, 25, 25)
+                .addGap(47, 47, 47)
                 .addGroup(ContactosModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(jLabel6))
@@ -498,7 +503,7 @@ public class InferfazPrincipal extends javax.swing.JFrame {
                 .addGroup(ContactosModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton11)
                     .addComponent(jButton13))
-                .addGap(204, 204, 204))
+                .addGap(182, 182, 182))
         );
 
         Body.add(ContactosModificar, "ContactosModificar");
@@ -858,6 +863,10 @@ public class InferfazPrincipal extends javax.swing.JFrame {
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
 
     }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
+        this.bodyCardLayout.show(this.Body, "ContactosAgregar");
+    }//GEN-LAST:event_jButton13ActionPerformed
 
     /**
      * @param args the command line arguments

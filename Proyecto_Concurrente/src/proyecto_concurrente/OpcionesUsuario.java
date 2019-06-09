@@ -39,6 +39,11 @@ public class OpcionesUsuario {
     public void setAlertasActivas(boolean alertasActivas) {
         this.alertasActivas = alertasActivas;
     }
+
+    @Override
+    public String toString() {
+        return "OpcionesUsuario{" + "idioma=" + idioma + ", medioComunicacionPreferido=" + medioComunicacionPreferido + ", alertasActivas=" + alertasActivas + '}';
+    }
     
     
     

@@ -24,6 +24,10 @@ import java.util.Date;
         */
        public static void main(String[] args) {
            crearUsuario();
+           mostrarMapa();
+           System.out.println(usuarios.get(0).toString());
+           System.out.println(contactos.get(0).toString());
+           System.out.println(eventos.get(0).toString());
        }
     
         public static void crearUsuario(){
@@ -62,7 +66,9 @@ import java.util.Date;
         }
        
         public static void mostrarMapa(){
-            
+            Mapa m = new Mapa();
+            Coordenadas c = new Coordenadas();
+            m.mapaEstatico(c);
         }
        
    }

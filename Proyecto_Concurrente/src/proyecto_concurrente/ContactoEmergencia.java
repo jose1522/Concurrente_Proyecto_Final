@@ -24,5 +24,10 @@ public class ContactoEmergencia extends Persona{
     public void setIdUsuarioPrincipal(String idUsuarioPrincipal) {
         this.idUsuarioPrincipal = idUsuarioPrincipal;
     }
+
+    @Override
+    public String toString() {
+        return super.toString()+"\n\tContactoEmergencia{" + "idUsuarioPrincipal ->\t" + idUsuarioPrincipal + '}';
+    }
         
 }

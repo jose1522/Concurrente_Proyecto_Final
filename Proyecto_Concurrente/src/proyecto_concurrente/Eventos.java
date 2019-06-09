@@ -24,6 +24,11 @@ public class Eventos extends Coordenadas {
         this.tipoAlerta = tipoAlerta;
     }
 
+    @Override
+    public String toString() {
+        return "Eventos{" + "idUsuario=" + idUsuario + ", fecha=" + fecha + ", tipoAlerta=" + tipoAlerta + '}';
+    }
+
 
     public String getIdUsuario() {
         return idUsuario;

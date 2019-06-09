@@ -38,4 +38,9 @@ public class Contraseña {
         this.contraseña = contraseña;
     }
 
+    @Override
+    public String toString() {
+        return  contraseña;
+    }
+
 }

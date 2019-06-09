@@ -13,4 +13,5 @@ public class Mapa {
         System.out.println("Obtiene link a mapa estático por medio de llamada API a google");
         return null;
     }
+    
 }

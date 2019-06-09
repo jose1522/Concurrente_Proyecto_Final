@@ -17,6 +17,12 @@ public class Usuario extends Persona{
         this.fechaNacimiento = fechaNacimiento;
         this.genero = genero;
     }
+
+    @Override
+    public String toString() {
+        return super.toString()+"\n\tcontrase\u00f1a ->\t" + contraseña + ", \n\topcionesUsuario ->\t" + opcionesUsuario + ", \n\tfechaNacimiento ->\t" + fechaNacimiento + ", \n\tgenero ->\t" + genero + "\n\t"+'}';
+    }
+    
     
     public boolean verificarContraseña(String input){
         boolean output = false;
