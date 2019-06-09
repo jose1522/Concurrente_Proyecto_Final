@@ -3,7 +3,8 @@ package proyecto_concurrente;
 
 public class Mapa {
 
-    public String ubicacion(Coordenadas input){
+    
+    public String agregarMarcador(Coordenadas input){
         System.out.println("Llamada API a servicios de google maps para obtener nombre de la ciudad");
         return null;
     }

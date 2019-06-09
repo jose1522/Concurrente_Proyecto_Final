@@ -7,10 +7,13 @@ public class Coordenadas {
     private double longitud;
     private double latitud;
 
-    public Coordenadas(double longitud, double latitud) {
-        this.longitud = longitud;
-        this.latitud = latitud;
+    public Coordenadas(){
+            //Llamada API para obtener coordenadas actuales
+            this.longitud = 0;
+            this.latitud = 0;
     }
+
+    
 
     public double getLatitud() {
         return latitud;

@@ -20,6 +20,7 @@ public class InferfazPrincipal extends javax.swing.JFrame {
      */
     public InferfazPrincipal() {
         initComponents();
+        this.setLocationRelativeTo(null);
         this.bodyCardLayout = (CardLayout)(this.Body.getLayout());
         this.bottomCardLayout = (CardLayout)(this.Bottom.getLayout());
     }
@@ -115,8 +116,8 @@ public class InferfazPrincipal extends javax.swing.JFrame {
         btbToggleFiltros = new javax.swing.JToggleButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(442, 600));
-        setPreferredSize(new java.awt.Dimension(442, 600));
+        setMinimumSize(new java.awt.Dimension(470, 623));
+        setResizable(false);
 
         Top.setBackground(new java.awt.Color(153, 153, 153));
 
@@ -155,17 +156,17 @@ public class InferfazPrincipal extends javax.swing.JFrame {
         Principal.setLayout(PrincipalLayout);
         PrincipalLayout.setHorizontalGroup(
             PrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PrincipalLayout.createSequentialGroup()
-                .addGap(26, 26, 26)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PrincipalLayout.createSequentialGroup()
+                .addContainerGap(44, Short.MAX_VALUE)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 387, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(57, Short.MAX_VALUE))
+                .addGap(39, 39, 39))
         );
         PrincipalLayout.setVerticalGroup(
             PrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PrincipalLayout.createSequentialGroup()
-                .addGap(38, 38, 38)
+                .addGap(45, 45, 45)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 420, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(65, Short.MAX_VALUE))
+                .addContainerGap(58, Short.MAX_VALUE))
         );
 
         Body.add(Principal, "Principal");

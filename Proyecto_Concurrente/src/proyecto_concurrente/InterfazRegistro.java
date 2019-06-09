@@ -7,18 +7,22 @@ package proyecto_concurrente;
 
 import java.awt.CardLayout;
 
+
 /**
  *
  * @author jose9
  */
 public class InterfazRegistro extends javax.swing.JFrame {
     CardLayout cardLayout;
+    
     /**
      * Creates new form Interfaz
      */
     public InterfazRegistro() {
         initComponents();
+        this.setLocationRelativeTo(null);
         this.cardLayout = (CardLayout)(this.PanelPrincipal.getLayout());
+        
     }
 
     /**
@@ -37,11 +41,11 @@ public class InterfazRegistro extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
         Ingresar = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        tbEmailIngreso = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        tbContraseñaIngreso = new javax.swing.JTextField();
         jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
+        btnIngresar = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         RecuperarContraseña = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
@@ -130,9 +134,9 @@ public class InterfazRegistro extends javax.swing.JFrame {
 
         jLabel2.setText("Contraseña");
 
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        tbContraseñaIngreso.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                tbContraseñaIngresoActionPerformed(evt);
             }
         });
 
@@ -143,7 +147,12 @@ public class InterfazRegistro extends javax.swing.JFrame {
             }
         });
 
-        jButton6.setText("Ingresar");
+        btnIngresar.setText("Ingresar");
+        btnIngresar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnIngresarActionPerformed(evt);
+            }
+        });
 
         jButton1.setText("Regresar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -164,11 +173,11 @@ public class InterfazRegistro extends javax.swing.JFrame {
                         .addGroup(IngresarLayout.createSequentialGroup()
                             .addComponent(jButton5)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton6))
+                            .addComponent(btnIngresar))
                         .addComponent(jLabel2)
                         .addComponent(jLabel1)
-                        .addComponent(jTextField2)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(tbContraseñaIngreso)
+                        .addComponent(tbEmailIngreso, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(62, Short.MAX_VALUE))
         );
         IngresarLayout.setVerticalGroup(
@@ -177,15 +186,15 @@ public class InterfazRegistro extends javax.swing.JFrame {
                 .addGap(51, 51, 51)
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(tbEmailIngreso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27)
                 .addComponent(jLabel2)
                 .addGap(18, 18, 18)
-                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(tbContraseñaIngreso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(32, 32, 32)
                 .addGroup(IngresarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton5)
-                    .addComponent(jButton6))
+                    .addComponent(btnIngresar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton1)
                 .addContainerGap(126, Short.MAX_VALUE))
@@ -417,9 +426,9 @@ public class InterfazRegistro extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+    private void tbContraseñaIngresoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbContraseñaIngresoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    }//GEN-LAST:event_tbContraseñaIngresoActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         this.cardLayout.show(this.PanelPrincipal, "Ingresar");
@@ -452,6 +461,12 @@ public class InterfazRegistro extends javax.swing.JFrame {
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
         this.cardLayout.show(this.PanelPrincipal, "Registrar1");
     }//GEN-LAST:event_jButton9ActionPerformed
+
+    private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed
+        String email = this.tbEmailIngreso.getText();
+        String contraseña = this.tbContraseñaIngreso.getText();
+
+    }//GEN-LAST:event_btnIngresarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -496,6 +511,7 @@ public class InterfazRegistro extends javax.swing.JFrame {
     private javax.swing.JPanel RecuperarContraseña;
     private javax.swing.JPanel Registrar1;
     private javax.swing.JPanel Registrar2;
+    private javax.swing.JButton btnIngresar;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
@@ -503,7 +519,6 @@ public class InterfazRegistro extends javax.swing.JFrame {
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
@@ -524,12 +539,12 @@ public class InterfazRegistro extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField8;
+    private javax.swing.JTextField tbContraseñaIngreso;
+    private javax.swing.JTextField tbEmailIngreso;
     // End of variables declaration//GEN-END:variables
 }

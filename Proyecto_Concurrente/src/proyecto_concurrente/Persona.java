@@ -63,6 +63,11 @@ public class Persona {
         this.celular = celular;
     }
 
+    @Override
+    public String toString() {
+        return "Persona{" + "id=" + id + ", email=" + email + ", nombre=" + nombre + ", apellidos=" + apellidos + ", celular=" + celular + '}';
+    }
 
+    
     
 }

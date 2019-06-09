@@ -1,6 +1,8 @@
 
 package proyecto_concurrente;
 
+import java.util.Date;
+
 
 public class Usuario extends Persona{
     private Contraseña contraseña;
@@ -48,6 +50,10 @@ public class Usuario extends Persona{
         return null;
     }
     
+    public Eventos [] extraerEvento(Date fecha, String tipoAlerta, double longitud, double latitud){
+        System.out.println("Hace llamada API para extraer eventos");
+        return null;
+    }
     public OpcionesUsuario getOpcionesUsuario() {
         return opcionesUsuario;
     }
