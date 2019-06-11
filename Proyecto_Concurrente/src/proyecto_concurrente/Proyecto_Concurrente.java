@@ -25,9 +25,16 @@ import java.util.Date;
        public static void main(String[] args) {
            crearUsuario();
            mostrarMapa();
-           System.out.println(usuarios.get(0).toString());
-           System.out.println(contactos.get(0).toString());
-           System.out.println(eventos.get(0).toString());
+           for (int i = 0; i < usuarios.size(); i++) {
+                System.out.println(usuarios.get(i).toString());
+           }
+           for (int i = 0; i < contactos.size(); i++) {
+                System.out.println(contactos.get(i).toString());
+           }
+           for (int i = 0; i < eventos.size(); i++) {
+                System.out.println(eventos.get(i).toString());
+           }
+
        }
     
         public static void crearUsuario(){
@@ -46,6 +53,7 @@ import java.util.Date;
             crearContactoEmergencia(id);
             crearAlerta(id);
         }
+        
         
         public static void crearContactoEmergencia(String idUsuarioPrincipal){
             String id = String.valueOf(usuarios.size());

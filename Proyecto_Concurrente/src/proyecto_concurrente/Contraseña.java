@@ -35,7 +35,7 @@ public class Contraseña {
     }
 
     public void setContraseña(String contraseña) {
-        this.contraseña = contraseña;
+        this.contraseña = Util.hashString(contraseña);
     }
 
     @Override

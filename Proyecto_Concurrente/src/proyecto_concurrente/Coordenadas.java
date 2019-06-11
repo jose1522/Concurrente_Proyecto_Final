@@ -13,8 +13,12 @@ public class Coordenadas {
             this.latitud = 0;
     }
 
-    
+    public Coordenadas(double longitud, double latitud) {
+        this.longitud = longitud;
+        this.latitud = latitud;
+    }
 
+    
     public double getLatitud() {
         return latitud;
     }
