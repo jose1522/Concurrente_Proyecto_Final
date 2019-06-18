@@ -5,8 +5,7 @@
  */
 package proyecto_concurrente;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
+
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -79,4 +78,60 @@ import java.util.Date;
             m.mapaEstatico(c);
         }
        
+        public static boolean autenticarUsuario(String inputEmail, String inputPassword){
+            for (int i = 0; i < usuarios.size(); i++) {
+                Usuario aux = usuarios.get(i);
+                if (aux.getEmail().equals(inputEmail)){
+                    if (aux.verificarContraseña(inputPassword)){
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+        
+        private static String buscarIdUsuario(String inputEmail, String inputPassword){
+            for (int i = 0; i < usuarios.size(); i++) {
+                Usuario aux = usuarios.get(i);
+                if (aux.getEmail().equals(inputEmail)){
+                    return aux.getId();
+                }
+            }
+            return null;
+        }
+        
+        public static void busquedaContactos(String inputIdUsuario){
+            int contadorContactos = 0;
+            for (int i = 0; i < contactos.size(); i++) {
+                ContactoEmergencia aux = contactos.get(i);
+                if (aux.getIdUsuarioPrincipal().equals(inputIdUsuario)){
+                        String email = aux.getEmail();
+                        String telefono = aux.getCelular();
+                        contadorContactos++;
+                        /*
+                        Ejecuta metodo para enviar mensaje sms & email.
+                        */               
+                }                
+                if  (contadorContactos==3){
+                    break;
+                }
+            }   
+        }
+        
+        public ArrayList<Eventos> busquedaEventos(String tipo, String barrio, int antiguedad){
+            ArrayList<Eventos> output = null;
+            
+           for (Eventos evento : eventos) {
+               Date fecha = evento.getFecha();
+               Date ahora = new Date();
+               int diasTranscurridos =  ((int) ahora.getTime() - (int) fecha.getTime())*1000/3600/24;
+               String barrioEvento = evento.getBarrio();
+               String tipoAlertaEvento = evento.getTipoAlerta();
+
+                if (diasTranscurridos<=antiguedad&&barrioEvento.equals(barrio)&&barrioEvento.equals(barrio)){
+                    output.add(evento);
+                }
+           }
+            return output;
+        }
    }
