@@ -39,6 +39,7 @@ public class InferfazPrincipal extends javax.swing.JFrame {
         Body = new javax.swing.JPanel();
         Principal = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
+        jLabel18 = new javax.swing.JLabel();
         Altertas = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
@@ -47,7 +48,7 @@ public class InferfazPrincipal extends javax.swing.JFrame {
         jPanel7 = new javax.swing.JPanel();
         Filtros = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
+        jList1 = new javax.swing.JList<String>();
         jSlider1 = new javax.swing.JSlider();
         jSlider2 = new javax.swing.JSlider();
         jButton5 = new javax.swing.JButton();
@@ -91,7 +92,7 @@ public class InferfazPrincipal extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         jTextField12 = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        jComboBox1 = new javax.swing.JComboBox<String>();
         jLabel14 = new javax.swing.JLabel();
         jTextField13 = new javax.swing.JTextField();
         jButton16 = new javax.swing.JButton();
@@ -118,10 +119,11 @@ public class InferfazPrincipal extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(470, 623));
         setResizable(false);
+        setSize(new java.awt.Dimension(375, 667));
 
         Top.setBackground(new java.awt.Color(153, 153, 153));
 
-        jButton3.setText("Opciones");
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Start_Settings.png"))); // NOI18N
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
@@ -135,39 +137,29 @@ public class InferfazPrincipal extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, TopLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton3)
-                .addContainerGap())
+                .addGap(83, 83, 83))
         );
         TopLayout.setVerticalGroup(
             TopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, TopLayout.createSequentialGroup()
-                .addContainerGap(16, Short.MAX_VALUE)
+            .addGroup(TopLayout.createSequentialGroup()
+                .addGap(17, 17, 17)
                 .addComponent(jButton3)
-                .addContainerGap())
+                .addContainerGap(17, Short.MAX_VALUE))
         );
 
         Body.setBackground(new java.awt.Color(255, 255, 255));
         Body.setLayout(new java.awt.CardLayout());
 
         Principal.setBackground(new java.awt.Color(255, 255, 255));
+        Principal.setPreferredSize(new java.awt.Dimension(375, 667));
+        Principal.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Start_BotonPanico_Normal-01.jpg"))); // NOI18N
         jButton1.setText("Boton panico");
+        Principal.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 370, 550));
 
-        javax.swing.GroupLayout PrincipalLayout = new javax.swing.GroupLayout(Principal);
-        Principal.setLayout(PrincipalLayout);
-        PrincipalLayout.setHorizontalGroup(
-            PrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PrincipalLayout.createSequentialGroup()
-                .addContainerGap(44, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 387, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(39, 39, 39))
-        );
-        PrincipalLayout.setVerticalGroup(
-            PrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PrincipalLayout.createSequentialGroup()
-                .addContainerGap(54, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 420, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(49, 49, 49))
-        );
+        jLabel18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Start_BG-01.jpg"))); // NOI18N
+        Principal.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -60, -1, -1));
 
         Body.add(Principal, "Principal");
 
@@ -192,7 +184,7 @@ public class InferfazPrincipal extends javax.swing.JFrame {
         Altertas.setLayout(AltertasLayout);
         AltertasLayout.setHorizontalGroup(
             AltertasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, 470, Short.MAX_VALUE)
+            .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, 426, Short.MAX_VALUE)
             .addGroup(AltertasLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
@@ -201,7 +193,7 @@ public class InferfazPrincipal extends javax.swing.JFrame {
         AltertasLayout.setVerticalGroup(
             AltertasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(AltertasLayout.createSequentialGroup()
-                .addContainerGap(28, Short.MAX_VALUE)
+                .addContainerGap(120, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -215,11 +207,11 @@ public class InferfazPrincipal extends javax.swing.JFrame {
         jPanel7.setLayout(jPanel7Layout);
         jPanel7Layout.setHorizontalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 470, Short.MAX_VALUE)
+            .addGap(0, 426, Short.MAX_VALUE)
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 523, Short.MAX_VALUE)
+            .addGap(0, 609, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout MapaLayout = new javax.swing.GroupLayout(Mapa);
@@ -235,10 +227,10 @@ public class InferfazPrincipal extends javax.swing.JFrame {
 
         Body.add(Mapa, "Mapa");
 
-        jList1.setModel(new javax.swing.AbstractListModel<String>() {
+        jList1.setModel(new javax.swing.AbstractListModel() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
+            public Object getElementAt(int i) { return strings[i]; }
         });
         jScrollPane2.setViewportView(jList1);
 
@@ -264,7 +256,7 @@ public class InferfazPrincipal extends javax.swing.JFrame {
                     .addGroup(FiltrosLayout.createSequentialGroup()
                         .addGap(150, 150, 150)
                         .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(127, Short.MAX_VALUE))
+                .addContainerGap(83, Short.MAX_VALUE))
         );
         FiltrosLayout.setVerticalGroup(
             FiltrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -275,7 +267,7 @@ public class InferfazPrincipal extends javax.swing.JFrame {
                 .addComponent(jSlider1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(38, 38, 38)
                 .addComponent(jSlider2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 95, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 184, Short.MAX_VALUE)
                 .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(53, 53, 53))
         );
@@ -312,7 +304,7 @@ public class InferfazPrincipal extends javax.swing.JFrame {
         PanelOpcionesLayout.setHorizontalGroup(
             PanelOpcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelOpcionesLayout.createSequentialGroup()
-                .addContainerGap(174, Short.MAX_VALUE)
+                .addContainerGap(109, Short.MAX_VALUE)
                 .addGroup(PanelOpcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jButton14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -331,7 +323,7 @@ public class InferfazPrincipal extends javax.swing.JFrame {
                 .addComponent(jButton15)
                 .addGap(18, 18, 18)
                 .addComponent(jButton17)
-                .addContainerGap(213, Short.MAX_VALUE))
+                .addContainerGap(263, Short.MAX_VALUE))
         );
 
         Body.add(PanelOpciones, "PanelOpciones");
@@ -395,7 +387,7 @@ public class InferfazPrincipal extends javax.swing.JFrame {
                                 .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addComponent(jTextField3)
                         .addComponent(jTextField4)))
-                .addContainerGap(65, Short.MAX_VALUE))
+                .addContainerGap(21, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ContactosAgregarLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton10)
@@ -425,7 +417,7 @@ public class InferfazPrincipal extends javax.swing.JFrame {
                 .addGap(30, 30, 30)
                 .addComponent(jButton8)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 185, Short.MAX_VALUE)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 231, Short.MAX_VALUE)
                 .addGap(27, 27, 27)
                 .addGroup(ContactosAgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton9)
@@ -459,7 +451,7 @@ public class InferfazPrincipal extends javax.swing.JFrame {
         ContactosModificarLayout.setHorizontalGroup(
             ContactosModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ContactosModificarLayout.createSequentialGroup()
-                .addContainerGap(52, Short.MAX_VALUE)
+                .addContainerGap(8, Short.MAX_VALUE)
                 .addGroup(ContactosModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(ContactosModificarLayout.createSequentialGroup()
                         .addComponent(jButton13)
@@ -499,7 +491,7 @@ public class InferfazPrincipal extends javax.swing.JFrame {
                 .addComponent(jLabel8)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 100, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 156, Short.MAX_VALUE)
                 .addGroup(ContactosModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton11)
                     .addComponent(jButton13))
@@ -523,7 +515,7 @@ public class InferfazPrincipal extends javax.swing.JFrame {
 
         jLabel13.setText("Genero");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jLabel14.setText("Fecha de nacimiento");
 
@@ -556,7 +548,7 @@ public class InferfazPrincipal extends javax.swing.JFrame {
                         .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel14)
                         .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, 368, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(70, Short.MAX_VALUE))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
         PerfilLayout.setVerticalGroup(
             PerfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -587,7 +579,7 @@ public class InferfazPrincipal extends javax.swing.JFrame {
                 .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(40, 40, 40)
                 .addComponent(jButton16)
-                .addContainerGap(105, Short.MAX_VALUE))
+                .addContainerGap(148, Short.MAX_VALUE))
         );
 
         Body.add(Perfil, "Perfil");
@@ -626,7 +618,7 @@ public class InferfazPrincipal extends javax.swing.JFrame {
                     .addGroup(CambiarContraseñaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(jButton18, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton19, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap(83, Short.MAX_VALUE))
+                .addContainerGap(39, Short.MAX_VALUE))
         );
         CambiarContraseñaLayout.setVerticalGroup(
             CambiarContraseñaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -647,7 +639,7 @@ public class InferfazPrincipal extends javax.swing.JFrame {
                 .addComponent(jButton18)
                 .addGap(18, 18, 18)
                 .addComponent(jButton19)
-                .addContainerGap(210, Short.MAX_VALUE))
+                .addContainerGap(258, Short.MAX_VALUE))
         );
 
         Body.add(CambiarContraseña, "CambiarContraseña");
@@ -656,11 +648,11 @@ public class InferfazPrincipal extends javax.swing.JFrame {
         AgregarAlerta.setLayout(AgregarAlertaLayout);
         AgregarAlertaLayout.setHorizontalGroup(
             AgregarAlertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 470, Short.MAX_VALUE)
+            .addGap(0, 426, Short.MAX_VALUE)
         );
         AgregarAlertaLayout.setVerticalGroup(
             AgregarAlertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 523, Short.MAX_VALUE)
+            .addGap(0, 609, Short.MAX_VALUE)
         );
 
         Body.add(AgregarAlerta, "AgregarAlerta");
@@ -671,14 +663,14 @@ public class InferfazPrincipal extends javax.swing.JFrame {
 
         BottomPrincipal.setBackground(new java.awt.Color(153, 153, 153));
 
-        jButton6.setText("Alerta");
+        jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Start_Alerta.png"))); // NOI18N
         jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton6ActionPerformed(evt);
             }
         });
 
-        jButton7.setText("Mapa");
+        jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Start_Mapa.png"))); // NOI18N
         jButton7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton7ActionPerformed(evt);
@@ -690,20 +682,18 @@ public class InferfazPrincipal extends javax.swing.JFrame {
         BottomPrincipalLayout.setHorizontalGroup(
             BottomPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(BottomPrincipalLayout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 109, Short.MAX_VALUE)
-                .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31))
+                .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
+                .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(51, 51, 51))
         );
         BottomPrincipalLayout.setVerticalGroup(
             BottomPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BottomPrincipalLayout.createSequentialGroup()
-                .addContainerGap(16, Short.MAX_VALUE)
-                .addGroup(BottomPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+            .addGroup(BottomPrincipalLayout.createSequentialGroup()
+                .addGroup(BottomPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton6)
                     .addComponent(jButton7))
-                .addContainerGap())
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         Bottom.add(BottomPrincipal, "BottomPrincipal");
@@ -722,7 +712,7 @@ public class InferfazPrincipal extends javax.swing.JFrame {
         BottomPrincipal2Layout.setHorizontalGroup(
             BottomPrincipal2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BottomPrincipal2Layout.createSequentialGroup()
-                .addContainerGap(50, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton23, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(45, 45, 45))
         );
@@ -730,7 +720,7 @@ public class InferfazPrincipal extends javax.swing.JFrame {
             BottomPrincipal2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BottomPrincipal2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jButton23, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)
+                .addComponent(jButton23, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -759,14 +749,14 @@ public class InferfazPrincipal extends javax.swing.JFrame {
             .addGroup(BottomSecundarioLayout.createSequentialGroup()
                 .addGap(21, 21, 21)
                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 120, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 76, Short.MAX_VALUE)
                 .addComponent(btbToggleFiltros, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(29, 29, 29))
         );
         BottomSecundarioLayout.setVerticalGroup(
             BottomSecundarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BottomSecundarioLayout.createSequentialGroup()
-                .addContainerGap(16, Short.MAX_VALUE)
+                .addContainerGap(12, Short.MAX_VALUE)
                 .addGroup(BottomSecundarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton2)
                     .addComponent(btbToggleFiltros))
@@ -788,7 +778,7 @@ public class InferfazPrincipal extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(Top, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(Body, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(Body, javax.swing.GroupLayout.DEFAULT_SIZE, 609, Short.MAX_VALUE)
                 .addGap(0, 0, 0)
                 .addComponent(Bottom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -951,6 +941,7 @@ public class InferfazPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
