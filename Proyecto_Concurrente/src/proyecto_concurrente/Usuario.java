@@ -7,20 +7,20 @@ import java.util.Date;
 public class Usuario extends Persona{
     private Contraseña contraseña;
     OpcionesUsuario opcionesUsuario;
-    private String fechaNacimiento;
+    private String cedula;
     private String genero;
 
-    public Usuario(Contraseña contraseña,  String fechaNacimiento, String genero, String id, String email, String nombre, String apellidos, String celular) {
+    public Usuario(Contraseña contraseña,  String cedula, String genero, String id, String email, String nombre, String apellidos, String celular) {
         super(id, email, nombre, apellidos, celular);
         this.contraseña = contraseña;
         this.opcionesUsuario = new OpcionesUsuario();
-        this.fechaNacimiento = fechaNacimiento;
+        this.cedula = cedula;
         this.genero = genero;
     }
 
     @Override
     public String toString() {
-        return super.toString()+"\n\tcontrase\u00f1a ->\t" + contraseña + ", \n\topcionesUsuario ->\t" + opcionesUsuario + ", \n\tfechaNacimiento ->\t" + fechaNacimiento + ", \n\tgenero ->\t" + genero + "\n\t"+'}';
+        return super.toString()+"\n\tcontrase\u00f1a ->\t" + contraseña + ", \n\topcionesUsuario ->\t" + opcionesUsuario + ", \n\tfechaNacimiento ->\t" + cedula + ", \n\tgenero ->\t" + genero + "\n\t"+'}';
     }
     
     
@@ -68,12 +68,12 @@ public class Usuario extends Persona{
         this.opcionesUsuario = opcionesUsuario;
     }
     
-    public String getFechaNacimiento() {
-        return fechaNacimiento;
+    public String getCedula() {
+        return cedula;
     }
 
-    public void setFechaNacimiento(String fechaNacimiento) {
-        this.fechaNacimiento = fechaNacimiento;
+    public void setCedula(String cedula) {
+        this.cedula = cedula;
     }
 
     public String getGenero() {

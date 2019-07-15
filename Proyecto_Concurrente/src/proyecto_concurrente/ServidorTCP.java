@@ -7,11 +7,14 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import java.util.ArrayList;
 import java.util.Dictionary;
+import java.util.HashMap;
 import java.util.Hashtable;
 import java.util.UUID;
 
 public class ServidorTCP {
     static ArrayList <Usuario> usuarios = new ArrayList();
+    static ArrayList <ContactoEmergencia> contactos = new ArrayList<ContactoEmergencia>();
+    static ArrayList <Eventos> eventos = new ArrayList<Eventos>();
     Gson gson = new Gson();
     
     public void run() {
@@ -23,7 +26,6 @@ public class ServidorTCP {
          
 //		serverSocket.setSoTimeout(10000); 
                 while(true) {
-                    
                     System.out.println("Esperando cliente en el puerto " + serverSocket.getLocalPort() + "..."); 
                     Socket server = serverSocket.accept();
                     System.out.println("Conectado a " + server.getRemoteSocketAddress()); 
@@ -48,44 +50,40 @@ public class ServidorTCP {
         UUID uuid = UUID.randomUUID();
         
         String email = jsonObject.get("email").getAsString();
-        boolean usuarioDuplicado = false;
+
         
         if (usuarios.size()>0){
             for (Usuario usuario : usuarios) {
                 if (usuario.getEmail().equals(email)){
-                    usuarioDuplicado=true;
-                    break;
+                    return false;
                 }
             }
         }
         
-        if (!usuarioDuplicado){
-            String nombre = jsonObject.get("nombre").getAsString();
-            String apellidos = jsonObject.get("apellidos").getAsString();
-            Contraseña contraseña = new Contraseña();
-            contraseña.setContraseña(jsonObject.get("contraseña").getAsString());
-            String genero = jsonObject.get("genero").getAsString();
-            String fechaNacimiento = jsonObject.get("fecha de nacimiento").getAsString();
-            String celular = jsonObject.get("celular").getAsString();
-            String id = uuid.toString();
 
-            Usuario u = new Usuario(contraseña, fechaNacimiento, genero, id, email, nombre, apellidos, celular);
-            usuarios.add(u);
-            System.out.println(u.toString());
-            return true;
-        } else {
-            return false;
-        }
-      
+        String nombre = jsonObject.get("nombre").getAsString();
+        String apellidos = jsonObject.get("apellidos").getAsString();
+        Contraseña contraseña = new Contraseña();
+        contraseña.setContraseña(jsonObject.get("contraseña").getAsString());
+        String genero = jsonObject.get("genero").getAsString();
+        String cedula = jsonObject.get("cedula").getAsString();
+        String celular = jsonObject.get("celular").getAsString();
+        String id = uuid.toString();
+
+        Usuario u = new Usuario(contraseña, cedula, genero, id, email, nombre, apellidos, celular);
+        usuarios.add(u);
+        System.out.println(u.toString());
+        return true;
+     
     }
     
     public boolean autenticarUsiario(String payload){
-        Dictionary respuesta = new Hashtable();
+//        HashMap respuesta = new HashMap();
         JsonObject jsonObject = new JsonParser().parse(payload).getAsJsonObject();
         String accion = jsonObject.get("accion").getAsString();
         String inputEmail = jsonObject.get("email").getAsString();
         String inputContraseña = jsonObject.get("contraseña").getAsString(); 
-        respuesta.put("accion", accion);
+//        respuesta.put("accion", accion);
         
         for (int i = 0; i < usuarios.size(); i++) {
             Usuario aux = usuarios.get(i);
@@ -98,6 +96,46 @@ public class ServidorTCP {
         return false;
     }
 
+    public boolean recuperarContraseña(String payload){
+//        HashMap respuesta = new HashMap();
+        JsonObject jsonObject = new JsonParser().parse(payload).getAsJsonObject();
+        String accion = jsonObject.get("accion").getAsString();
+        String inputEmail = jsonObject.get("email").getAsString();
+//        respuesta.put("accion", accion);
+        
+        for (int i = 0; i < usuarios.size(); i++) {
+            Usuario aux = usuarios.get(i);
+            if (aux.getEmail().equals(inputEmail)){
+                    return true;
+            }
+        }
+        return false;
+    }
+    
+    public boolean crearContactoEmergencia(String payload){
+        HashMap respuesta = new HashMap();
+        JsonObject jsonObject = new JsonParser().parse(payload).getAsJsonObject();
+        String accion = jsonObject.get("accion").getAsString();
+        String email = jsonObject.get("email").getAsString();
+        String nombre = jsonObject.get("nombre").getAsString();
+        String apellidos = jsonObject.get("apellidos").getAsString();
+        String celular = jsonObject.get("celular").getAsString();
+        String idUsuarioPrincipal = jsonObject.get("id").getAsString();
+        respuesta.put("accion", accion);
+        String id = UUID.randomUUID().toString();
+        
+        for (int i = 0; i < contactos.size(); i++) {
+            ContactoEmergencia aux = contactos.get(i);
+            if (aux.getEmail().equals(email)){
+                return false;
+            }
+        }
+        
+        ContactoEmergencia c = new ContactoEmergencia(idUsuarioPrincipal, id, email, nombre, apellidos, celular);
+        contactos.add(c);
+        return true;
+    }
+    
     public String comandoJson(String payload){
         Dictionary respuesta = new Hashtable();
         JsonObject jsonObject = new JsonParser().parse(payload).getAsJsonObject();
@@ -113,7 +151,11 @@ public class ServidorTCP {
                 }              
                 break;
             case "crear contacto de emergencia":
-                
+                if (this.crearContactoEmergencia(payload)){
+                    respuesta.put("exito", true);
+                } else {
+                    respuesta.put("exito", false);
+                }               
                 break;
             case "autenticar usuario":
                 if (this.autenticarUsiario(payload)){
@@ -123,6 +165,13 @@ public class ServidorTCP {
                 }
                 break;
             case "emergencia":
+                break;
+            case "recuperar contraseña":
+                if (this.recuperarContraseña(payload)){
+                    respuesta.put("exito", true);
+                } else {
+                    respuesta.put("exito", false);
+                }
                 break;
             default:
                 System.out.printf("Error: Accion %s no encontrada.\n", accion);

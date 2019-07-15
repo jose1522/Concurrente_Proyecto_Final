@@ -5,10 +5,13 @@
  */
 package proyecto_concurrente;
 
+import com.google.gson.Gson;
 import java.awt.CardLayout;
 import java.awt.Color;
+import java.util.HashMap;
 import javax.swing.JOptionPane;
-
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 
 /**
  *
@@ -16,7 +19,7 @@ import javax.swing.JOptionPane;
  */
 public class InterfazRegistro extends javax.swing.JFrame {
     CardLayout cardLayout;
-    
+    static String email;
 
     public InterfazRegistro() {
         initComponents();
@@ -51,7 +54,7 @@ public class InterfazRegistro extends javax.swing.JFrame {
         jButton6 = new javax.swing.JButton();
         jLabel13 = new javax.swing.JLabel();
         RecuperarContraseña = new javax.swing.JPanel();
-        jTextField3 = new javax.swing.JTextField();
+        tbCorreoRecuperarContraseña = new javax.swing.JTextField();
         resetPassword = new javax.swing.JButton();
         ResetPasswrod_Back = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
@@ -62,6 +65,7 @@ public class InterfazRegistro extends javax.swing.JFrame {
         jButton7 = new javax.swing.JButton();
         jButton8 = new javax.swing.JButton();
         apellido = new javax.swing.JTextField();
+        cedula = new javax.swing.JTextField();
         confirmarPassword = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         Registrar2 = new javax.swing.JPanel();
@@ -131,38 +135,35 @@ public class InterfazRegistro extends javax.swing.JFrame {
         IngresarLayout.setHorizontalGroup(
             IngresarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(IngresarLayout.createSequentialGroup()
+                .addGap(40, 40, 40)
+                .addComponent(tbEmailIngreso, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(IngresarLayout.createSequentialGroup()
+                .addGap(40, 40, 40)
+                .addComponent(tbContraseñaIngreso, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(IngresarLayout.createSequentialGroup()
+                .addGap(200, 200, 200)
+                .addComponent(jButton5))
+            .addGroup(IngresarLayout.createSequentialGroup()
                 .addGap(70, 70, 70)
                 .addComponent(btnIngresar, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(IngresarLayout.createSequentialGroup()
                 .addGap(70, 70, 70)
                 .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(IngresarLayout.createSequentialGroup()
-                .addGap(40, 40, 40)
-                .addComponent(tbEmailIngreso, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(IngresarLayout.createSequentialGroup()
-                .addGap(200, 200, 200)
-                .addComponent(jButton5))
-            .addGroup(IngresarLayout.createSequentialGroup()
-                .addGap(40, 40, 40)
-                .addComponent(tbContraseñaIngreso, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         IngresarLayout.setVerticalGroup(
             IngresarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(IngresarLayout.createSequentialGroup()
-                .addGap(520, 520, 520)
+                .addGap(330, 330, 330)
+                .addComponent(tbEmailIngreso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(66, 66, 66)
+                .addComponent(tbContraseñaIngreso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(16, 16, 16)
+                .addComponent(jButton5)
+                .addGap(32, 32, 32)
                 .addComponent(btnIngresar)
                 .addGap(0, 0, 0)
                 .addComponent(jButton6))
-            .addGroup(IngresarLayout.createSequentialGroup()
-                .addGap(330, 330, 330)
-                .addComponent(tbEmailIngreso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(IngresarLayout.createSequentialGroup()
-                .addGap(460, 460, 460)
-                .addComponent(jButton5))
-            .addGroup(IngresarLayout.createSequentialGroup()
-                .addGap(420, 420, 420)
-                .addComponent(tbContraseñaIngreso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addComponent(jLabel13)
         );
 
@@ -191,26 +192,25 @@ public class InterfazRegistro extends javax.swing.JFrame {
             RecuperarContraseñaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(RecuperarContraseñaLayout.createSequentialGroup()
                 .addGap(40, 40, 40)
-                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(RecuperarContraseñaLayout.createSequentialGroup()
-                .addGap(60, 60, 60)
-                .addComponent(resetPassword))
+                .addComponent(tbCorreoRecuperarContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(RecuperarContraseñaLayout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addComponent(ResetPasswrod_Back))
+            .addGroup(RecuperarContraseñaLayout.createSequentialGroup()
+                .addGap(60, 60, 60)
+                .addComponent(resetPassword))
             .addComponent(jLabel2)
         );
         RecuperarContraseñaLayout.setVerticalGroup(
             RecuperarContraseñaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(RecuperarContraseñaLayout.createSequentialGroup()
                 .addGap(380, 380, 380)
-                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(tbCorreoRecuperarContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(186, 186, 186)
+                .addComponent(ResetPasswrod_Back))
             .addGroup(RecuperarContraseñaLayout.createSequentialGroup()
                 .addGap(470, 470, 470)
                 .addComponent(resetPassword))
-            .addGroup(RecuperarContraseñaLayout.createSequentialGroup()
-                .addGap(590, 590, 590)
-                .addComponent(ResetPasswrod_Back))
             .addComponent(jLabel2)
         );
 
@@ -219,6 +219,10 @@ public class InterfazRegistro extends javax.swing.JFrame {
         Registrar1.setMaximumSize(new java.awt.Dimension(375, 667));
         Registrar1.setMinimumSize(new java.awt.Dimension(375, 667));
         Registrar1.setOpaque(false);
+        Registrar1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        Registrar1.add(correo, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 320, 290, -1));
+        Registrar1.add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 380, 290, -1));
+        Registrar1.add(Nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, 290, -1));
 
         jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Register_Back.png"))); // NOI18N
         jButton7.addActionListener(new java.awt.event.ActionListener() {
@@ -226,6 +230,7 @@ public class InterfazRegistro extends javax.swing.JFrame {
                 jButton7ActionPerformed(evt);
             }
         });
+        Registrar1.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 550, -1, -1));
 
         jButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Register_BotonRegister_Normal.png"))); // NOI18N
         jButton8.addActionListener(new java.awt.event.ActionListener() {
@@ -233,59 +238,14 @@ public class InterfazRegistro extends javax.swing.JFrame {
                 jButton8ActionPerformed(evt);
             }
         });
+        Registrar1.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 550, 210, -1));
+        Registrar1.add(apellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 250, 290, -1));
+        Registrar1.add(cedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 510, 290, -1));
+        Registrar1.add(confirmarPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 450, 290, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Register_BG_4-01.jpg"))); // NOI18N
         jLabel1.setText("jLabel1");
-
-        javax.swing.GroupLayout Registrar1Layout = new javax.swing.GroupLayout(Registrar1);
-        Registrar1.setLayout(Registrar1Layout);
-        Registrar1Layout.setHorizontalGroup(
-            Registrar1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Registrar1Layout.createSequentialGroup()
-                .addGap(40, 40, 40)
-                .addComponent(Nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(Registrar1Layout.createSequentialGroup()
-                .addGap(40, 40, 40)
-                .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(Registrar1Layout.createSequentialGroup()
-                .addGap(40, 40, 40)
-                .addComponent(confirmarPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(Registrar1Layout.createSequentialGroup()
-                .addGap(10, 10, 10)
-                .addComponent(jButton7))
-            .addGroup(Registrar1Layout.createSequentialGroup()
-                .addGap(40, 40, 40)
-                .addComponent(apellido, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(Registrar1Layout.createSequentialGroup()
-                .addGap(90, 90, 90)
-                .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(Registrar1Layout.createSequentialGroup()
-                .addGap(40, 40, 40)
-                .addComponent(correo, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
-        Registrar1Layout.setVerticalGroup(
-            Registrar1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Registrar1Layout.createSequentialGroup()
-                .addGap(190, 190, 190)
-                .addComponent(Nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(166, 166, 166)
-                .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(46, 46, 46)
-                .addComponent(confirmarPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(76, 76, 76)
-                .addComponent(jButton7))
-            .addGroup(Registrar1Layout.createSequentialGroup()
-                .addGap(250, 250, 250)
-                .addComponent(apellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(Registrar1Layout.createSequentialGroup()
-                .addGap(540, 540, 540)
-                .addComponent(jButton8))
-            .addGroup(Registrar1Layout.createSequentialGroup()
-                .addGap(320, 320, 320)
-                .addComponent(correo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addComponent(jLabel1)
-        );
+        Registrar1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 380, -1));
 
         PanelPrincipal.add(Registrar1, "Registrar1");
 
@@ -411,11 +371,34 @@ public class InterfazRegistro extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        if(correo.getText().isEmpty() || password.getText().isEmpty() || Nombre.getText().isEmpty() || apellido.getText().isEmpty() || confirmarPassword.getText().isEmpty()){
+        if(correo.getText().isEmpty() || password.getText().isEmpty() || Nombre.getText().isEmpty() || apellido.getText().isEmpty() || confirmarPassword.getText().isEmpty()|| cedula.getText().isEmpty()){
             JOptionPane.showMessageDialog(null, "Por favor ingrese todos los datos");
         }else{
             if(password.getText().equals(confirmarPassword.getText())){
-                JOptionPane.showMessageDialog(null, "Se ha creado el usuario");
+
+                Gson gson = new Gson();
+                ClienteTCP client = new ClienteTCP();
+                HashMap usuario = new HashMap();
+
+                usuario.put("accion","crear usuario");
+                usuario.put("email",correo.getText());
+                usuario.put("contraseña",password.getText());
+                usuario.put("genero","");
+                usuario.put("nombre",Nombre.getText());
+                usuario.put("apellidos",apellido.getText());
+                usuario.put("celular","");
+                usuario.put("cedula",cedula.getText());
+
+                String payload = gson.toJson(usuario);
+                String resultado = client.enviaServidor(payload);
+                JsonObject jsonObject = new JsonParser().parse(resultado).getAsJsonObject();
+                boolean exito =  jsonObject.get("exito").getAsBoolean();
+
+                if(!exito){
+                    JOptionPane.showMessageDialog(null, "No se ha creado el usuario.");
+                } else {
+                    JOptionPane.showMessageDialog(null, "Se ha creado el usuario");
+                }
             }else{
                 JOptionPane.showMessageDialog(null, "El password y el confirmar password no son iguales");
             }
@@ -433,6 +416,27 @@ public class InterfazRegistro extends javax.swing.JFrame {
         }else{
             String email = this.tbEmailIngreso.getText();
             String contraseña = this.tbContraseñaIngreso.getText();
+            
+            Gson gson = new Gson();
+            ClienteTCP client = new ClienteTCP();
+            HashMap usuario = new HashMap();
+            usuario.put("email",email);
+            usuario.put("contraseña",contraseña);
+            usuario.put("accion","autenticar usuario");   
+            String payload = gson.toJson(usuario);
+            String resultado = client.enviaServidor(payload);
+            JsonObject jsonObject = new JsonParser().parse(resultado).getAsJsonObject();
+            boolean exito =  jsonObject.get("exito").getAsBoolean();
+            
+            if(!exito){
+                JOptionPane.showMessageDialog(null, "La combinacion usuario no es correcta o el usuario no existe.");
+            } else {
+                InterfazPrincipal app = new InterfazPrincipal();
+                app.setEmail(email);
+                this.setVisible(false);
+                app.setVisible(true);              
+            }
+            
         }
     }//GEN-LAST:event_btnIngresarActionPerformed
 
@@ -445,9 +449,26 @@ public class InterfazRegistro extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void resetPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetPasswordActionPerformed
-        if(jTextField3.getText().isEmpty()){
+        if(tbCorreoRecuperarContraseña.getText().isEmpty()){
             JOptionPane.showMessageDialog(null, "Por favor ingrese un correo valido");
         }else{
+            Gson gson = new Gson();
+            ClienteTCP client = new ClienteTCP();
+            HashMap usuario = new HashMap();
+            String email = tbCorreoRecuperarContraseña.getText();
+            
+            usuario.put("email",email);
+            usuario.put("accion","recuperar contraseña");  
+            String payload = gson.toJson(usuario);
+            String resultado = client.enviaServidor(payload);
+            JsonObject jsonObject = new JsonParser().parse(resultado).getAsJsonObject();
+            boolean exito =  jsonObject.get("exito").getAsBoolean();
+
+            if (exito){
+                JOptionPane.showMessageDialog(null, "Se ha enviado un email para reestablecer la contraseña");
+            } else {
+                JOptionPane.showMessageDialog(null, "No se ha encontrado el correo electrónico");
+            }
         }   
     }//GEN-LAST:event_resetPasswordActionPerformed
 
@@ -501,6 +522,7 @@ public class InterfazRegistro extends javax.swing.JFrame {
     private javax.swing.JButton ResetPasswrod_Back;
     private javax.swing.JTextField apellido;
     private javax.swing.JButton btnIngresar;
+    private javax.swing.JTextField cedula;
     private javax.swing.JTextField confirmarPassword;
     private javax.swing.JTextField correo;
     private javax.swing.JButton jButton10;
@@ -521,10 +543,10 @@ public class InterfazRegistro extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField password;
     private javax.swing.JButton resetPassword;
     private javax.swing.JTextField tbContraseñaIngreso;
+    private javax.swing.JTextField tbCorreoRecuperarContraseña;
     private javax.swing.JTextField tbEmailIngreso;
     // End of variables declaration//GEN-END:variables
 }

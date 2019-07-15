@@ -22,17 +22,19 @@ import java.util.Date;
         * @param args the command line arguments
         */
        public static void main(String[] args) {
-           crearUsuario();
-           mostrarMapa();
-           for (int i = 0; i < usuarios.size(); i++) {
-                System.out.println(usuarios.get(i).toString());
-           }
-           for (int i = 0; i < contactos.size(); i++) {
-                System.out.println(contactos.get(i).toString());
-           }
-           for (int i = 0; i < eventos.size(); i++) {
-                System.out.println(eventos.get(i).toString());
-           }
+
+//           crearUsuario();
+//           mostrarMapa();
+//           
+//           for (int i = 0; i < usuarios.size(); i++) {
+//                System.out.println(usuarios.get(i).toString());
+//           }
+//           for (int i = 0; i < contactos.size(); i++) {
+//                System.out.println(contactos.get(i).toString());
+//           }
+//           for (int i = 0; i < eventos.size(); i++) {
+//                System.out.println(eventos.get(i).toString());
+//           }
 
        }
     
