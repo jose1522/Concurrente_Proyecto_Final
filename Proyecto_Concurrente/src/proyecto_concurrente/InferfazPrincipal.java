@@ -6,6 +6,9 @@
 package proyecto_concurrente;
 
 import java.awt.CardLayout;
+import java.awt.Color;
+import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -13,7 +16,6 @@ import java.awt.CardLayout;
  */
 public class InferfazPrincipal extends javax.swing.JFrame {
     CardLayout bodyCardLayout;
-    CardLayout bottomCardLayout;
     String panelRetornoFiltros;
     /**
      * Creates new form InferfazPrincipal
@@ -22,9 +24,24 @@ public class InferfazPrincipal extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         this.bodyCardLayout = (CardLayout)(this.Body.getLayout());
-        this.bottomCardLayout = (CardLayout)(this.Bottom.getLayout());
-    }
-
+        PanicBot.setBackground(new Color(0,0,0,0));
+        Maps1.setBackground(new Color(0,0,0,0));
+        Alertas1.setBackground(new Color(0,0,0,0));      
+        jButton6.setBackground(new Color(0,0,0,0));  
+        jButton1.setBackground(new Color(0,0,0,0));  
+        jButton7.setBackground(new Color(0,0,0,0));  
+        jButton2.setBackground(new Color(0,0,0,0));  
+        jButton4.setBackground(new Color(0,0,0,0));  
+        jButton20.setBackground(new Color(0,0,0,0));  
+        jButton21.setBackground(new Color(0,0,0,0));
+        jButton22.setBackground(new Color(0,0,0,0));
+        jButton23.setBackground(new Color(0,0,0,0));
+        jButton24.setBackground(new Color(0,0,0,0));
+        jButton25.setBackground(new Color(0,0,0,0));
+        jButton26.setBackground(new Color(0,0,0,0));
+        jButton27.setBackground(new Color(0,0,0,0));
+ 
+    }    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -34,29 +51,37 @@ public class InferfazPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        Top = new javax.swing.JPanel();
-        jButton3 = new javax.swing.JButton();
         Body = new javax.swing.JPanel();
         Principal = new javax.swing.JPanel();
+        PanicBot = new javax.swing.JToggleButton();
         jButton1 = new javax.swing.JButton();
-        jLabel18 = new javax.swing.JLabel();
+        jButton6 = new javax.swing.JButton();
+        Alertas1 = new javax.swing.JButton();
+        Maps1 = new javax.swing.JButton();
+        Start_BG = new javax.swing.JLabel();
         Altertas = new javax.swing.JPanel();
+        jButton7 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jButton4 = new javax.swing.JButton();
+        jLabel18 = new javax.swing.JLabel();
         Mapa = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
+        jButton20 = new javax.swing.JButton();
         Filtros = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jList1 = new javax.swing.JList<String>();
         jSlider1 = new javax.swing.JSlider();
         jSlider2 = new javax.swing.JSlider();
         jButton5 = new javax.swing.JButton();
+        jButton21 = new javax.swing.JButton();
         PanelOpciones = new javax.swing.JPanel();
         jButton12 = new javax.swing.JButton();
         jButton14 = new javax.swing.JButton();
         jButton15 = new javax.swing.JButton();
         jButton17 = new javax.swing.JButton();
+        jButton22 = new javax.swing.JButton();
         ContactosAgregar = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -71,17 +96,7 @@ public class InferfazPrincipal extends javax.swing.JFrame {
         jButton8 = new javax.swing.JButton();
         jButton9 = new javax.swing.JButton();
         jButton10 = new javax.swing.JButton();
-        ContactosModificar = new javax.swing.JPanel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
-        jLabel7 = new javax.swing.JLabel();
-        jTextField7 = new javax.swing.JTextField();
-        jLabel8 = new javax.swing.JLabel();
-        jTextField8 = new javax.swing.JTextField();
-        jButton11 = new javax.swing.JButton();
-        jButton13 = new javax.swing.JButton();
+        jButton23 = new javax.swing.JButton();
         Perfil = new javax.swing.JPanel();
         jTextField9 = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
@@ -96,6 +111,7 @@ public class InferfazPrincipal extends javax.swing.JFrame {
         jLabel14 = new javax.swing.JLabel();
         jTextField13 = new javax.swing.JTextField();
         jButton16 = new javax.swing.JButton();
+        jButton25 = new javax.swing.JButton();
         CambiarContraseña = new javax.swing.JPanel();
         jLabel15 = new javax.swing.JLabel();
         jTextField14 = new javax.swing.JTextField();
@@ -104,48 +120,27 @@ public class InferfazPrincipal extends javax.swing.JFrame {
         jLabel17 = new javax.swing.JLabel();
         jTextField16 = new javax.swing.JTextField();
         jButton18 = new javax.swing.JButton();
-        jButton19 = new javax.swing.JButton();
+        jButton26 = new javax.swing.JButton();
         AgregarAlerta = new javax.swing.JPanel();
-        Bottom = new javax.swing.JPanel();
-        BottomPrincipal = new javax.swing.JPanel();
-        jButton6 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
-        BottomPrincipal2 = new javax.swing.JPanel();
-        jButton23 = new javax.swing.JButton();
-        BottomSecundario = new javax.swing.JPanel();
-        jButton2 = new javax.swing.JButton();
-        btbToggleFiltros = new javax.swing.JToggleButton();
+        jButton27 = new javax.swing.JButton();
+        ContactosModificar = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jTextField5 = new javax.swing.JTextField();
+        jTextField6 = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        jTextField7 = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
+        jTextField8 = new javax.swing.JTextField();
+        jButton11 = new javax.swing.JButton();
+        jButton24 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(470, 623));
+        setMaximumSize(new java.awt.Dimension(375, 667));
+        setMinimumSize(new java.awt.Dimension(375, 667));
+        setPreferredSize(new java.awt.Dimension(375, 667));
         setResizable(false);
         setSize(new java.awt.Dimension(375, 667));
-
-        Top.setBackground(new java.awt.Color(153, 153, 153));
-
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Start_Settings.png"))); // NOI18N
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout TopLayout = new javax.swing.GroupLayout(Top);
-        Top.setLayout(TopLayout);
-        TopLayout.setHorizontalGroup(
-            TopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, TopLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton3)
-                .addGap(83, 83, 83))
-        );
-        TopLayout.setVerticalGroup(
-            TopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(TopLayout.createSequentialGroup()
-                .addGap(17, 17, 17)
-                .addComponent(jButton3)
-                .addContainerGap(17, Short.MAX_VALUE))
-        );
 
         Body.setBackground(new java.awt.Color(255, 255, 255));
         Body.setLayout(new java.awt.CardLayout());
@@ -154,16 +149,64 @@ public class InferfazPrincipal extends javax.swing.JFrame {
         Principal.setPreferredSize(new java.awt.Dimension(375, 667));
         Principal.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Start_BotonPanico_Normal-01.jpg"))); // NOI18N
-        jButton1.setText("Boton panico");
-        Principal.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 370, 550));
+        PanicBot.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Start_PanicBoton_Normal.png"))); // NOI18N
+        PanicBot.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PanicBotActionPerformed(evt);
+            }
+        });
+        Principal.add(PanicBot, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 360, 470));
 
-        jLabel18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Start_BG-01.jpg"))); // NOI18N
-        Principal.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -60, -1, -1));
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Head_Logo.png"))); // NOI18N
+        Principal.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 0, 250, -1));
+
+        jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Start_Settings.png"))); // NOI18N
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
+        Principal.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 20, 50, 40));
+
+        Alertas1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Start_Alerta.png"))); // NOI18N
+        Alertas1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Alertas1ActionPerformed(evt);
+            }
+        });
+        Principal.add(Alertas1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 590, -1, -1));
+
+        Maps1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Start_Mapa.png"))); // NOI18N
+        Maps1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Maps1ActionPerformed(evt);
+            }
+        });
+        Principal.add(Maps1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 590, -1, -1));
+
+        Start_BG.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Start_BG_Normal_Blue-01.jpg"))); // NOI18N
+        Principal.add(Start_BG, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 660));
 
         Body.add(Principal, "Principal");
 
         Altertas.setBackground(new java.awt.Color(255, 255, 255));
+        Altertas.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Start_Settings.png"))); // NOI18N
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
+        Altertas.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 20, 50, 40));
+
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Head_Logo.png"))); // NOI18N
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        Altertas.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 0, 250, -1));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -178,40 +221,45 @@ public class InferfazPrincipal extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        jButton4.setText("Agregar Alerta");
+        Altertas.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 99, 363, 480));
 
-        javax.swing.GroupLayout AltertasLayout = new javax.swing.GroupLayout(Altertas);
-        Altertas.setLayout(AltertasLayout);
-        AltertasLayout.setHorizontalGroup(
-            AltertasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, 426, Short.MAX_VALUE)
-            .addGroup(AltertasLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        AltertasLayout.setVerticalGroup(
-            AltertasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(AltertasLayout.createSequentialGroup()
-                .addContainerGap(120, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
+        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Alerta_Agregar.png"))); // NOI18N
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+        Altertas.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 590, 180, 50));
+
+        jLabel18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Alertas_BG-01.jpg"))); // NOI18N
+        Altertas.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         Body.add(Altertas, "Alertas");
 
         jPanel7.setBackground(new java.awt.Color(0, 153, 102));
 
+        jButton20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Head_Logo.png"))); // NOI18N
+        jButton20.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton20ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
         jPanel7Layout.setHorizontalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 426, Short.MAX_VALUE)
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addComponent(jButton20)
+                .addContainerGap(116, Short.MAX_VALUE))
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 609, Short.MAX_VALUE)
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jButton20)
+                .addContainerGap(585, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout MapaLayout = new javax.swing.GroupLayout(Mapa);
@@ -241,6 +289,13 @@ public class InferfazPrincipal extends javax.swing.JFrame {
             }
         });
 
+        jButton21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Head_Logo.png"))); // NOI18N
+        jButton21.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton21ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout FiltrosLayout = new javax.swing.GroupLayout(Filtros);
         Filtros.setLayout(FiltrosLayout);
         FiltrosLayout.setHorizontalGroup(
@@ -248,26 +303,30 @@ public class InferfazPrincipal extends javax.swing.JFrame {
             .addGroup(FiltrosLayout.createSequentialGroup()
                 .addGroup(FiltrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(FiltrosLayout.createSequentialGroup()
-                        .addGap(82, 82, 82)
-                        .addGroup(FiltrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jScrollPane2)
-                            .addComponent(jSlider1, javax.swing.GroupLayout.DEFAULT_SIZE, 261, Short.MAX_VALUE)
-                            .addComponent(jSlider2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(FiltrosLayout.createSequentialGroup()
                         .addGap(150, 150, 150)
-                        .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(83, Short.MAX_VALUE))
+                        .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(FiltrosLayout.createSequentialGroup()
+                        .addGap(82, 82, 82)
+                        .addGroup(FiltrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton21)
+                            .addGroup(FiltrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jScrollPane2)
+                                .addComponent(jSlider1, javax.swing.GroupLayout.DEFAULT_SIZE, 261, Short.MAX_VALUE)
+                                .addComponent(jSlider2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                .addContainerGap(32, Short.MAX_VALUE))
         );
         FiltrosLayout.setVerticalGroup(
             FiltrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(FiltrosLayout.createSequentialGroup()
-                .addGap(67, 67, 67)
+                .addContainerGap()
+                .addComponent(jButton21)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(41, 41, 41)
                 .addComponent(jSlider1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(38, 38, 38)
                 .addComponent(jSlider2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 184, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 221, Short.MAX_VALUE)
                 .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(53, 53, 53))
         );
@@ -299,23 +358,36 @@ public class InferfazPrincipal extends javax.swing.JFrame {
             }
         });
 
+        jButton22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Head_Logo.png"))); // NOI18N
+        jButton22.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton22ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout PanelOpcionesLayout = new javax.swing.GroupLayout(PanelOpciones);
         PanelOpciones.setLayout(PanelOpcionesLayout);
         PanelOpcionesLayout.setHorizontalGroup(
             PanelOpcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelOpcionesLayout.createSequentialGroup()
-                .addContainerGap(109, Short.MAX_VALUE)
+                .addContainerGap(58, Short.MAX_VALUE)
                 .addGroup(PanelOpcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jButton14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(141, 141, 141))
+            .addGroup(PanelOpcionesLayout.createSequentialGroup()
+                .addGap(82, 82, 82)
+                .addComponent(jButton22)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         PanelOpcionesLayout.setVerticalGroup(
             PanelOpcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelOpcionesLayout.createSequentialGroup()
-                .addGap(164, 164, 164)
+                .addContainerGap()
+                .addComponent(jButton22)
+                .addGap(82, 82, 82)
                 .addComponent(jButton12)
                 .addGap(18, 18, 18)
                 .addComponent(jButton14)
@@ -323,7 +395,7 @@ public class InferfazPrincipal extends javax.swing.JFrame {
                 .addComponent(jButton15)
                 .addGap(18, 18, 18)
                 .addComponent(jButton17)
-                .addContainerGap(263, Short.MAX_VALUE))
+                .addContainerGap(321, Short.MAX_VALUE))
         );
 
         Body.add(PanelOpciones, "PanelOpciones");
@@ -352,6 +424,11 @@ public class InferfazPrincipal extends javax.swing.JFrame {
         jScrollPane3.setViewportView(jTable2);
 
         jButton8.setText("Agregar");
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
 
         jButton9.setText("Modificar");
         jButton9.addActionListener(new java.awt.event.ActionListener() {
@@ -362,43 +439,59 @@ public class InferfazPrincipal extends javax.swing.JFrame {
 
         jButton10.setText("Eliminar");
 
+        jButton23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Head_Logo.png"))); // NOI18N
+        jButton23.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton23ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout ContactosAgregarLayout = new javax.swing.GroupLayout(ContactosAgregar);
         ContactosAgregar.setLayout(ContactosAgregarLayout);
         ContactosAgregarLayout.setHorizontalGroup(
             ContactosAgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ContactosAgregarLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                .addContainerGap())
-            .addGroup(ContactosAgregarLayout.createSequentialGroup()
-                .addGap(37, 37, 37)
-                .addGroup(ContactosAgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton8)
-                    .addGroup(ContactosAgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jLabel4)
-                        .addComponent(jLabel3)
-                        .addGroup(ContactosAgregarLayout.createSequentialGroup()
-                            .addGroup(ContactosAgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel1)
-                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGap(25, 25, 25)
-                            .addGroup(ContactosAgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel2)
-                                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addComponent(jTextField3)
-                        .addComponent(jTextField4)))
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 15, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ContactosAgregarLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton10)
-                .addGap(18, 18, 18)
-                .addComponent(jButton9)
-                .addGap(36, 36, 36))
+                .addGroup(ContactosAgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ContactosAgregarLayout.createSequentialGroup()
+                        .addComponent(jButton10)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton9)
+                        .addGap(36, 36, 36))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ContactosAgregarLayout.createSequentialGroup()
+                        .addComponent(jButton8)
+                        .addGap(138, 138, 138))))
+            .addGroup(ContactosAgregarLayout.createSequentialGroup()
+                .addGroup(ContactosAgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(ContactosAgregarLayout.createSequentialGroup()
+                        .addGap(92, 92, 92)
+                        .addComponent(jButton23))
+                    .addGroup(ContactosAgregarLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(ContactosAgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel3)
+                            .addGroup(ContactosAgregarLayout.createSequentialGroup()
+                                .addGroup(ContactosAgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel1)
+                                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(25, 25, 25)
+                                .addGroup(ContactosAgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, 154, Short.MAX_VALUE)))
+                            .addComponent(jTextField3)
+                            .addComponent(jTextField4))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         ContactosAgregarLayout.setVerticalGroup(
             ContactosAgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ContactosAgregarLayout.createSequentialGroup()
-                .addGap(25, 25, 25)
+                .addContainerGap()
+                .addComponent(jButton23)
+                .addGap(42, 42, 42)
                 .addGroup(ContactosAgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(jLabel2))
@@ -412,13 +505,13 @@ public class InferfazPrincipal extends javax.swing.JFrame {
                 .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
-                .addComponent(jButton8)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 231, Short.MAX_VALUE)
-                .addGap(27, 27, 27)
+                .addComponent(jButton8)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 88, Short.MAX_VALUE)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addGroup(ContactosAgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton9)
                     .addComponent(jButton10))
@@ -426,79 +519,6 @@ public class InferfazPrincipal extends javax.swing.JFrame {
         );
 
         Body.add(ContactosAgregar, "ContactosAgregar");
-
-        ContactosModificar.setBackground(new java.awt.Color(255, 255, 255));
-
-        jLabel5.setText("Nombre");
-
-        jLabel6.setText("Apellidos");
-
-        jLabel7.setText("Telefono");
-
-        jLabel8.setText("Email");
-
-        jButton11.setText("Guardar");
-
-        jButton13.setText("Cancelar");
-        jButton13.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton13ActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout ContactosModificarLayout = new javax.swing.GroupLayout(ContactosModificar);
-        ContactosModificar.setLayout(ContactosModificarLayout);
-        ContactosModificarLayout.setHorizontalGroup(
-            ContactosModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ContactosModificarLayout.createSequentialGroup()
-                .addContainerGap(8, Short.MAX_VALUE)
-                .addGroup(ContactosModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(ContactosModificarLayout.createSequentialGroup()
-                        .addComponent(jButton13)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton11))
-                    .addGroup(ContactosModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jLabel8)
-                        .addComponent(jLabel7)
-                        .addGroup(ContactosModificarLayout.createSequentialGroup()
-                            .addGroup(ContactosModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel5)
-                                .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGap(25, 25, 25)
-                            .addGroup(ContactosModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel6)
-                                .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addComponent(jTextField7)
-                        .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 368, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(50, 50, 50))
-        );
-        ContactosModificarLayout.setVerticalGroup(
-            ContactosModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ContactosModificarLayout.createSequentialGroup()
-                .addGap(47, 47, 47)
-                .addGroup(ContactosModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel6))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(ContactosModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(jLabel7)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel8)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 156, Short.MAX_VALUE)
-                .addGroup(ContactosModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton11)
-                    .addComponent(jButton13))
-                .addGap(182, 182, 182))
-        );
-
-        Body.add(ContactosModificar, "ContactosModificar");
 
         Perfil.setBackground(new java.awt.Color(255, 255, 255));
         Perfil.setAutoscrolls(true);
@@ -522,38 +542,58 @@ public class InferfazPrincipal extends javax.swing.JFrame {
         jTextField13.setEditable(false);
 
         jButton16.setText("Guardar Cambios");
+        jButton16.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton16ActionPerformed(evt);
+            }
+        });
+
+        jButton25.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Head_Logo.png"))); // NOI18N
+        jButton25.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton25ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout PerfilLayout = new javax.swing.GroupLayout(Perfil);
         Perfil.setLayout(PerfilLayout);
         PerfilLayout.setHorizontalGroup(
             PerfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PerfilLayout.createSequentialGroup()
-                .addGap(32, 32, 32)
-                .addGroup(PerfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton16)
-                    .addGroup(PerfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jLabel13)
-                        .addComponent(jLabel9)
-                        .addComponent(jLabel10)
-                        .addGroup(PerfilLayout.createSequentialGroup()
-                            .addGroup(PerfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel11)
-                                .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGap(25, 25, 25)
-                            .addGroup(PerfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel12)
-                                .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addComponent(jTextField9)
-                        .addComponent(jTextField12)
-                        .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel14)
-                        .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, 368, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(PerfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PerfilLayout.createSequentialGroup()
+                        .addGap(22, 22, 22)
+                        .addGroup(PerfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton16)
+                            .addComponent(jLabel13)
+                            .addComponent(jLabel9)
+                            .addComponent(jLabel10)
+                            .addComponent(jLabel14)
+                            .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(PerfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(jTextField12, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, PerfilLayout.createSequentialGroup()
+                                    .addGroup(PerfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel11)
+                                        .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGap(25, 25, 25)
+                                    .addGroup(PerfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel12)
+                                        .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(PerfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(jComboBox1, javax.swing.GroupLayout.Alignment.LEADING, 0, 312, Short.MAX_VALUE)
+                                .addComponent(jTextField13, javax.swing.GroupLayout.Alignment.LEADING))))
+                    .addGroup(PerfilLayout.createSequentialGroup()
+                        .addGap(84, 84, 84)
+                        .addComponent(jButton25)))
                 .addContainerGap(26, Short.MAX_VALUE))
         );
         PerfilLayout.setVerticalGroup(
             PerfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PerfilLayout.createSequentialGroup()
-                .addGap(34, 34, 34)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PerfilLayout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(jButton25)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
                 .addGroup(PerfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel11)
                     .addComponent(jLabel12))
@@ -577,9 +617,9 @@ public class InferfazPrincipal extends javax.swing.JFrame {
                 .addComponent(jLabel14)
                 .addGap(18, 18, 18)
                 .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(40, 40, 40)
+                .addGap(66, 66, 66)
                 .addComponent(jButton16)
-                .addContainerGap(148, Short.MAX_VALUE))
+                .addGap(78, 78, 78))
         );
 
         Body.add(Perfil, "Perfil");
@@ -593,11 +633,16 @@ public class InferfazPrincipal extends javax.swing.JFrame {
         jLabel17.setText("Confirme nueva contraseña");
 
         jButton18.setText("Guardar");
-
-        jButton19.setText("Cancelar");
-        jButton19.addActionListener(new java.awt.event.ActionListener() {
+        jButton18.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton19ActionPerformed(evt);
+                jButton18ActionPerformed(evt);
+            }
+        });
+
+        jButton26.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Head_Logo.png"))); // NOI18N
+        jButton26.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton26ActionPerformed(evt);
             }
         });
 
@@ -606,24 +651,30 @@ public class InferfazPrincipal extends javax.swing.JFrame {
         CambiarContraseñaLayout.setHorizontalGroup(
             CambiarContraseñaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(CambiarContraseñaLayout.createSequentialGroup()
-                .addGap(41, 41, 41)
-                .addGroup(CambiarContraseñaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(CambiarContraseñaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jLabel17)
-                        .addComponent(jLabel16)
-                        .addComponent(jLabel15)
-                        .addComponent(jTextField14)
-                        .addComponent(jTextField15)
-                        .addComponent(jTextField16, javax.swing.GroupLayout.DEFAULT_SIZE, 346, Short.MAX_VALUE))
-                    .addGroup(CambiarContraseñaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jButton18, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton19, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap(39, Short.MAX_VALUE))
+                .addGroup(CambiarContraseñaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(CambiarContraseñaLayout.createSequentialGroup()
+                        .addGap(91, 91, 91)
+                        .addComponent(jButton26))
+                    .addGroup(CambiarContraseñaLayout.createSequentialGroup()
+                        .addGap(14, 14, 14)
+                        .addGroup(CambiarContraseñaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel17)
+                            .addComponent(jLabel16)
+                            .addComponent(jLabel15)
+                            .addComponent(jTextField14)
+                            .addComponent(jTextField15)
+                            .addComponent(jTextField16, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(CambiarContraseñaLayout.createSequentialGroup()
+                        .addGap(131, 131, 131)
+                        .addComponent(jButton18, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(15, Short.MAX_VALUE))
         );
         CambiarContraseñaLayout.setVerticalGroup(
             CambiarContraseñaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(CambiarContraseñaLayout.createSequentialGroup()
-                .addGap(43, 43, 43)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, CambiarContraseñaLayout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addComponent(jButton26)
+                .addGap(73, 73, 73)
                 .addComponent(jLabel15)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jTextField14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -635,194 +686,134 @@ public class InferfazPrincipal extends javax.swing.JFrame {
                 .addComponent(jLabel17)
                 .addGap(18, 18, 18)
                 .addComponent(jTextField16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
+                .addGap(79, 79, 79)
                 .addComponent(jButton18)
-                .addGap(18, 18, 18)
-                .addComponent(jButton19)
-                .addContainerGap(258, Short.MAX_VALUE))
+                .addContainerGap(184, Short.MAX_VALUE))
         );
 
         Body.add(CambiarContraseña, "CambiarContraseña");
+
+        jButton27.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Head_Logo.png"))); // NOI18N
+        jButton27.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton27ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout AgregarAlertaLayout = new javax.swing.GroupLayout(AgregarAlerta);
         AgregarAlerta.setLayout(AgregarAlertaLayout);
         AgregarAlertaLayout.setHorizontalGroup(
             AgregarAlertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 426, Short.MAX_VALUE)
+            .addGroup(AgregarAlertaLayout.createSequentialGroup()
+                .addGap(88, 88, 88)
+                .addComponent(jButton27)
+                .addContainerGap(50, Short.MAX_VALUE))
         );
         AgregarAlertaLayout.setVerticalGroup(
             AgregarAlertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 609, Short.MAX_VALUE)
+            .addGroup(AgregarAlertaLayout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addComponent(jButton27)
+                .addContainerGap(573, Short.MAX_VALUE))
         );
 
         Body.add(AgregarAlerta, "AgregarAlerta");
 
-        Bottom.setBackground(new java.awt.Color(153, 153, 153));
-        Bottom.setPreferredSize(new java.awt.Dimension(0, 50));
-        Bottom.setLayout(new java.awt.CardLayout());
+        ContactosModificar.setBackground(new java.awt.Color(255, 255, 255));
 
-        BottomPrincipal.setBackground(new java.awt.Color(153, 153, 153));
+        jLabel5.setText("Nombre");
 
-        jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Start_Alerta.png"))); // NOI18N
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
+        jLabel6.setText("Apellidos");
+
+        jLabel7.setText("Telefono");
+
+        jLabel8.setText("Email");
+
+        jButton11.setText("Guardar");
+        jButton11.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+                jButton11ActionPerformed(evt);
             }
         });
 
-        jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Start_Mapa.png"))); // NOI18N
-        jButton7.addActionListener(new java.awt.event.ActionListener() {
+        jButton24.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Head_Logo.png"))); // NOI18N
+        jButton24.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton7ActionPerformed(evt);
+                jButton24ActionPerformed(evt);
             }
         });
 
-        javax.swing.GroupLayout BottomPrincipalLayout = new javax.swing.GroupLayout(BottomPrincipal);
-        BottomPrincipal.setLayout(BottomPrincipalLayout);
-        BottomPrincipalLayout.setHorizontalGroup(
-            BottomPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(BottomPrincipalLayout.createSequentialGroup()
-                .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
-                .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(51, 51, 51))
+        javax.swing.GroupLayout ContactosModificarLayout = new javax.swing.GroupLayout(ContactosModificar);
+        ContactosModificar.setLayout(ContactosModificarLayout);
+        ContactosModificarLayout.setHorizontalGroup(
+            ContactosModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ContactosModificarLayout.createSequentialGroup()
+                .addContainerGap(24, Short.MAX_VALUE)
+                .addGroup(ContactosModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel8)
+                    .addComponent(jLabel7)
+                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 314, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(ContactosModificarLayout.createSequentialGroup()
+                        .addGroup(ContactosModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel5)
+                            .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(25, 25, 25)
+                        .addGroup(ContactosModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel6)
+                            .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(21, 21, 21))
+            .addGroup(ContactosModificarLayout.createSequentialGroup()
+                .addGroup(ContactosModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(ContactosModificarLayout.createSequentialGroup()
+                        .addGap(73, 73, 73)
+                        .addComponent(jButton24))
+                    .addGroup(ContactosModificarLayout.createSequentialGroup()
+                        .addGap(116, 116, 116)
+                        .addComponent(jButton11)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        BottomPrincipalLayout.setVerticalGroup(
-            BottomPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(BottomPrincipalLayout.createSequentialGroup()
-                .addGroup(BottomPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton6)
-                    .addComponent(jButton7))
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-
-        Bottom.add(BottomPrincipal, "BottomPrincipal");
-
-        BottomPrincipal2.setBackground(new java.awt.Color(153, 153, 153));
-
-        jButton23.setText("Inicio");
-        jButton23.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton23ActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout BottomPrincipal2Layout = new javax.swing.GroupLayout(BottomPrincipal2);
-        BottomPrincipal2.setLayout(BottomPrincipal2Layout);
-        BottomPrincipal2Layout.setHorizontalGroup(
-            BottomPrincipal2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BottomPrincipal2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton23, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(45, 45, 45))
-        );
-        BottomPrincipal2Layout.setVerticalGroup(
-            BottomPrincipal2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BottomPrincipal2Layout.createSequentialGroup()
+        ContactosModificarLayout.setVerticalGroup(
+            ContactosModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ContactosModificarLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jButton23, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jButton24)
+                .addGap(52, 52, 52)
+                .addGroup(ContactosModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(jLabel6))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(ContactosModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jLabel7)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel8)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(125, 125, 125)
+                .addComponent(jButton11)
+                .addContainerGap(184, Short.MAX_VALUE))
         );
 
-        Bottom.add(BottomPrincipal2, "BottomPrincipal2");
-
-        BottomSecundario.setBackground(new java.awt.Color(153, 153, 153));
-
-        jButton2.setText("Inicio");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-
-        btbToggleFiltros.setText("Filtros");
-        btbToggleFiltros.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btbToggleFiltrosActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout BottomSecundarioLayout = new javax.swing.GroupLayout(BottomSecundario);
-        BottomSecundario.setLayout(BottomSecundarioLayout);
-        BottomSecundarioLayout.setHorizontalGroup(
-            BottomSecundarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(BottomSecundarioLayout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 76, Short.MAX_VALUE)
-                .addComponent(btbToggleFiltros, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29))
-        );
-        BottomSecundarioLayout.setVerticalGroup(
-            BottomSecundarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BottomSecundarioLayout.createSequentialGroup()
-                .addContainerGap(12, Short.MAX_VALUE)
-                .addGroup(BottomSecundarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2)
-                    .addComponent(btbToggleFiltros))
-                .addContainerGap())
-        );
-
-        Bottom.add(BottomSecundario, "BottomSecundario");
+        Body.add(ContactosModificar, "ContactosModificar");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Top, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(Bottom, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(Body, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(Body, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(Top, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(Body, javax.swing.GroupLayout.DEFAULT_SIZE, 609, Short.MAX_VALUE)
-                .addGap(0, 0, 0)
-                .addComponent(Bottom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(Body, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        this.bodyCardLayout.show(this.Body, "Alertas");
-        this.panelRetornoFiltros = "Alertas";
-        this.bottomCardLayout.show(this.Bottom, "BottomSecundario");
-    }//GEN-LAST:event_jButton6ActionPerformed
-
-    private void jButton23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton23ActionPerformed
-        this.bottomCardLayout.show(this.Bottom, "BottomPrincipal");
-        this.bodyCardLayout.show(this.Body, "Principal");
-    }//GEN-LAST:event_jButton23ActionPerformed
-
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        this.bodyCardLayout.show(this.Body, "PanelOpciones");
-        this.bottomCardLayout.show(this.Bottom, "BottomPrincipal2");
-    }//GEN-LAST:event_jButton3ActionPerformed
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        this.bodyCardLayout.show(this.Body, "Principal");
-        this.bottomCardLayout.show(this.Bottom, "BottomPrincipal");
-    }//GEN-LAST:event_jButton2ActionPerformed
-
-    private void btbToggleFiltrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btbToggleFiltrosActionPerformed
-        
-        if (!btbToggleFiltros.isSelected()){
-            switch(this.panelRetornoFiltros){
-            case "Mapa":
-                this.bodyCardLayout.show(this.Body, "Mapa");
-                break;
-            case "Alertas":
-                this.bodyCardLayout.show(this.Body, "Alertas");
-                break;
-            } 
-        } else {
-            this.bodyCardLayout.show(this.Body, "Filtros");
-        }
-        
-    }//GEN-LAST:event_btbToggleFiltrosActionPerformed
 
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
         this.bodyCardLayout.show(this.Body, "Perfil");
@@ -840,23 +831,112 @@ public class InferfazPrincipal extends javax.swing.JFrame {
         this.bodyCardLayout.show(this.Body, "ContactosModificar");
     }//GEN-LAST:event_jButton9ActionPerformed
 
-    private void jButton19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton19ActionPerformed
-        this.bodyCardLayout.show(this.Body, "PanelOpciones");
-    }//GEN-LAST:event_jButton19ActionPerformed
-
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        this.bodyCardLayout.show(this.Body, "Mapa");
-        this.bottomCardLayout.show(this.Bottom, "BottomSecundario");
-        this.panelRetornoFiltros = "Mapa";
-    }//GEN-LAST:event_jButton7ActionPerformed
-
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
 
     }//GEN-LAST:event_jButton5ActionPerformed
 
-    private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
-        this.bodyCardLayout.show(this.Body, "ContactosAgregar");
-    }//GEN-LAST:event_jButton13ActionPerformed
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        this.bodyCardLayout.show(this.Body,"PanelOpciones");
+    }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void Alertas1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Alertas1ActionPerformed
+        this.bodyCardLayout.show(this.Body,"Alertas");
+    }//GEN-LAST:event_Alertas1ActionPerformed
+
+    private void Maps1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Maps1ActionPerformed
+        this.bodyCardLayout.show(this.Body,"Mapa");
+    }//GEN-LAST:event_Maps1ActionPerformed
+
+    private void PanicBotActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PanicBotActionPerformed
+//        if(PanicBot.isSelected()){   
+//        PanicBot.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/BotonPanico_Rojo")));// NOI18N
+//        ImageIcon imageIcon = new ImageIcon(getClass().getResource("/imagenes/Start_BG_Alert_Red-01"));// NOI18N
+//            //Start_BG.setIcon(imageIcon);
+           
+      
+            //Start_BG.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Start_BG_Normal_Blue-01")));;
+         
+    }//GEN-LAST:event_PanicBotActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+       this.bodyCardLayout.show(this.Body,"PanelOpciones");
+    }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        this.bodyCardLayout.show(this.Body,"Principal");
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        this.bodyCardLayout.show(this.Body,"AgregarAlerta");
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton20ActionPerformed
+        this.bodyCardLayout.show(this.Body,"Principal");
+    }//GEN-LAST:event_jButton20ActionPerformed
+
+    private void jButton21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton21ActionPerformed
+        this.bodyCardLayout.show(this.Body,"Principal");
+    }//GEN-LAST:event_jButton21ActionPerformed
+
+    private void jButton22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton22ActionPerformed
+        this.bodyCardLayout.show(this.Body,"Principal");
+    }//GEN-LAST:event_jButton22ActionPerformed
+
+    private void jButton23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton23ActionPerformed
+        this.bodyCardLayout.show(this.Body,"Principal");
+    }//GEN-LAST:event_jButton23ActionPerformed
+
+    private void jButton24ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton24ActionPerformed
+        this.bodyCardLayout.show(this.Body,"Principal");
+    }//GEN-LAST:event_jButton24ActionPerformed
+
+    private void jButton25ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton25ActionPerformed
+        this.bodyCardLayout.show(this.Body,"Principal");
+    }//GEN-LAST:event_jButton25ActionPerformed
+
+    private void jButton26ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton26ActionPerformed
+        this.bodyCardLayout.show(this.Body,"Principal");
+    }//GEN-LAST:event_jButton26ActionPerformed
+
+    private void jButton27ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton27ActionPerformed
+        this.bodyCardLayout.show(this.Body,"Principal");
+    }//GEN-LAST:event_jButton27ActionPerformed
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        if(jTextField1.getText().isEmpty() || jTextField2.getText().isEmpty() || jTextField3.getText().isEmpty() || jTextField4.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Por favor ingrese todos los datos");
+        }else{
+        }
+        
+    }//GEN-LAST:event_jButton8ActionPerformed
+
+    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
+         if(jTextField5.getText().isEmpty() || jTextField6.getText().isEmpty() || jTextField8.getText().isEmpty() || jTextField7.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Por favor ingrese todos los datos");
+        }else{
+        }
+    }//GEN-LAST:event_jButton11ActionPerformed
+
+    private void jButton18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton18ActionPerformed
+        if(jTextField15.getText().isEmpty() || jTextField16.getText().isEmpty() || jTextField14.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Por favor ingrese todos los datos");
+        }else{
+            if(jTextField15.getText().equals(jTextField16.getText())){
+                 JOptionPane.showMessageDialog(null, "Se cambio la contraseña");
+            }else{
+                JOptionPane.showMessageDialog(null, "Las contraseña no son iguales");
+            }
+            
+        }
+    }//GEN-LAST:event_jButton18ActionPerformed
+
+    private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
+        if(jTextField9.getText().isEmpty() || jTextField10.getText().isEmpty() || jTextField11.getText().isEmpty() || jTextField13.getText().isEmpty() || jTextField12.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Por favor ingrese todos los datos");
+        }else{
+        
+        }
+    }//GEN-LAST:event_jButton16ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -895,36 +975,38 @@ public class InferfazPrincipal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel AgregarAlerta;
+    private javax.swing.JButton Alertas1;
     private javax.swing.JPanel Altertas;
     private javax.swing.JPanel Body;
-    private javax.swing.JPanel Bottom;
-    private javax.swing.JPanel BottomPrincipal;
-    private javax.swing.JPanel BottomPrincipal2;
-    private javax.swing.JPanel BottomSecundario;
     private javax.swing.JPanel CambiarContraseña;
     private javax.swing.JPanel ContactosAgregar;
     private javax.swing.JPanel ContactosModificar;
     private javax.swing.JPanel Filtros;
     private javax.swing.JPanel Mapa;
+    private javax.swing.JButton Maps1;
     private javax.swing.JPanel PanelOpciones;
+    private javax.swing.JToggleButton PanicBot;
     private javax.swing.JPanel Perfil;
     private javax.swing.JPanel Principal;
-    private javax.swing.JPanel Top;
-    private javax.swing.JToggleButton btbToggleFiltros;
+    private javax.swing.JLabel Start_BG;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton12;
-    private javax.swing.JButton jButton13;
     private javax.swing.JButton jButton14;
     private javax.swing.JButton jButton15;
     private javax.swing.JButton jButton16;
     private javax.swing.JButton jButton17;
     private javax.swing.JButton jButton18;
-    private javax.swing.JButton jButton19;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton20;
+    private javax.swing.JButton jButton21;
+    private javax.swing.JButton jButton22;
     private javax.swing.JButton jButton23;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton24;
+    private javax.swing.JButton jButton25;
+    private javax.swing.JButton jButton26;
+    private javax.swing.JButton jButton27;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;

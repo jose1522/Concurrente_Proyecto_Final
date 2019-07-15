@@ -138,16 +138,12 @@ public class InterfazRegistro extends javax.swing.JFrame {
 
         PanelPrincipal.add(Ingresar, "Ingresar");
 
-        RecuperarContraseña.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        RecuperarContraseña.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 380, 270, -1));
-
         resetPassword.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/ForgotPasswrd_ResetPassword.png"))); // NOI18N
         resetPassword.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 resetPasswordActionPerformed(evt);
             }
         });
-        RecuperarContraseña.add(resetPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 470, -1, -1));
 
         ResetPasswrod_Back.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Register_Back.png"))); // NOI18N
         ResetPasswrod_Back.addActionListener(new java.awt.event.ActionListener() {
@@ -155,11 +151,37 @@ public class InterfazRegistro extends javax.swing.JFrame {
                 ResetPasswrod_BackActionPerformed(evt);
             }
         });
-        RecuperarContraseña.add(ResetPasswrod_Back, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 590, -1, -1));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/ForgotPassw_BG-01.jpg"))); // NOI18N
         jLabel2.setText("jLabel2");
-        RecuperarContraseña.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        javax.swing.GroupLayout RecuperarContraseñaLayout = new javax.swing.GroupLayout(RecuperarContraseña);
+        RecuperarContraseña.setLayout(RecuperarContraseñaLayout);
+        RecuperarContraseñaLayout.setHorizontalGroup(
+            RecuperarContraseñaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(RecuperarContraseñaLayout.createSequentialGroup()
+                .addGap(40, 40, 40)
+                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(RecuperarContraseñaLayout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(ResetPasswrod_Back))
+            .addGroup(RecuperarContraseñaLayout.createSequentialGroup()
+                .addGap(60, 60, 60)
+                .addComponent(resetPassword))
+            .addComponent(jLabel2)
+        );
+        RecuperarContraseñaLayout.setVerticalGroup(
+            RecuperarContraseñaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(RecuperarContraseñaLayout.createSequentialGroup()
+                .addGap(380, 380, 380)
+                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(186, 186, 186)
+                .addComponent(ResetPasswrod_Back))
+            .addGroup(RecuperarContraseñaLayout.createSequentialGroup()
+                .addGap(470, 470, 470)
+                .addComponent(resetPassword))
+            .addComponent(jLabel2)
+        );
 
         PanelPrincipal.add(RecuperarContraseña, "RecuperarContraseña");
 
