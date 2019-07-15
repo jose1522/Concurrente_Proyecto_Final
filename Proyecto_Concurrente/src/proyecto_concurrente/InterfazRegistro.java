@@ -17,9 +17,7 @@ import javax.swing.JOptionPane;
 public class InterfazRegistro extends javax.swing.JFrame {
     CardLayout cardLayout;
     
-    /**
-     * Creates new form Interfaz
-     */
+
     public InterfazRegistro() {
         initComponents();
         this.setLocationRelativeTo(null);
@@ -72,12 +70,12 @@ public class InterfazRegistro extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<String>();
+        jComboBox1 = new javax.swing.JComboBox<>();
         jButton9 = new javax.swing.JButton();
         jButton10 = new javax.swing.JButton();
-        jComboBox2 = new javax.swing.JComboBox<String>();
-        jComboBox3 = new javax.swing.JComboBox<String>();
-        jComboBox4 = new javax.swing.JComboBox<String>();
+        jComboBox2 = new javax.swing.JComboBox<>();
+        jComboBox3 = new javax.swing.JComboBox<>();
+        jComboBox4 = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(375, 667));
@@ -88,8 +86,6 @@ public class InterfazRegistro extends javax.swing.JFrame {
 
         PanelPrincipal.setLayout(new java.awt.CardLayout());
 
-        Ingresar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
         tbEmailIngreso.setBackground(new java.awt.Color(255, 255, 255));
         tbEmailIngreso.setForeground(new java.awt.Color(51, 0, 102));
         tbEmailIngreso.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -97,7 +93,6 @@ public class InterfazRegistro extends javax.swing.JFrame {
                 tbEmailIngresoKeyTyped(evt);
             }
         });
-        Ingresar.add(tbEmailIngreso, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 330, 290, -1));
 
         tbContraseñaIngreso.setBackground(new java.awt.Color(255, 255, 255));
         tbContraseñaIngreso.setForeground(new java.awt.Color(51, 0, 153));
@@ -106,7 +101,6 @@ public class InterfazRegistro extends javax.swing.JFrame {
                 tbContraseñaIngresoActionPerformed(evt);
             }
         });
-        Ingresar.add(tbContraseñaIngreso, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 420, 290, -1));
 
         jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Login_BotonPassword_Normal.png"))); // NOI18N
         jButton5.addActionListener(new java.awt.event.ActionListener() {
@@ -114,7 +108,6 @@ public class InterfazRegistro extends javax.swing.JFrame {
                 jButton5ActionPerformed(evt);
             }
         });
-        Ingresar.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 460, -1, -1));
 
         btnIngresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Login_BotonLogin_Normal.png"))); // NOI18N
         btnIngresar.addActionListener(new java.awt.event.ActionListener() {
@@ -122,7 +115,6 @@ public class InterfazRegistro extends javax.swing.JFrame {
                 btnIngresarActionPerformed(evt);
             }
         });
-        Ingresar.add(btnIngresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 520, 220, -1));
 
         jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Login_BotonRegister_Normal.png"))); // NOI18N
         jButton6.addActionListener(new java.awt.event.ActionListener() {
@@ -130,16 +122,51 @@ public class InterfazRegistro extends javax.swing.JFrame {
                 jButton6ActionPerformed(evt);
             }
         });
-        Ingresar.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 570, 220, -1));
 
         jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Login_BG.jpg"))); // NOI18N
         jLabel13.setText("jLabel13");
-        Ingresar.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 380, -1));
+
+        javax.swing.GroupLayout IngresarLayout = new javax.swing.GroupLayout(Ingresar);
+        Ingresar.setLayout(IngresarLayout);
+        IngresarLayout.setHorizontalGroup(
+            IngresarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(IngresarLayout.createSequentialGroup()
+                .addGap(70, 70, 70)
+                .addComponent(btnIngresar, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(IngresarLayout.createSequentialGroup()
+                .addGap(70, 70, 70)
+                .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(IngresarLayout.createSequentialGroup()
+                .addGap(40, 40, 40)
+                .addComponent(tbEmailIngreso, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(IngresarLayout.createSequentialGroup()
+                .addGap(200, 200, 200)
+                .addComponent(jButton5))
+            .addGroup(IngresarLayout.createSequentialGroup()
+                .addGap(40, 40, 40)
+                .addComponent(tbContraseñaIngreso, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+        IngresarLayout.setVerticalGroup(
+            IngresarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(IngresarLayout.createSequentialGroup()
+                .addGap(520, 520, 520)
+                .addComponent(btnIngresar)
+                .addGap(0, 0, 0)
+                .addComponent(jButton6))
+            .addGroup(IngresarLayout.createSequentialGroup()
+                .addGap(330, 330, 330)
+                .addComponent(tbEmailIngreso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(IngresarLayout.createSequentialGroup()
+                .addGap(460, 460, 460)
+                .addComponent(jButton5))
+            .addGroup(IngresarLayout.createSequentialGroup()
+                .addGap(420, 420, 420)
+                .addComponent(tbContraseñaIngreso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(jLabel13)
+        );
 
         PanelPrincipal.add(Ingresar, "Ingresar");
-
-        RecuperarContraseña.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        RecuperarContraseña.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 380, 270, -1));
 
         resetPassword.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/ForgotPasswrd_ResetPassword.png"))); // NOI18N
         resetPassword.addActionListener(new java.awt.event.ActionListener() {
@@ -147,7 +174,6 @@ public class InterfazRegistro extends javax.swing.JFrame {
                 resetPasswordActionPerformed(evt);
             }
         });
-        RecuperarContraseña.add(resetPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 470, -1, -1));
 
         ResetPasswrod_Back.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Register_Back.png"))); // NOI18N
         ResetPasswrod_Back.addActionListener(new java.awt.event.ActionListener() {
@@ -155,21 +181,44 @@ public class InterfazRegistro extends javax.swing.JFrame {
                 ResetPasswrod_BackActionPerformed(evt);
             }
         });
-        RecuperarContraseña.add(ResetPasswrod_Back, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 590, -1, -1));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/ForgotPassw_BG-01.jpg"))); // NOI18N
         jLabel2.setText("jLabel2");
-        RecuperarContraseña.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        javax.swing.GroupLayout RecuperarContraseñaLayout = new javax.swing.GroupLayout(RecuperarContraseña);
+        RecuperarContraseña.setLayout(RecuperarContraseñaLayout);
+        RecuperarContraseñaLayout.setHorizontalGroup(
+            RecuperarContraseñaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(RecuperarContraseñaLayout.createSequentialGroup()
+                .addGap(40, 40, 40)
+                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(RecuperarContraseñaLayout.createSequentialGroup()
+                .addGap(60, 60, 60)
+                .addComponent(resetPassword))
+            .addGroup(RecuperarContraseñaLayout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(ResetPasswrod_Back))
+            .addComponent(jLabel2)
+        );
+        RecuperarContraseñaLayout.setVerticalGroup(
+            RecuperarContraseñaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(RecuperarContraseñaLayout.createSequentialGroup()
+                .addGap(380, 380, 380)
+                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(RecuperarContraseñaLayout.createSequentialGroup()
+                .addGap(470, 470, 470)
+                .addComponent(resetPassword))
+            .addGroup(RecuperarContraseñaLayout.createSequentialGroup()
+                .addGap(590, 590, 590)
+                .addComponent(ResetPasswrod_Back))
+            .addComponent(jLabel2)
+        );
 
         PanelPrincipal.add(RecuperarContraseña, "RecuperarContraseña");
 
         Registrar1.setMaximumSize(new java.awt.Dimension(375, 667));
         Registrar1.setMinimumSize(new java.awt.Dimension(375, 667));
         Registrar1.setOpaque(false);
-        Registrar1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        Registrar1.add(correo, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 320, 290, -1));
-        Registrar1.add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 380, 290, -1));
-        Registrar1.add(Nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, 290, -1));
 
         jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Register_Back.png"))); // NOI18N
         jButton7.addActionListener(new java.awt.event.ActionListener() {
@@ -177,7 +226,6 @@ public class InterfazRegistro extends javax.swing.JFrame {
                 jButton7ActionPerformed(evt);
             }
         });
-        Registrar1.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 550, -1, -1));
 
         jButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Register_BotonRegister_Normal.png"))); // NOI18N
         jButton8.addActionListener(new java.awt.event.ActionListener() {
@@ -185,13 +233,59 @@ public class InterfazRegistro extends javax.swing.JFrame {
                 jButton8ActionPerformed(evt);
             }
         });
-        Registrar1.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 540, 210, -1));
-        Registrar1.add(apellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 250, 290, -1));
-        Registrar1.add(confirmarPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 450, 290, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Register_BG_4-01.jpg"))); // NOI18N
         jLabel1.setText("jLabel1");
-        Registrar1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 380, -1));
+
+        javax.swing.GroupLayout Registrar1Layout = new javax.swing.GroupLayout(Registrar1);
+        Registrar1.setLayout(Registrar1Layout);
+        Registrar1Layout.setHorizontalGroup(
+            Registrar1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Registrar1Layout.createSequentialGroup()
+                .addGap(40, 40, 40)
+                .addComponent(Nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(Registrar1Layout.createSequentialGroup()
+                .addGap(40, 40, 40)
+                .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(Registrar1Layout.createSequentialGroup()
+                .addGap(40, 40, 40)
+                .addComponent(confirmarPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(Registrar1Layout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addComponent(jButton7))
+            .addGroup(Registrar1Layout.createSequentialGroup()
+                .addGap(40, 40, 40)
+                .addComponent(apellido, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(Registrar1Layout.createSequentialGroup()
+                .addGap(90, 90, 90)
+                .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(Registrar1Layout.createSequentialGroup()
+                .addGap(40, 40, 40)
+                .addComponent(correo, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+        Registrar1Layout.setVerticalGroup(
+            Registrar1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Registrar1Layout.createSequentialGroup()
+                .addGap(190, 190, 190)
+                .addComponent(Nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(166, 166, 166)
+                .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(46, 46, 46)
+                .addComponent(confirmarPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(76, 76, 76)
+                .addComponent(jButton7))
+            .addGroup(Registrar1Layout.createSequentialGroup()
+                .addGap(250, 250, 250)
+                .addComponent(apellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(Registrar1Layout.createSequentialGroup()
+                .addGap(540, 540, 540)
+                .addComponent(jButton8))
+            .addGroup(Registrar1Layout.createSequentialGroup()
+                .addGap(320, 320, 320)
+                .addComponent(correo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(jLabel1)
+        );
 
         PanelPrincipal.add(Registrar1, "Registrar1");
 
@@ -205,7 +299,7 @@ public class InterfazRegistro extends javax.swing.JFrame {
 
         jLabel12.setText("Genero");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jButton9.setText("Atras");
         jButton9.addActionListener(new java.awt.event.ActionListener() {
@@ -221,11 +315,11 @@ public class InterfazRegistro extends javax.swing.JFrame {
             }
         });
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         javax.swing.GroupLayout Registrar2Layout = new javax.swing.GroupLayout(Registrar2);
         Registrar2.setLayout(Registrar2Layout);
