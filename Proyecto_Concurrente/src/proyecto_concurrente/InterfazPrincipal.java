@@ -5,8 +5,12 @@
  */
 package proyecto_concurrente;
 
+import com.google.gson.Gson;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 import java.awt.CardLayout;
 import java.awt.Color;
+import java.util.HashMap;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
@@ -915,14 +919,32 @@ public class InterfazPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_Maps1ActionPerformed
 
     private void PanicBotActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PanicBotActionPerformed
-//        if(PanicBot.isSelected()){   
-//        PanicBot.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/BotonPanico_Rojo")));// NOI18N
-//        ImageIcon imageIcon = new ImageIcon(getClass().getResource("/imagenes/Start_BG_Alert_Red-01"));// NOI18N
-//            //Start_BG.setIcon(imageIcon);
-           
-      
-            //Start_BG.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Start_BG_Normal_Blue-01")));;
-         
+        if(PanicBot.isSelected()){   
+            PanicBot.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/BotonPanico_Rojo.png")));
+            Start_BG.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Start_BG_Alert_Red-01.jpg")));
+            
+            Gson gson = new Gson();
+            ClienteTCP client = new ClienteTCP();
+            HashMap usuario = new HashMap();
+            
+            usuario.put("email",email);
+            usuario.put("accion","emergencia");  
+            String payload = gson.toJson(usuario);
+            String resultado = client.enviaServidor(payload);
+            JsonObject jsonObject = new JsonParser().parse(resultado).getAsJsonObject();
+            boolean exito =  jsonObject.get("exito").getAsBoolean();
+
+            if (exito){
+                JOptionPane.showMessageDialog(null, "Se han enviado alertas a sus contactos de emergencia");
+            } else {
+                JOptionPane.showMessageDialog(null, "No se ha encontrado ningun contacto de emergencia");
+            }
+
+        } else {
+           PanicBot.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Start_PanicBoton_Normal.png")));
+           Start_BG.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Start_BG_Normal_Blue-01.jpg"))); 
+        }
+            
     }//GEN-LAST:event_PanicBotActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
@@ -973,7 +995,19 @@ public class InterfazPrincipal extends javax.swing.JFrame {
         if(tbNombreContacto.getText().isEmpty() || tbApellidosContactos.getText().isEmpty() || tbTelefonoContacto.getText().isEmpty() || tbEmailContacto.getText().isEmpty()){
             JOptionPane.showMessageDialog(null, "Por favor ingrese todos los datos");
         }else{
-            
+        HashMap usuario = new HashMap();
+        ClienteTCP client = new ClienteTCP();
+        Gson gson = new Gson();
+        
+        usuario.put("accion","crear contacto de emergencia");
+        usuario.put("id",email);
+        usuario.put("email",tbEmailContacto.getText());
+        usuario.put("nombre",tbNombreContacto.getText());
+        usuario.put("apellidos",tbApellidosContactos.getText());
+        usuario.put("celular",tbTelefonoContacto.getText());
+        
+        String payload = gson.toJson(usuario);
+        client.enviaServidor(payload);
         }
         
     }//GEN-LAST:event_btnAgregarContactoActionPerformed
@@ -1011,39 +1045,39 @@ public class InterfazPrincipal extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-//    public static void main(String args[]) {
-//        /* Set the Nimbus look and feel */
-//        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-//        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-//         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-//         */
-//        try {
-//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-//                if ("Nimbus".equals(info.getName())) {
-//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-//                    break;
-//                }
-//            }
-//        } catch (ClassNotFoundException ex) {
-//            java.util.logging.Logger.getLogger(InterfazPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (InstantiationException ex) {
-//            java.util.logging.Logger.getLogger(InterfazPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (IllegalAccessException ex) {
-//            java.util.logging.Logger.getLogger(InterfazPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-//            java.util.logging.Logger.getLogger(InterfazPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        }
-//        //</editor-fold>
-//        //</editor-fold>
-//
-//        /* Create and display the form */
-//       
-//        java.awt.EventQueue.invokeLater(new Runnable() {
-//            public void run() {
-//                new InterfazPrincipal().setVisible(true);
-//            }
-//        });
-//    }
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(InterfazPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(InterfazPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(InterfazPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(InterfazPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+        //</editor-fold>
+
+        /* Create and display the form */
+       
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new InterfazPrincipal().setVisible(true);
+            }
+        });
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel AgregarAlerta;

@@ -10,6 +10,8 @@ import java.util.Dictionary;
 import java.util.HashMap;
 import java.util.Hashtable;
 import java.util.UUID;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class ServidorTCP {
     static ArrayList <Usuario> usuarios = new ArrayList();
@@ -113,7 +115,7 @@ public class ServidorTCP {
     }
     
     public boolean crearContactoEmergencia(String payload){
-        HashMap respuesta = new HashMap();
+//        HashMap respuesta = new HashMap();
         JsonObject jsonObject = new JsonParser().parse(payload).getAsJsonObject();
         String accion = jsonObject.get("accion").getAsString();
         String email = jsonObject.get("email").getAsString();
@@ -121,7 +123,7 @@ public class ServidorTCP {
         String apellidos = jsonObject.get("apellidos").getAsString();
         String celular = jsonObject.get("celular").getAsString();
         String idUsuarioPrincipal = jsonObject.get("id").getAsString();
-        respuesta.put("accion", accion);
+//        respuesta.put("accion", accion);
         String id = UUID.randomUUID().toString();
         
         for (int i = 0; i < contactos.size(); i++) {
@@ -135,6 +137,42 @@ public class ServidorTCP {
         contactos.add(c);
         return true;
     }
+    
+    public boolean emergencia (String payload){
+        JsonObject jsonObject = new JsonParser().parse(payload).getAsJsonObject();
+        String email = jsonObject.get("email").getAsString();
+        ArrayList <Thread> threads = new ArrayList();
+        
+        for (int i = 0; i < contactos.size(); i++) {
+            ContactoEmergencia aux = contactos.get(i);
+            if (aux.getIdUsuarioPrincipal().equals(email)){
+                Thread hilocontacto = new Thread() {
+                    @Override
+                    public void run() {
+                        System.out.println("Enviando mensaje a "+ aux.getEmail());
+                        try {
+                            Thread.sleep(2000);
+                        } catch (InterruptedException ex) {
+                            Logger.getLogger(ServidorTCP.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                        System.out.println("Mensaje enviado a "+ aux.getEmail());
+                        //Método para enviar el mensaje
+                    }
+                };
+                threads.add(hilocontacto);
+            }
+        }
+        
+        if (threads.size()>0){
+            for (Thread thread : threads) {
+                thread.start();
+            }
+        } else {
+            return false;
+        }
+        return true;
+    }    
+   
     
     public String comandoJson(String payload){
         Dictionary respuesta = new Hashtable();
@@ -165,6 +203,11 @@ public class ServidorTCP {
                 }
                 break;
             case "emergencia":
+                if (this.emergencia(payload)){
+                    respuesta.put("exito", true);
+                } else {
+                    respuesta.put("exito", false);
+                }
                 break;
             case "recuperar contraseña":
                 if (this.recuperarContraseña(payload)){

@@ -3,11 +3,8 @@ package proyecto_concurrente;
 
 import com.google.gson.Gson;
 import java.util.ArrayList;
-import java.util.Dictionary;
 import java.util.HashMap;
-import java.util.Hashtable;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
 
 
 public class AppCliente {
