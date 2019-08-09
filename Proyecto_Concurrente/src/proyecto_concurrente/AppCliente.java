@@ -20,7 +20,7 @@ public class AppCliente {
         
         usuario.put("accion","crear usuario");
         usuario.put("email","usuario@correo.com");
-        usuario.put("contraseña","fgh08h21");
+        usuario.put("contraseña","123");
         usuario.put("genero","Mujer");
         usuario.put("nombre","Jane");
         usuario.put("apellidos","Doe");

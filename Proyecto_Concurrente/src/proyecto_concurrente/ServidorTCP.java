@@ -6,9 +6,9 @@ import java.io.*;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import java.util.ArrayList;
-import java.util.Dictionary;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
-import java.util.Hashtable;
 import java.util.UUID;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -50,10 +50,7 @@ public class ServidorTCP {
     public boolean crearUsuario(String payload){
         JsonObject jsonObject = new JsonParser().parse(payload).getAsJsonObject();
         UUID uuid = UUID.randomUUID();
-        
         String email = jsonObject.get("email").getAsString();
-
-        
         if (usuarios.size()>0){
             for (Usuario usuario : usuarios) {
                 if (usuario.getEmail().equals(email)){
@@ -62,7 +59,6 @@ public class ServidorTCP {
             }
         }
         
-
         String nombre = jsonObject.get("nombre").getAsString();
         String apellidos = jsonObject.get("apellidos").getAsString();
         Contraseña contraseña = new Contraseña();
@@ -172,10 +168,23 @@ public class ServidorTCP {
         }
         return true;
     }    
-   
+
+    public boolean crearAlerta(String payload){
+//        HashMap respuesta = new HashMap();
+        JsonObject jsonObject = new JsonParser().parse(payload).getAsJsonObject();
+        String accion = jsonObject.get("accion").getAsString();
+        String email = jsonObject.get("email").getAsString();
+        String nombre = jsonObject.get("tipoAlerta").getAsString();
+//        respuesta.put("accion", accion);
+        Date fecha = Calendar.getInstance().getTime();
+
+        Eventos e = new Eventos(email, fecha, nombre);
+        eventos.add(e);
+        return true;
+    }    
     
     public String comandoJson(String payload){
-        Dictionary respuesta = new Hashtable();
+        HashMap respuesta = new HashMap();
         JsonObject jsonObject = new JsonParser().parse(payload).getAsJsonObject();
         String accion = jsonObject.get("accion").getAsString();  
         respuesta.put("accion", accion);
@@ -211,6 +220,14 @@ public class ServidorTCP {
                 break;
             case "recuperar contraseña":
                 if (this.recuperarContraseña(payload)){
+                    respuesta.put("exito", true);
+                } else {
+                    respuesta.put("exito", false);
+                }
+                break;
+                
+            case "crear alerta":
+                if (this.crearAlerta(payload)){
                     respuesta.put("exito", true);
                 } else {
                     respuesta.put("exito", false);

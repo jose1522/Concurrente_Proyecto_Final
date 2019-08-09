@@ -10,9 +10,12 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import java.awt.CardLayout;
 import java.awt.Color;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -20,7 +23,8 @@ import javax.swing.JOptionPane;
  */
 public class InterfazPrincipal extends javax.swing.JFrame {
     CardLayout bodyCardLayout;
-    String email;
+    String email = "usuario@correo.com";
+    DefaultTableModel tablaAlertas;
 
     public String getEmail() {
         return email;
@@ -35,6 +39,7 @@ public class InterfazPrincipal extends javax.swing.JFrame {
      */
     public InterfazPrincipal() {
         initComponents();
+        tablaAlertas = (DefaultTableModel) this.tblAlertas.getModel();
         this.setLocationRelativeTo(null);
         this.bodyCardLayout = (CardLayout)(this.Body.getLayout());
         PanicBot.setBackground(new Color(0,0,0,0));
@@ -44,7 +49,7 @@ public class InterfazPrincipal extends javax.swing.JFrame {
         jButton1.setBackground(new Color(0,0,0,0));  
         jButton7.setBackground(new Color(0,0,0,0));  
         jButton2.setBackground(new Color(0,0,0,0));  
-        jButton4.setBackground(new Color(0,0,0,0));  
+        btnAgregarAlerta.setBackground(new Color(0,0,0,0));  
         jButton20.setBackground(new Color(0,0,0,0));  
         jButton21.setBackground(new Color(0,0,0,0));
         jButton22.setBackground(new Color(0,0,0,0));
@@ -73,11 +78,12 @@ public class InterfazPrincipal extends javax.swing.JFrame {
         Maps1 = new javax.swing.JButton();
         Start_BG = new javax.swing.JLabel();
         Altertas = new javax.swing.JPanel();
+        cbTiposAlertas = new javax.swing.JComboBox<>();
         jButton7 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jButton4 = new javax.swing.JButton();
+        tblAlertas = new javax.swing.JTable();
+        btnAgregarAlerta = new javax.swing.JButton();
         jLabel18 = new javax.swing.JLabel();
         Mapa = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
@@ -231,6 +237,10 @@ public class InterfazPrincipal extends javax.swing.JFrame {
         Body.add(Principal, "Principal");
 
         Altertas.setBackground(new java.awt.Color(255, 255, 255));
+        Altertas.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        cbTiposAlertas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Agresion", "Asalto", "Hurto", "Vandalismo", "Otro" }));
+        Altertas.add(cbTiposAlertas, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 540, 180, -1));
 
         jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Start_Settings.png"))); // NOI18N
         jButton7.addActionListener(new java.awt.event.ActionListener() {
@@ -238,6 +248,7 @@ public class InterfazPrincipal extends javax.swing.JFrame {
                 jButton7ActionPerformed(evt);
             }
         });
+        Altertas.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 20, 50, 40));
 
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Head_Logo.png"))); // NOI18N
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -245,61 +256,30 @@ public class InterfazPrincipal extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
+        Altertas.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 0, 250, -1));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tblAlertas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Fecha", "Lugar", "Tipo"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tblAlertas);
 
-        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Alerta_Agregar.png"))); // NOI18N
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        Altertas.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 342, 390));
+
+        btnAgregarAlerta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Alerta_Agregar.png"))); // NOI18N
+        btnAgregarAlerta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                btnAgregarAlertaActionPerformed(evt);
             }
         });
+        Altertas.add(btnAgregarAlerta, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 580, 180, -1));
 
         jLabel18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Alertas_BG-01.jpg"))); // NOI18N
-
-        javax.swing.GroupLayout AltertasLayout = new javax.swing.GroupLayout(Altertas);
-        Altertas.setLayout(AltertasLayout);
-        AltertasLayout.setHorizontalGroup(
-            AltertasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(AltertasLayout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20)
-                .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(AltertasLayout.createSequentialGroup()
-                .addGap(90, 90, 90)
-                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(AltertasLayout.createSequentialGroup()
-                .addGap(6, 6, 6)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 363, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addComponent(jLabel18)
-        );
-        AltertasLayout.setVerticalGroup(
-            AltertasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(AltertasLayout.createSequentialGroup()
-                .addGroup(AltertasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton2)
-                    .addGroup(AltertasLayout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(514, 514, 514)
-                .addComponent(jButton4))
-            .addGroup(AltertasLayout.createSequentialGroup()
-                .addGap(99, 99, 99)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 480, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addComponent(jLabel18)
-        );
+        Altertas.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         Body.add(Altertas, "Alertas");
 
@@ -436,25 +416,25 @@ public class InterfazPrincipal extends javax.swing.JFrame {
         PanelOpciones.setLayout(PanelOpcionesLayout);
         PanelOpcionesLayout.setHorizontalGroup(
             PanelOpcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PanelOpcionesLayout.createSequentialGroup()
+                .addGap(82, 82, 82)
+                .addComponent(jButton22)
+                .addContainerGap(56, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelOpcionesLayout.createSequentialGroup()
-                .addContainerGap(58, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(PanelOpcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jButton14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(141, 141, 141))
-            .addGroup(PanelOpcionesLayout.createSequentialGroup()
-                .addGap(82, 82, 82)
-                .addComponent(jButton22)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jButton17, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(92, 92, 92))
         );
         PanelOpcionesLayout.setVerticalGroup(
             PanelOpcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelOpcionesLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jButton22)
-                .addGap(82, 82, 82)
+                .addGap(84, 84, 84)
                 .addComponent(jButton12)
                 .addGap(18, 18, 18)
                 .addComponent(jButton14)
@@ -462,7 +442,7 @@ public class InterfazPrincipal extends javax.swing.JFrame {
                 .addComponent(jButton15)
                 .addGap(18, 18, 18)
                 .addComponent(jButton17)
-                .addContainerGap(321, Short.MAX_VALUE))
+                .addContainerGap(319, Short.MAX_VALUE))
         );
 
         Body.add(PanelOpciones, "PanelOpciones");
@@ -634,26 +614,24 @@ public class InterfazPrincipal extends javax.swing.JFrame {
                 .addGroup(PerfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PerfilLayout.createSequentialGroup()
                         .addGap(22, 22, 22)
-                        .addGroup(PerfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton16)
+                        .addGroup(PerfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel13)
                             .addComponent(jLabel9)
                             .addComponent(jLabel10)
                             .addComponent(jLabel14)
-                            .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(PerfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(jTextField12, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, PerfilLayout.createSequentialGroup()
-                                    .addGroup(PerfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel11)
-                                        .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGap(25, 25, 25)
-                                    .addGroup(PerfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel12)
-                                        .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addGroup(PerfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(jComboBox1, javax.swing.GroupLayout.Alignment.LEADING, 0, 312, Short.MAX_VALUE)
-                                .addComponent(jTextField13, javax.swing.GroupLayout.Alignment.LEADING))))
+                            .addComponent(jTextField12)
+                            .addGroup(PerfilLayout.createSequentialGroup()
+                                .addGroup(PerfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel11)
+                                    .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(25, 25, 25)
+                                .addGroup(PerfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel12)
+                                    .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jTextField9)
+                            .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jTextField13)
+                            .addComponent(jButton16, javax.swing.GroupLayout.Alignment.TRAILING)))
                     .addGroup(PerfilLayout.createSequentialGroup()
                         .addGap(84, 84, 84)
                         .addComponent(jButton25)))
@@ -688,9 +666,9 @@ public class InterfazPrincipal extends javax.swing.JFrame {
                 .addComponent(jLabel14)
                 .addGap(18, 18, 18)
                 .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(66, 66, 66)
+                .addGap(48, 48, 48)
                 .addComponent(jButton16)
-                .addGap(78, 78, 78))
+                .addGap(96, 96, 96))
         );
 
         Body.add(Perfil, "Perfil");
@@ -818,31 +796,28 @@ public class InterfazPrincipal extends javax.swing.JFrame {
         ContactosModificar.setLayout(ContactosModificarLayout);
         ContactosModificarLayout.setHorizontalGroup(
             ContactosModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ContactosModificarLayout.createSequentialGroup()
+                .addGap(73, 73, 73)
+                .addComponent(jButton24)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ContactosModificarLayout.createSequentialGroup()
                 .addContainerGap(24, Short.MAX_VALUE)
-                .addGroup(ContactosModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel8)
-                    .addComponent(jLabel7)
-                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 314, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(ContactosModificarLayout.createSequentialGroup()
-                        .addGroup(ContactosModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel5)
-                            .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(25, 25, 25)
-                        .addGroup(ContactosModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel6)
-                            .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGroup(ContactosModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jButton11)
+                    .addGroup(ContactosModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jLabel8)
+                        .addComponent(jLabel7)
+                        .addGroup(ContactosModificarLayout.createSequentialGroup()
+                            .addGroup(ContactosModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel5)
+                                .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGap(25, 25, 25)
+                            .addGroup(ContactosModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel6)
+                                .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jTextField7)
+                        .addComponent(jTextField8)))
                 .addGap(21, 21, 21))
-            .addGroup(ContactosModificarLayout.createSequentialGroup()
-                .addGroup(ContactosModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(ContactosModificarLayout.createSequentialGroup()
-                        .addGap(73, 73, 73)
-                        .addComponent(jButton24))
-                    .addGroup(ContactosModificarLayout.createSequentialGroup()
-                        .addGap(116, 116, 116)
-                        .addComponent(jButton11)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         ContactosModificarLayout.setVerticalGroup(
             ContactosModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -865,9 +840,9 @@ public class InterfazPrincipal extends javax.swing.JFrame {
                 .addComponent(jLabel8)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(125, 125, 125)
+                .addGap(129, 129, 129)
                 .addComponent(jButton11)
-                .addContainerGap(184, Short.MAX_VALUE))
+                .addContainerGap(180, Short.MAX_VALUE))
         );
 
         Body.add(ContactosModificar, "ContactosModificar");
@@ -955,9 +930,32 @@ public class InterfazPrincipal extends javax.swing.JFrame {
         this.bodyCardLayout.show(this.Body,"Principal");
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        this.bodyCardLayout.show(this.Body,"AgregarAlerta");
-    }//GEN-LAST:event_jButton4ActionPerformed
+    private void btnAgregarAlertaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarAlertaActionPerformed
+//        this.bodyCardLayout.show(this.Body,"AgregarAlerta");
+        String tipoAlerta = this.cbTiposAlertas.getSelectedItem().toString();
+        Gson gson = new Gson();
+        ClienteTCP client = new ClienteTCP();
+        HashMap usuario = new HashMap();
+
+        usuario.put("tipoAlerta",tipoAlerta);
+        usuario.put("accion","crear alerta");  
+        usuario.put("email",email);
+        String payload = gson.toJson(usuario);
+        String resultado = client.enviaServidor(payload);
+        JsonObject jsonObject = new JsonParser().parse(resultado).getAsJsonObject();
+        boolean exito =  jsonObject.get("exito").getAsBoolean();
+
+        if (exito){
+            JOptionPane.showMessageDialog(null, "Se ha enviado la alerta al servidor.");
+            Date fecha = Calendar.getInstance().getTime();
+            
+            String [] row = {fecha.toString(),"San Jose",tipoAlerta};
+            tablaAlertas.addRow(row);
+        } else {
+            JOptionPane.showMessageDialog(null, "No se ha enviado la alerta al servidor.");
+        }        
+        
+    }//GEN-LAST:event_btnAgregarAlertaActionPerformed
 
     private void jButton20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton20ActionPerformed
         this.bodyCardLayout.show(this.Body,"Principal");
@@ -1095,7 +1093,9 @@ public class InterfazPrincipal extends javax.swing.JFrame {
     private javax.swing.JPanel Perfil;
     private javax.swing.JPanel Principal;
     private javax.swing.JLabel Start_BG;
+    private javax.swing.JButton btnAgregarAlerta;
     private javax.swing.JButton btnAgregarContacto;
+    private javax.swing.JComboBox<String> cbTiposAlertas;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
@@ -1114,7 +1114,6 @@ public class InterfazPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton jButton25;
     private javax.swing.JButton jButton26;
     private javax.swing.JButton jButton27;
-    private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
@@ -1145,7 +1144,6 @@ public class InterfazPrincipal extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JSlider jSlider1;
     private javax.swing.JSlider jSlider2;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
     private javax.swing.JTextField jTextField10;
     private javax.swing.JTextField jTextField11;
@@ -1163,5 +1161,6 @@ public class InterfazPrincipal extends javax.swing.JFrame {
     private javax.swing.JTextField tbEmailContacto;
     private javax.swing.JTextField tbNombreContacto;
     private javax.swing.JTextField tbTelefonoContacto;
+    private javax.swing.JTable tblAlertas;
     // End of variables declaration//GEN-END:variables
 }
