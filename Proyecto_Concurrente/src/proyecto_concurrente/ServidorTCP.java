@@ -179,9 +179,38 @@ public class ServidorTCP {
         Date fecha = Calendar.getInstance().getTime();
 
         Eventos e = new Eventos(email, fecha, nombre);
+        e.setLatitud(0);
+        e.setLongitud(0);
+        e.setBarrio("San Jose");
         eventos.add(e);
         return true;
-    }    
+    }
+
+    public String reporteAlertas(String payload){
+        JsonObject jsonObject = new JsonParser().parse(payload).getAsJsonObject();
+//        String accion = jsonObject.get("accion").getAsString();
+        String email = jsonObject.get("email").getAsString();
+        String reporteString = "";
+        int contador = 0;
+        HashMap reporte = new HashMap();
+         ArrayList <Eventos> items = new ArrayList<Eventos>(); 
+        if(eventos.size()>0){
+            for (Eventos evento : eventos) {
+                if (contador <=25&evento.getIdUsuario().equals(email)){
+                    items.add(evento);
+                    contador++;
+                } else {
+                    break;
+                }
+            }
+            reporte.put("eventos", gson.toJson(items));
+            reporteString = gson.toJson(reporte);
+            System.out.println(reporteString);
+        }
+        
+        System.out.println("Reporte Generado exitosamente");
+        return reporteString;
+    }
     
     public String comandoJson(String payload){
         HashMap respuesta = new HashMap();
@@ -232,6 +261,10 @@ public class ServidorTCP {
                 } else {
                     respuesta.put("exito", false);
                 }
+                break;
+            case "reporte alertas":
+                respuesta.put("reporte",this.reporteAlertas(payload));
+                respuesta.put("exito", true);
                 break;
             default:
                 System.out.printf("Error: Accion %s no encontrada.\n", accion);

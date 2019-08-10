@@ -6,6 +6,7 @@
 package proyecto_concurrente;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import java.awt.CardLayout;
@@ -16,6 +17,7 @@ import java.util.HashMap;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import org.jsoup.Jsoup;
 
 /**
  *
@@ -268,7 +270,7 @@ public class InterfazPrincipal extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tblAlertas);
 
-        Altertas.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 342, 390));
+        Altertas.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 342, 370));
 
         btnAgregarAlerta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Alerta_Agregar.png"))); // NOI18N
         btnAgregarAlerta.addActionListener(new java.awt.event.ActionListener() {
@@ -886,6 +888,7 @@ public class InterfazPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void Alertas1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Alertas1ActionPerformed
+        this.refrescarTablaAlertas();
         this.bodyCardLayout.show(this.Body,"Alertas");
     }//GEN-LAST:event_Alertas1ActionPerformed
 
@@ -944,7 +947,7 @@ public class InterfazPrincipal extends javax.swing.JFrame {
         String resultado = client.enviaServidor(payload);
         JsonObject jsonObject = new JsonParser().parse(resultado).getAsJsonObject();
         boolean exito =  jsonObject.get("exito").getAsBoolean();
-
+//        this.refrescarTablaAlertas();
         if (exito){
             JOptionPane.showMessageDialog(null, "Se ha enviado la alerta al servidor.");
             Date fecha = Calendar.getInstance().getTime();
@@ -1040,6 +1043,46 @@ public class InterfazPrincipal extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton16ActionPerformed
 
+    private JsonArray extraerAlertas(){
+        Gson gson = new Gson();
+        ClienteTCP client = new ClienteTCP();
+        HashMap reporte = new HashMap();
+        reporte.put("accion","reporte alertas");  
+        reporte.put("email",email);
+        String payload = gson.toJson(reporte);
+        String resultado = client.enviaServidor(payload);
+        JsonArray output = null;
+
+            JsonObject jsonObject = new JsonParser().parse(resultado).getAsJsonObject();
+            String prueba = jsonObject.get("reporte").getAsString();
+            System.out.println(prueba);
+   
+            if (!prueba.equals("")){
+            jsonObject = new JsonParser().parse(prueba).getAsJsonObject();
+            prueba = jsonObject.get("eventos").getAsString();
+    //        System.out.println(prueba);
+            output = new JsonParser().parse(prueba).getAsJsonArray();
+    //        System.out.println(aux.toString());        
+        }
+        return output;
+    }
+    
+    private void refrescarTablaAlertas(){
+        JsonArray aux = this.extraerAlertas();
+        JsonObject jsonObject;
+        if (aux!=null){
+            tablaAlertas.setNumRows(0);
+            for (int i = 0; i < aux.size(); i++) {
+                jsonObject = aux.get(i).getAsJsonObject();
+                String fecha = jsonObject.get("fecha").getAsString();
+                String tipo = jsonObject.get("tipoAlerta").getAsString();
+                String lugar = jsonObject.get("barrio").getAsString();
+                String [] row = {fecha.toString(),lugar,tipo};
+                tablaAlertas.addRow(row);
+            }
+        }
+    }
+    
     /**
      * @param args the command line arguments
      */
