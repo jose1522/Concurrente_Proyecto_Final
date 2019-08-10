@@ -187,22 +187,31 @@ public class ServidorTCP {
     }
 
     public String reporteAlertas(String payload){
-        JsonObject jsonObject = new JsonParser().parse(payload).getAsJsonObject();
-//        String accion = jsonObject.get("accion").getAsString();
-        String email = jsonObject.get("email").getAsString();
+        JsonObject jsonObject = new JsonParser().parse(payload).getAsJsonObject(); //Objeto para deserializar el input que recibe el servidor
+        String email = jsonObject.get("email").getAsString(); //Se extrae un objeto especifico
         String reporteString = "";
         int contador = 0;
         HashMap reporte = new HashMap();
-         ArrayList <Eventos> items = new ArrayList<Eventos>(); 
+        ArrayList <Eventos> items = new ArrayList<Eventos>(); //Lista auxiliar de los eventos especificos del usuario
+        
+        //Se agregan eventos a la lista. Se extrae un maximo de 25 eventos
         if(eventos.size()>0){
-            for (Eventos evento : eventos) {
-                if (contador <=25&evento.getIdUsuario().equals(email)){
-                    items.add(evento);
+            for (int i = eventos.size()-1; i > -1; i--) {
+                 if (contador <=25&eventos.get(i).getIdUsuario().equals(email)){
+                    items.add(eventos.get(i));
                     contador++;
                 } else {
                     break;
-                }
+                }               
             }
+//            for (Eventos evento : eventos) {
+//                if (contador <=25&evento.getIdUsuario().equals(email)){
+//                    items.add(evento);
+//                    contador++;
+//                } else {
+//                    break;
+//                }
+//            }
             reporte.put("eventos", gson.toJson(items));
             reporteString = gson.toJson(reporte);
             System.out.println(reporteString);

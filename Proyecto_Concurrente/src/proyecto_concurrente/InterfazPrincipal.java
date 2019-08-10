@@ -1044,24 +1044,28 @@ public class InterfazPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton16ActionPerformed
 
     private JsonArray extraerAlertas(){
-        Gson gson = new Gson();
-        ClienteTCP client = new ClienteTCP();
-        HashMap reporte = new HashMap();
+        Gson gson = new Gson(); //Objeto gson para serializar String a formato Json
+        ClienteTCP client = new ClienteTCP(); //Cliente TCP para enviar datos
+        HashMap reporte = new HashMap(); //Hashmap para enviar parametros al servidor
+        JsonArray output = null; //Crea objeto nuevo de tipo JsonArray para poder acceder a cada evento individualmente
+        
+        //Agrega parametros
         reporte.put("accion","reporte alertas");  
         reporte.put("email",email);
-        String payload = gson.toJson(reporte);
-        String resultado = client.enviaServidor(payload);
-        JsonArray output = null;
+        
+        String payload = gson.toJson(reporte);//Serializa parametros en formato JSON
+        String resultado = client.enviaServidor(payload); //Agrega el mensaje devuelto por el servidor a un string
 
-            JsonObject jsonObject = new JsonParser().parse(resultado).getAsJsonObject();
-            String prueba = jsonObject.get("reporte").getAsString();
-            System.out.println(prueba);
-   
-            if (!prueba.equals("")){
-            jsonObject = new JsonParser().parse(prueba).getAsJsonObject();
-            prueba = jsonObject.get("eventos").getAsString();
+        //Se deserializa el string para extraer los eventos
+        JsonObject jsonObject = new JsonParser().parse(resultado).getAsJsonObject();
+        String stringTemporal = jsonObject.get("reporte").getAsString();
+//        System.out.println(prueba);
+
+        if (!stringTemporal.equals("")){
+        jsonObject = new JsonParser().parse(stringTemporal).getAsJsonObject();
+        stringTemporal = jsonObject.get("eventos").getAsString();
     //        System.out.println(prueba);
-            output = new JsonParser().parse(prueba).getAsJsonArray();
+        output = new JsonParser().parse(stringTemporal).getAsJsonArray();
     //        System.out.println(aux.toString());        
         }
         return output;
@@ -1070,10 +1074,12 @@ public class InterfazPrincipal extends javax.swing.JFrame {
     private void refrescarTablaAlertas(){
         JsonArray aux = this.extraerAlertas();
         JsonObject jsonObject;
+        //Se itera en cada item del array para agregar una linea nueva a la tabla
         if (aux!=null){
             tablaAlertas.setNumRows(0);
             for (int i = 0; i < aux.size(); i++) {
                 jsonObject = aux.get(i).getAsJsonObject();
+                //Se extraen elementos especificos y se agregan a un array string
                 String fecha = jsonObject.get("fecha").getAsString();
                 String tipo = jsonObject.get("tipoAlerta").getAsString();
                 String lugar = jsonObject.get("barrio").getAsString();
