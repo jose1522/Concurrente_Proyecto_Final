@@ -33,14 +33,16 @@ public class Usuario extends Persona{
         return output;
     }
     
-    public void modificarContraseña(String input, String nuevaContraseña){
+    public boolean modificarContraseña(String input, String nuevaContraseña){
         boolean seguridadVerificada = this.verificarContraseña(input);
         boolean verificacionNuevaContraseña = contraseña.validarSeguridad(nuevaContraseña);
         verificacionNuevaContraseña = verificacionNuevaContraseña & contraseña.validarTamaño(input);
-        
+        boolean output =false;
         if(seguridadVerificada&&verificacionNuevaContraseña){
+            output = true;
             contraseña.setContraseña(nuevaContraseña);
-        }
+        } 
+        return output;
     }
     
     public void nuevoContactoEmergencia(ContactoEmergencia input){

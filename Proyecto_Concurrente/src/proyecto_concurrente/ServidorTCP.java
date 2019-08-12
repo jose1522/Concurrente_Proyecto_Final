@@ -75,7 +75,7 @@ public class ServidorTCP {
      
     }
     
-    public boolean autenticarUsiario(String payload){
+    public boolean autenticarUsuario(String payload){
 //        HashMap respuesta = new HashMap();
         JsonObject jsonObject = new JsonParser().parse(payload).getAsJsonObject();
         String accion = jsonObject.get("accion").getAsString();
@@ -109,6 +109,25 @@ public class ServidorTCP {
         }
         return false;
     }
+
+        public boolean cambiarContraseña(String payload){
+//        HashMap respuesta = new HashMap();
+        JsonObject jsonObject = new JsonParser().parse(payload).getAsJsonObject();
+        String accion = jsonObject.get("accion").getAsString();
+        String inputEmail = jsonObject.get("email").getAsString();
+        String nuevaContrasena = jsonObject.get("nueva contrasena").getAsString();
+        String contrasenaActual = jsonObject.get("contrasena actual").getAsString();
+        boolean resultado = false;
+//        respuesta.put("accion", accion);
+        
+        for (int i = 0; i < usuarios.size(); i++) {
+            Usuario aux = usuarios.get(i);
+            if (aux.getEmail().equals(inputEmail)){
+                resultado = aux.modificarContraseña(contrasenaActual, nuevaContrasena);
+            }
+        }
+        return resultado;
+    }
     
     public boolean crearContactoEmergencia(String payload){
 //        HashMap respuesta = new HashMap();
@@ -132,6 +151,28 @@ public class ServidorTCP {
         ContactoEmergencia c = new ContactoEmergencia(idUsuarioPrincipal, id, email, nombre, apellidos, celular);
         contactos.add(c);
         return true;
+    }
+    
+    public boolean modificarContactoEmergencia(String payload){
+        JsonObject jsonObject = new JsonParser().parse(payload).getAsJsonObject();
+        String email = jsonObject.get("email").getAsString();
+        String nombre = jsonObject.get("nombre").getAsString();
+        String apellidos = jsonObject.get("apellidos").getAsString();
+        String celular = jsonObject.get("celular").getAsString();
+        String id = jsonObject.get("id").getAsString(); //es el unique ID, NO EL EMAIL
+        
+        for (int i = 0; i < contactos.size(); i++) {
+            ContactoEmergencia aux = contactos.get(i);
+            if (aux.getId().equals(id)){
+                aux.setEmail(email);
+                aux.setNombre(nombre);
+                aux.setApellidos(apellidos);
+                aux.setCelular(celular);
+                return true;
+            }
+        }
+        
+        return false;
     }
     
     public boolean emergencia (String payload){
@@ -186,7 +227,7 @@ public class ServidorTCP {
         return true;
     }
 
-    public String reporteAlertas(String payload){
+    public String misAlertas(String payload){
         JsonObject jsonObject = new JsonParser().parse(payload).getAsJsonObject(); //Objeto para deserializar el input que recibe el servidor
         String email = jsonObject.get("email").getAsString(); //Se extrae un objeto especifico
         String reporteString = "";
@@ -194,24 +235,18 @@ public class ServidorTCP {
         HashMap reporte = new HashMap();
         ArrayList <Eventos> items = new ArrayList<Eventos>(); //Lista auxiliar de los eventos especificos del usuario
         
-        //Se agregan eventos a la lista. Se extrae un maximo de 25 eventos
+        //Se agregan eventos a la lista. Se extrae un maximo de 25 eventos, empezando desde el mas reciente
         if(eventos.size()>0){
             for (int i = eventos.size()-1; i > -1; i--) {
-                 if (contador <=25&eventos.get(i).getIdUsuario().equals(email)){
-                    items.add(eventos.get(i));
-                    contador++;
+                 if (contador <=25){
+                    if (eventos.get(i).getIdUsuario().equals(email)){
+                        items.add(eventos.get(i));
+                        contador++;
+                    }
                 } else {
                     break;
                 }               
             }
-//            for (Eventos evento : eventos) {
-//                if (contador <=25&evento.getIdUsuario().equals(email)){
-//                    items.add(evento);
-//                    contador++;
-//                } else {
-//                    break;
-//                }
-//            }
             reporte.put("eventos", gson.toJson(items));
             reporteString = gson.toJson(reporte);
             System.out.println(reporteString);
@@ -220,7 +255,110 @@ public class ServidorTCP {
         System.out.println("Reporte Generado exitosamente");
         return reporteString;
     }
+    public String reporteAlertas(String payload){
+        JsonObject jsonObject = new JsonParser().parse(payload).getAsJsonObject(); //Objeto para deserializar el input que recibe el servidor
+        String barrio = jsonObject.get("barrio").getAsString(); //Se extrae un objeto especifico
+        String tipoAlerta = jsonObject.get("tipoAlerta").getAsString(); //Se extrae un objeto especifico
+        int dias = jsonObject.get("dias").getAsInt(); //Se extrae un objeto especifico
+        Date hoy = Calendar.getInstance().getTime();
+        String reporteString = "";
+//        int contador = 0;
+        HashMap reporte = new HashMap();
+        ArrayList <Eventos> items = new ArrayList<Eventos>(); //Lista auxiliar de los eventos especificos del usuario
+        
+        if(eventos.size()>0){
+            for (int i = eventos.size()-1; i > -1; i--) {
+                Date fecha = eventos.get(i).getFecha();
+                int deltaDias = fecha.compareTo(hoy);
+                 if (deltaDias <= dias){
+                    if (eventos.get(i).getBarrio().equals(barrio)&eventos.get(i).getTipoAlerta().equals(tipoAlerta)){
+                        items.add(eventos.get(i));
+//                        contador++;                       
+                    }
+                } else {
+                    break;
+                }               
+            }
+            reporte.put("eventos", gson.toJson(items));
+            reporteString = gson.toJson(reporte);
+            System.out.println(reporteString);
+        }
+        System.out.println("Reporte Generado exitosamente");
+        return reporteString;
+    }
     
+   public String misDatos(String payload){
+        JsonObject jsonObject = new JsonParser().parse(payload).getAsJsonObject(); //Objeto para deserializar el input que recibe el servidor
+        String email = jsonObject.get("email").getAsString(); //Se extrae un objeto especifico
+        String reporteString = "";
+        HashMap reporte = new HashMap();
+        
+        //Se agregan eventos a la lista. Se extrae un maximo de 25 eventos, empezando desde el mas reciente
+        if(usuarios.size()>0){
+            for (int i = 0; i > usuarios.size(); i++) {
+                 if (usuarios.get(i).getEmail().equals(email)){
+                    reporte.put("nombre", usuarios.get(i).getNombre());
+                    reporte.put("apellidos", usuarios.get(i).getApellidos());
+                    reporte.put("telefono", usuarios.get(i).getCelular());
+                    reporte.put("genero", usuarios.get(i).getGenero());
+                    break;
+                }           
+            }
+            reporteString = gson.toJson(reporte);
+            System.out.println(reporteString);
+        }
+        System.out.println("Reporte Generado exitosamente");
+        return reporteString;
+    }
+   
+   public boolean modificarMisDatos(String payload){
+        JsonObject jsonObject = new JsonParser().parse(payload).getAsJsonObject(); //Objeto para deserializar el input que recibe el servidor
+        String email = jsonObject.get("email").getAsString(); //Se extrae un objeto especifico
+        String nombre = jsonObject.get("nombre").getAsString(); //Se extrae un objeto especifico
+        String apellidos = jsonObject.get("apellidos").getAsString(); //Se extrae un objeto especifico
+        String telefono = jsonObject.get("telefono").getAsString(); //Se extrae un objeto especifico
+        String genero = jsonObject.get("genero").getAsString(); //Se extrae un objeto especifico
+        boolean output = false;
+        
+        //Se agregan eventos a la lista. Se extrae un maximo de 25 eventos, empezando desde el mas reciente
+        if(usuarios.size()>0){
+            for (int i = 0; i > usuarios.size(); i++) {
+                 if (usuarios.get(i).getEmail().equals(email)){
+                    usuarios.get(i).setNombre(nombre);
+                    usuarios.get(i).setApellidos(apellidos);
+                    usuarios.get(i).setCelular(telefono);
+                    usuarios.get(i).setGenero(genero);
+                    output = true;
+                    break;
+                }              
+            }
+
+        }
+        System.out.println("Reporte Generado exitosamente");
+        return output;
+    }
+ 
+    public String misContactos(String payload){
+        JsonObject jsonObject = new JsonParser().parse(payload).getAsJsonObject(); //Objeto para deserializar el input que recibe el servidor
+        String email = jsonObject.get("email").getAsString(); //Se extrae un objeto especifico
+        String reporteString = "";
+        HashMap reporte = new HashMap();
+        ArrayList <ContactoEmergencia> items = new ArrayList<>(); //Lista auxiliar de los eventos especificos del usuario
+        
+        //Se agregan eventos a la lista. Se extrae un maximo de 25 eventos, empezando desde el mas reciente
+        if(contactos.size()>0){
+            for (int i = 0; i > contactos.size(); i++) {
+                 if (contactos.get(i).getIdUsuarioPrincipal().equals(email)){
+                    items.add(contactos.get(i));
+                }         
+            }
+            reporte.put("contactos", gson.toJson(items));
+            reporteString = gson.toJson(reporte);
+            System.out.println(reporteString);
+        }
+        return reporteString;
+    }
+        
     public String comandoJson(String payload){
         HashMap respuesta = new HashMap();
         JsonObject jsonObject = new JsonParser().parse(payload).getAsJsonObject();
@@ -235,6 +373,7 @@ public class ServidorTCP {
                     respuesta.put("exito", false);
                 }              
                 break;
+                
             case "crear contacto de emergencia":
                 if (this.crearContactoEmergencia(payload)){
                     respuesta.put("exito", true);
@@ -242,13 +381,30 @@ public class ServidorTCP {
                     respuesta.put("exito", false);
                 }               
                 break;
+
+            case "modificar contacto de emergencia":
+                if (this.crearContactoEmergencia(payload)){
+                    respuesta.put("exito", true);
+                } else {
+                    respuesta.put("exito", false);
+                }               
+                break;
+                
             case "autenticar usuario":
-                if (this.autenticarUsiario(payload)){
+                if (this.autenticarUsuario(payload)){
                     respuesta.put("exito", true);
                 } else {
                     respuesta.put("exito", false);
                 }
                 break;
+
+             case "modificar mis datos":
+                if (this.modificarMisDatos(payload)){
+                    respuesta.put("exito", true);
+                } else {
+                    respuesta.put("exito", false);
+                }
+                break;               
             case "emergencia":
                 if (this.emergencia(payload)){
                     respuesta.put("exito", true);
@@ -256,7 +412,16 @@ public class ServidorTCP {
                     respuesta.put("exito", false);
                 }
                 break;
+                
             case "recuperar contraseña":
+                if (this.recuperarContraseña(payload)){
+                    respuesta.put("exito", true);
+                } else {
+                    respuesta.put("exito", false);
+                }
+                break;
+                
+            case "cambiar contraseña":
                 if (this.recuperarContraseña(payload)){
                     respuesta.put("exito", true);
                 } else {
@@ -271,10 +436,22 @@ public class ServidorTCP {
                     respuesta.put("exito", false);
                 }
                 break;
+                
+            case "mis alertas":
+                respuesta.put("reporte",this.misAlertas(payload));
+                respuesta.put("exito", true);
+                break;
+                
             case "reporte alertas":
                 respuesta.put("reporte",this.reporteAlertas(payload));
                 respuesta.put("exito", true);
                 break;
+                
+            case "mis datos":
+                respuesta.put("reporte",this.misDatos(payload));
+                respuesta.put("exito", true);
+                break;
+                
             default:
                 System.out.printf("Error: Accion %s no encontrada.\n", accion);
         }

@@ -350,34 +350,34 @@ public class InterfazPrincipal extends javax.swing.JFrame {
         FiltrosLayout.setHorizontalGroup(
             FiltrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(FiltrosLayout.createSequentialGroup()
-                .addGroup(FiltrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(58, 58, 58)
+                .addGroup(FiltrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jSlider2, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jSlider1, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(FiltrosLayout.createSequentialGroup()
-                        .addGap(150, 150, 150)
-                        .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(FiltrosLayout.createSequentialGroup()
-                        .addGap(82, 82, 82)
-                        .addGroup(FiltrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton21)
-                            .addGroup(FiltrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jScrollPane2)
-                                .addComponent(jSlider1, javax.swing.GroupLayout.DEFAULT_SIZE, 261, Short.MAX_VALUE)
-                                .addComponent(jSlider2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
-                .addContainerGap(32, Short.MAX_VALUE))
+                        .addComponent(jButton21)
+                        .addGap(9, 9, 9)))
+                .addContainerGap(56, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, FiltrosLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(119, 119, 119))
         );
         FiltrosLayout.setVerticalGroup(
             FiltrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(FiltrosLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jButton21)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(83, 83, 83)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(41, 41, 41)
+                .addGap(27, 27, 27)
                 .addComponent(jSlider1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(38, 38, 38)
+                .addGap(36, 36, 36)
                 .addComponent(jSlider2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 221, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 157, Short.MAX_VALUE)
                 .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(53, 53, 53))
+                .addGap(56, 56, 56))
         );
 
         Body.add(Filtros, "Filtros");
@@ -588,7 +588,7 @@ public class InterfazPrincipal extends javax.swing.JFrame {
 
         jLabel13.setText("Genero");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Femenino", "Masculino", "Otro" }));
 
         jLabel14.setText("Fecha de nacimiento");
 
@@ -635,7 +635,7 @@ public class InterfazPrincipal extends javax.swing.JFrame {
                             .addComponent(jTextField13)
                             .addComponent(jButton16, javax.swing.GroupLayout.Alignment.TRAILING)))
                     .addGroup(PerfilLayout.createSequentialGroup()
-                        .addGap(84, 84, 84)
+                        .addGap(66, 66, 66)
                         .addComponent(jButton25)))
                 .addContainerGap(26, Short.MAX_VALUE))
         );
@@ -1050,7 +1050,7 @@ public class InterfazPrincipal extends javax.swing.JFrame {
         JsonArray output = null; //Crea objeto nuevo de tipo JsonArray para poder acceder a cada evento individualmente
         
         //Agrega parametros
-        reporte.put("accion","reporte alertas");  
+        reporte.put("accion","mis alertas");  
         reporte.put("email",email);
         
         String payload = gson.toJson(reporte);//Serializa parametros en formato JSON
