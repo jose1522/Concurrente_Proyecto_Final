@@ -61,7 +61,7 @@ public class InterfazPrincipal extends javax.swing.JFrame {
         jButton25.setBackground(new Color(0,0,0,0));
         jButton26.setBackground(new Color(0,0,0,0));
         jButton27.setBackground(new Color(0,0,0,0));
-        AlertasFiltro_Boton.setBackground(new Color(0,0,0,0));
+        //AlertasFiltro_Boton.setBackground(new Color(0,0,0,0));
         FiltroBack_Boton.setBackground(new Color(0,0,0,0));
         AjustesFiltroSave_Boton.setBackground(new Color(0,0,0,0));
         jButton12.setBackground(new Color(0,0,0,0));
@@ -99,7 +99,6 @@ public class InterfazPrincipal extends javax.swing.JFrame {
         Maps1 = new javax.swing.JButton();
         Start_BG = new javax.swing.JLabel();
         Altertas = new javax.swing.JPanel();
-        AlertasFiltro_Boton = new javax.swing.JButton();
         cbTiposAlertas = new javax.swing.JComboBox<>();
         jButton7 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
@@ -227,14 +226,6 @@ public class InterfazPrincipal extends javax.swing.JFrame {
 
         Altertas.setBackground(new java.awt.Color(255, 255, 255));
         Altertas.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        AlertasFiltro_Boton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/FiltroBoton.png"))); // NOI18N
-        AlertasFiltro_Boton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AlertasFiltro_BotonActionPerformed(evt);
-            }
-        });
-        Altertas.add(AlertasFiltro_Boton, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 110, 50, -1));
 
         cbTiposAlertas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Agresion", "Asalto", "Hurto", "Vandalismo", "Otro" }));
         Altertas.add(cbTiposAlertas, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 540, 180, -1));
@@ -895,10 +886,6 @@ public class InterfazPrincipal extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton16ActionPerformed
 
-    private void AlertasFiltro_BotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AlertasFiltro_BotonActionPerformed
-        this.bodyCardLayout.show(this.Body,"Filtros");
-    }//GEN-LAST:event_AlertasFiltro_BotonActionPerformed
-
     private void FiltroBack_BotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FiltroBack_BotonActionPerformed
         this.bodyCardLayout.show(this.Body, "Alertas");
     }//GEN-LAST:event_FiltroBack_BotonActionPerformed
@@ -1093,7 +1080,6 @@ char c = evt.getKeyChar();
     private javax.swing.JPanel AgregarAlerta;
     private javax.swing.JButton AjustesFiltroSave_Boton;
     private javax.swing.JButton Alertas1;
-    private javax.swing.JButton AlertasFiltro_Boton;
     private javax.swing.JPanel Altertas;
     private javax.swing.JLabel BACKGOURND;
     private javax.swing.JPanel Body;
