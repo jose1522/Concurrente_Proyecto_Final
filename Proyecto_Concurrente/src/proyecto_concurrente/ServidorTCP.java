@@ -19,13 +19,11 @@ public class ServidorTCP {
     static ArrayList <Eventos> eventos = new ArrayList<Eventos>();
     Gson gson = new Gson();
     
-    public void run() {
+    public void iniciarServidor() {
           try {
                 
                 int serverPort = 5001;
                 ServerSocket serverSocket = new ServerSocket(serverPort);
-                
-         
 //		serverSocket.setSoTimeout(10000); 
                 while(true) {
                     System.out.println("Esperando cliente en el puerto " + serverSocket.getLocalPort() + "..."); 
