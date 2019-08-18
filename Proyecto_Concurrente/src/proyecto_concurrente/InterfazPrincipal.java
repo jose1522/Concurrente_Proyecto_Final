@@ -75,7 +75,9 @@ public class InterfazPrincipal extends javax.swing.JFrame {
         jButton4.setBackground(new Color(0,0,0,0));
         jButton5.setBackground(new Color(0,0,0,0));
         jButton8.setBackground(new Color(0,0,0,0));
-
+        btnAgregarContacto.setBackground(new Color(0,0,0,0));
+        jButton9.setBackground(new Color(0,0,0,0));
+        jButton10.setBackground(new Color(0,0,0,0));        
         
     }    
     /**
@@ -430,24 +432,24 @@ public class InterfazPrincipal extends javax.swing.JFrame {
 
         ContactosAgregar.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(26, 386, 330, 203));
 
-        btnAgregarContacto.setText("Agregar");
+        btnAgregarContacto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/AgregarBoton.png"))); // NOI18N
         btnAgregarContacto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAgregarContactoActionPerformed(evt);
             }
         });
-        ContactosAgregar.add(btnAgregarContacto, new org.netbeans.lib.awtextra.AbsoluteConstraints(279, 336, -1, -1));
+        ContactosAgregar.add(btnAgregarContacto, new org.netbeans.lib.awtextra.AbsoluteConstraints(203, 340, 150, 40));
 
-        jButton9.setText("Modificar");
+        jButton9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/ModificarBoton.png"))); // NOI18N
         jButton9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton9ActionPerformed(evt);
             }
         });
-        ContactosAgregar.add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 607, -1, -1));
+        ContactosAgregar.add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 600, 150, -1));
 
-        jButton10.setText("Eliminar");
-        ContactosAgregar.add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(182, 607, -1, -1));
+        jButton10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/EliminarBoton.png"))); // NOI18N
+        ContactosAgregar.add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 600, 160, -1));
 
         jButton23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Head_Logo.png"))); // NOI18N
         jButton23.addActionListener(new java.awt.event.ActionListener() {
