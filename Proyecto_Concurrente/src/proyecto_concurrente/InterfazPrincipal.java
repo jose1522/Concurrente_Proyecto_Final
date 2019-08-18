@@ -60,6 +60,16 @@ public class InterfazPrincipal extends javax.swing.JFrame {
         jButton25.setBackground(new Color(0,0,0,0));
         jButton26.setBackground(new Color(0,0,0,0));
         jButton27.setBackground(new Color(0,0,0,0));
+        AlertasFiltro_Boton.setBackground(new Color(0,0,0,0));
+        FiltroBack_Boton.setBackground(new Color(0,0,0,0));
+        AjustesFiltroSave_Boton.setBackground(new Color(0,0,0,0));
+        jButton12.setBackground(new Color(0,0,0,0));
+        jButton14.setBackground(new Color(0,0,0,0));
+        jButton15.setBackground(new Color(0,0,0,0));
+        jButton17.setBackground(new Color(0,0,0,0));
+        jButton16.setBackground(new Color(0,0,0,0));
+        ModContactosSafe_Bot.setBackground(new Color(0,0,0,0));
+        ChangePassSave_Boton.setBackground(new Color(0,0,0,0));
  
     }    
     /**
@@ -73,6 +83,7 @@ public class InterfazPrincipal extends javax.swing.JFrame {
 
         Body = new javax.swing.JPanel();
         Principal = new javax.swing.JPanel();
+        Principal_mensaje_label = new javax.swing.JLabel();
         PanicBot = new javax.swing.JToggleButton();
         jButton1 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
@@ -80,6 +91,7 @@ public class InterfazPrincipal extends javax.swing.JFrame {
         Maps1 = new javax.swing.JButton();
         Start_BG = new javax.swing.JLabel();
         Altertas = new javax.swing.JPanel();
+        AlertasFiltro_Boton = new javax.swing.JButton();
         cbTiposAlertas = new javax.swing.JComboBox<>();
         jButton7 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
@@ -95,22 +107,21 @@ public class InterfazPrincipal extends javax.swing.JFrame {
         jList1 = new javax.swing.JList<>();
         jSlider1 = new javax.swing.JSlider();
         jSlider2 = new javax.swing.JSlider();
-        jButton5 = new javax.swing.JButton();
+        AjustesFiltroSave_Boton = new javax.swing.JButton();
         jButton21 = new javax.swing.JButton();
+        FiltroBack_Boton = new javax.swing.JButton();
+        jLabel19 = new javax.swing.JLabel();
         PanelOpciones = new javax.swing.JPanel();
         jButton12 = new javax.swing.JButton();
         jButton14 = new javax.swing.JButton();
         jButton15 = new javax.swing.JButton();
         jButton17 = new javax.swing.JButton();
         jButton22 = new javax.swing.JButton();
+        BACKGOURND = new javax.swing.JLabel();
         ContactosAgregar = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         tbNombreContacto = new javax.swing.JTextField();
         tbApellidosContactos = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
         tbTelefonoContacto = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
         tbEmailContacto = new javax.swing.JTextField();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
@@ -118,43 +129,32 @@ public class InterfazPrincipal extends javax.swing.JFrame {
         jButton9 = new javax.swing.JButton();
         jButton10 = new javax.swing.JButton();
         jButton23 = new javax.swing.JButton();
+        jLabel21 = new javax.swing.JLabel();
         Perfil = new javax.swing.JPanel();
         jTextField9 = new javax.swing.JTextField();
-        jLabel10 = new javax.swing.JLabel();
         jTextField10 = new javax.swing.JTextField();
-        jLabel11 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
         jTextField11 = new javax.swing.JTextField();
-        jLabel9 = new javax.swing.JLabel();
         jTextField12 = new javax.swing.JTextField();
-        jLabel13 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jLabel14 = new javax.swing.JLabel();
-        jTextField13 = new javax.swing.JTextField();
         jButton16 = new javax.swing.JButton();
         jButton25 = new javax.swing.JButton();
+        jLabel20 = new javax.swing.JLabel();
         CambiarContraseña = new javax.swing.JPanel();
-        jLabel15 = new javax.swing.JLabel();
         jTextField14 = new javax.swing.JTextField();
-        jLabel16 = new javax.swing.JLabel();
         jTextField15 = new javax.swing.JTextField();
-        jLabel17 = new javax.swing.JLabel();
         jTextField16 = new javax.swing.JTextField();
-        jButton18 = new javax.swing.JButton();
+        ChangePassSave_Boton = new javax.swing.JButton();
         jButton26 = new javax.swing.JButton();
+        jLabel22 = new javax.swing.JLabel();
         AgregarAlerta = new javax.swing.JPanel();
         jButton27 = new javax.swing.JButton();
         ContactosModificar = new javax.swing.JPanel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
         jTextField5 = new javax.swing.JTextField();
         jTextField6 = new javax.swing.JTextField();
-        jLabel7 = new javax.swing.JLabel();
         jTextField7 = new javax.swing.JTextField();
-        jLabel8 = new javax.swing.JLabel();
         jTextField8 = new javax.swing.JTextField();
-        jButton11 = new javax.swing.JButton();
+        ModContactosSafe_Bot = new javax.swing.JButton();
         jButton24 = new javax.swing.JButton();
+        jLabel23 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(375, 667));
@@ -167,6 +167,10 @@ public class InterfazPrincipal extends javax.swing.JFrame {
 
         Principal.setBackground(new java.awt.Color(255, 255, 255));
         Principal.setPreferredSize(new java.awt.Dimension(375, 667));
+        Principal.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        Principal_mensaje_label.setBackground(new java.awt.Color(204, 204, 204));
+        Principal.add(Principal_mensaje_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 410, 310, 30));
 
         PanicBot.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Start_PanicBoton_Normal.png"))); // NOI18N
         PanicBot.addActionListener(new java.awt.event.ActionListener() {
@@ -174,8 +178,10 @@ public class InterfazPrincipal extends javax.swing.JFrame {
                 PanicBotActionPerformed(evt);
             }
         });
+        Principal.add(PanicBot, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 360, 470));
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Head_Logo.png"))); // NOI18N
+        Principal.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 0, 250, -1));
 
         jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Start_Settings.png"))); // NOI18N
         jButton6.addActionListener(new java.awt.event.ActionListener() {
@@ -183,6 +189,7 @@ public class InterfazPrincipal extends javax.swing.JFrame {
                 jButton6ActionPerformed(evt);
             }
         });
+        Principal.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 20, 50, 40));
 
         Alertas1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Start_Alerta.png"))); // NOI18N
         Alertas1.addActionListener(new java.awt.event.ActionListener() {
@@ -190,6 +197,7 @@ public class InterfazPrincipal extends javax.swing.JFrame {
                 Alertas1ActionPerformed(evt);
             }
         });
+        Principal.add(Alertas1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 590, -1, -1));
 
         Maps1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Start_Mapa.png"))); // NOI18N
         Maps1.addActionListener(new java.awt.event.ActionListener() {
@@ -197,49 +205,23 @@ public class InterfazPrincipal extends javax.swing.JFrame {
                 Maps1ActionPerformed(evt);
             }
         });
+        Principal.add(Maps1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 590, -1, -1));
 
         Start_BG.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Start_BG_Normal_Blue-01.jpg"))); // NOI18N
-
-        javax.swing.GroupLayout PrincipalLayout = new javax.swing.GroupLayout(Principal);
-        Principal.setLayout(PrincipalLayout);
-        PrincipalLayout.setHorizontalGroup(
-            PrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PrincipalLayout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20)
-                .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(PrincipalLayout.createSequentialGroup()
-                .addGap(10, 10, 10)
-                .addComponent(PanicBot, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(PrincipalLayout.createSequentialGroup()
-                .addGap(10, 10, 10)
-                .addComponent(Alertas1)
-                .addGap(7, 7, 7)
-                .addComponent(Maps1))
-            .addComponent(Start_BG)
-        );
-        PrincipalLayout.setVerticalGroup(
-            PrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PrincipalLayout.createSequentialGroup()
-                .addGroup(PrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton1)
-                    .addGroup(PrincipalLayout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(34, 34, 34)
-                .addComponent(PanicBot, javax.swing.GroupLayout.PREFERRED_SIZE, 470, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(10, 10, 10)
-                .addGroup(PrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Alertas1)
-                    .addComponent(Maps1)))
-            .addComponent(Start_BG, javax.swing.GroupLayout.PREFERRED_SIZE, 660, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
+        Principal.add(Start_BG, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 660));
 
         Body.add(Principal, "Principal");
 
         Altertas.setBackground(new java.awt.Color(255, 255, 255));
         Altertas.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        AlertasFiltro_Boton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/FiltroBoton.png"))); // NOI18N
+        AlertasFiltro_Boton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AlertasFiltro_BotonActionPerformed(evt);
+            }
+        });
+        Altertas.add(AlertasFiltro_Boton, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 110, 50, -1));
 
         cbTiposAlertas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Agresion", "Asalto", "Hurto", "Vandalismo", "Otro" }));
         Altertas.add(cbTiposAlertas, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 540, 180, -1));
@@ -278,7 +260,7 @@ public class InterfazPrincipal extends javax.swing.JFrame {
                 btnAgregarAlertaActionPerformed(evt);
             }
         });
-        Altertas.add(btnAgregarAlerta, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 580, 180, -1));
+        Altertas.add(btnAgregarAlerta, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 590, 180, -1));
 
         jLabel18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Alertas_BG-01.jpg"))); // NOI18N
         Altertas.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -324,6 +306,8 @@ public class InterfazPrincipal extends javax.swing.JFrame {
 
         Body.add(Mapa, "Mapa");
 
+        Filtros.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
         jList1.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
@@ -331,12 +315,17 @@ public class InterfazPrincipal extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(jList1);
 
-        jButton5.setText("Aplicar");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        Filtros.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(58, 165, 261, -1));
+        Filtros.add(jSlider1, new org.netbeans.lib.awtextra.AbsoluteConstraints(58, 339, 261, -1));
+        Filtros.add(jSlider2, new org.netbeans.lib.awtextra.AbsoluteConstraints(58, 391, 261, -1));
+
+        AjustesFiltroSave_Boton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/SaveBoton.png"))); // NOI18N
+        AjustesFiltroSave_Boton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                AjustesFiltroSave_BotonActionPerformed(evt);
             }
         });
+        Filtros.add(AjustesFiltroSave_Boton, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 570, 160, 47));
 
         jButton21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Head_Logo.png"))); // NOI18N
         jButton21.addActionListener(new java.awt.event.ActionListener() {
@@ -344,68 +333,50 @@ public class InterfazPrincipal extends javax.swing.JFrame {
                 jButton21ActionPerformed(evt);
             }
         });
+        Filtros.add(jButton21, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, -1, -1));
 
-        javax.swing.GroupLayout FiltrosLayout = new javax.swing.GroupLayout(Filtros);
-        Filtros.setLayout(FiltrosLayout);
-        FiltrosLayout.setHorizontalGroup(
-            FiltrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(FiltrosLayout.createSequentialGroup()
-                .addGap(58, 58, 58)
-                .addGroup(FiltrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jSlider2, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jSlider1, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(FiltrosLayout.createSequentialGroup()
-                        .addComponent(jButton21)
-                        .addGap(9, 9, 9)))
-                .addContainerGap(56, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, FiltrosLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(119, 119, 119))
-        );
-        FiltrosLayout.setVerticalGroup(
-            FiltrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(FiltrosLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jButton21)
-                .addGap(83, 83, 83)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
-                .addComponent(jSlider1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(36, 36, 36)
-                .addComponent(jSlider2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 157, Short.MAX_VALUE)
-                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(56, 56, 56))
-        );
+        FiltroBack_Boton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Register_Back.png"))); // NOI18N
+        FiltroBack_Boton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                FiltroBack_BotonActionPerformed(evt);
+            }
+        });
+        Filtros.add(FiltroBack_Boton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 580, 30, 30));
+
+        jLabel19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Alertas_BG-01.jpg"))); // NOI18N
+        Filtros.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         Body.add(Filtros, "Filtros");
 
         PanelOpciones.setBackground(new java.awt.Color(255, 255, 255));
+        PanelOpciones.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton12.setText("Perfil de Usuario");
+        jButton12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Perfil.png"))); // NOI18N
         jButton12.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton12ActionPerformed(evt);
             }
         });
+        PanelOpciones.add(jButton12, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 170, 176, -1));
 
-        jButton14.setText("Contactos de emergencia");
+        jButton14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/ContactosBoton.png"))); // NOI18N
         jButton14.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton14ActionPerformed(evt);
             }
         });
+        PanelOpciones.add(jButton14, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 280, -1, -1));
 
-        jButton15.setText("Opciones");
+        jButton15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/OpcionesBoton.png"))); // NOI18N
+        PanelOpciones.add(jButton15, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 390, 176, -1));
 
-        jButton17.setText("Modificar contraseña");
+        jButton17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/EdotarPassword_Boton.png"))); // NOI18N
         jButton17.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton17ActionPerformed(evt);
             }
         });
+        PanelOpciones.add(jButton17, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 500, 176, -1));
 
         jButton22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Head_Logo.png"))); // NOI18N
         jButton22.addActionListener(new java.awt.event.ActionListener() {
@@ -413,51 +384,19 @@ public class InterfazPrincipal extends javax.swing.JFrame {
                 jButton22ActionPerformed(evt);
             }
         });
+        PanelOpciones.add(jButton22, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, -1, -1));
 
-        javax.swing.GroupLayout PanelOpcionesLayout = new javax.swing.GroupLayout(PanelOpciones);
-        PanelOpciones.setLayout(PanelOpcionesLayout);
-        PanelOpcionesLayout.setHorizontalGroup(
-            PanelOpcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PanelOpcionesLayout.createSequentialGroup()
-                .addGap(82, 82, 82)
-                .addComponent(jButton22)
-                .addContainerGap(56, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelOpcionesLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(PanelOpcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton17, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(92, 92, 92))
-        );
-        PanelOpcionesLayout.setVerticalGroup(
-            PanelOpcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PanelOpcionesLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jButton22)
-                .addGap(84, 84, 84)
-                .addComponent(jButton12)
-                .addGap(18, 18, 18)
-                .addComponent(jButton14)
-                .addGap(18, 18, 18)
-                .addComponent(jButton15)
-                .addGap(18, 18, 18)
-                .addComponent(jButton17)
-                .addContainerGap(319, Short.MAX_VALUE))
-        );
+        BACKGOURND.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/BG-01.jpg"))); // NOI18N
+        PanelOpciones.add(BACKGOURND, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         Body.add(PanelOpciones, "PanelOpciones");
 
         ContactosAgregar.setBackground(new java.awt.Color(255, 255, 255));
-
-        jLabel1.setText("Nombre");
-
-        jLabel2.setText("Apellidos");
-
-        jLabel3.setText("Telefono");
-
-        jLabel4.setText("Email");
+        ContactosAgregar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        ContactosAgregar.add(tbNombreContacto, new org.netbeans.lib.awtextra.AbsoluteConstraints(37, 152, 140, -1));
+        ContactosAgregar.add(tbApellidosContactos, new org.netbeans.lib.awtextra.AbsoluteConstraints(215, 152, 140, -1));
+        ContactosAgregar.add(tbTelefonoContacto, new org.netbeans.lib.awtextra.AbsoluteConstraints(33, 230, 320, -1));
+        ContactosAgregar.add(tbEmailContacto, new org.netbeans.lib.awtextra.AbsoluteConstraints(33, 300, 320, -1));
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -472,12 +411,15 @@ public class InterfazPrincipal extends javax.swing.JFrame {
         ));
         jScrollPane3.setViewportView(jTable2);
 
+        ContactosAgregar.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(26, 386, 330, 203));
+
         btnAgregarContacto.setText("Agregar");
         btnAgregarContacto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAgregarContactoActionPerformed(evt);
             }
         });
+        ContactosAgregar.add(btnAgregarContacto, new org.netbeans.lib.awtextra.AbsoluteConstraints(279, 336, -1, -1));
 
         jButton9.setText("Modificar");
         jButton9.addActionListener(new java.awt.event.ActionListener() {
@@ -485,8 +427,10 @@ public class InterfazPrincipal extends javax.swing.JFrame {
                 jButton9ActionPerformed(evt);
             }
         });
+        ContactosAgregar.add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 607, -1, -1));
 
         jButton10.setText("Eliminar");
+        ContactosAgregar.add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(182, 607, -1, -1));
 
         jButton23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Head_Logo.png"))); // NOI18N
         jButton23.addActionListener(new java.awt.event.ActionListener() {
@@ -494,112 +438,30 @@ public class InterfazPrincipal extends javax.swing.JFrame {
                 jButton23ActionPerformed(evt);
             }
         });
+        ContactosAgregar.add(jButton23, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, -1, -1));
 
-        javax.swing.GroupLayout ContactosAgregarLayout = new javax.swing.GroupLayout(ContactosAgregar);
-        ContactosAgregar.setLayout(ContactosAgregarLayout);
-        ContactosAgregarLayout.setHorizontalGroup(
-            ContactosAgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ContactosAgregarLayout.createSequentialGroup()
-                .addGroup(ContactosAgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(ContactosAgregarLayout.createSequentialGroup()
-                        .addGap(13, 13, 13)
-                        .addGroup(ContactosAgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(tbNombreContacto, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel1))
-                        .addGap(18, 18, 18)
-                        .addGroup(ContactosAgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(ContactosAgregarLayout.createSequentialGroup()
-                                .addGap(6, 6, 6)
-                                .addComponent(tbApellidosContactos, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel2)))
-                    .addGroup(ContactosAgregarLayout.createSequentialGroup()
-                        .addGap(12, 12, 12)
-                        .addGroup(ContactosAgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btnAgregarContacto)
-                            .addGroup(ContactosAgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(tbEmailContacto, javax.swing.GroupLayout.PREFERRED_SIZE, 343, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(tbTelefonoContacto, javax.swing.GroupLayout.PREFERRED_SIZE, 343, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel3)
-                                .addComponent(jLabel4)))))
-                .addContainerGap(20, Short.MAX_VALUE))
-            .addGroup(ContactosAgregarLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(ContactosAgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ContactosAgregarLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jButton10)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton9)
-                        .addGap(22, 22, 22))
-                    .addGroup(ContactosAgregarLayout.createSequentialGroup()
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))))
-            .addGroup(ContactosAgregarLayout.createSequentialGroup()
-                .addGap(69, 69, 69)
-                .addComponent(jButton23)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-        ContactosAgregarLayout.setVerticalGroup(
-            ContactosAgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ContactosAgregarLayout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addComponent(jButton23)
-                .addGap(32, 32, 32)
-                .addGroup(ContactosAgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(ContactosAgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tbNombreContacto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tbApellidosContactos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(tbTelefonoContacto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(tbEmailContacto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
-                .addComponent(btnAgregarContacto)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 74, Short.MAX_VALUE)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(ContactosAgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton9)
-                    .addComponent(jButton10))
-                .addGap(28, 28, 28))
-        );
+        jLabel21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/AddContactBG-01.jpg"))); // NOI18N
+        ContactosAgregar.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         Body.add(ContactosAgregar, "ContactosAgregar");
 
         Perfil.setBackground(new java.awt.Color(255, 255, 255));
         Perfil.setAutoscrolls(true);
-
-        jLabel10.setText("Telefono");
-
-        jLabel11.setText("Nombre");
-
-        jLabel12.setText("Apellidos");
-
-        jLabel9.setText("Email");
+        Perfil.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        Perfil.add(jTextField9, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, 290, -1));
+        Perfil.add(jTextField10, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, 290, -1));
+        Perfil.add(jTextField11, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, 290, -1));
 
         jTextField12.setEditable(false);
+        Perfil.add(jTextField12, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 370, 290, -1));
 
-        jLabel13.setText("Genero");
-
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Femenino", "Masculino", "Otro" }));
-
-        jLabel14.setText("Fecha de nacimiento");
-
-        jTextField13.setEditable(false);
-
-        jButton16.setText("Guardar Cambios");
+        jButton16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/SaveBoton.png"))); // NOI18N
         jButton16.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton16ActionPerformed(evt);
             }
         });
+        Perfil.add(jButton16, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 530, -1, -1));
 
         jButton25.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Head_Logo.png"))); // NOI18N
         jButton25.addActionListener(new java.awt.event.ActionListener() {
@@ -607,88 +469,26 @@ public class InterfazPrincipal extends javax.swing.JFrame {
                 jButton25ActionPerformed(evt);
             }
         });
+        Perfil.add(jButton25, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, -1, -1));
 
-        javax.swing.GroupLayout PerfilLayout = new javax.swing.GroupLayout(Perfil);
-        Perfil.setLayout(PerfilLayout);
-        PerfilLayout.setHorizontalGroup(
-            PerfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PerfilLayout.createSequentialGroup()
-                .addGroup(PerfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(PerfilLayout.createSequentialGroup()
-                        .addGap(22, 22, 22)
-                        .addGroup(PerfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel13)
-                            .addComponent(jLabel9)
-                            .addComponent(jLabel10)
-                            .addComponent(jLabel14)
-                            .addComponent(jTextField12)
-                            .addGroup(PerfilLayout.createSequentialGroup()
-                                .addGroup(PerfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel11)
-                                    .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(25, 25, 25)
-                                .addGroup(PerfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel12)
-                                    .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(jTextField9)
-                            .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jTextField13)
-                            .addComponent(jButton16, javax.swing.GroupLayout.Alignment.TRAILING)))
-                    .addGroup(PerfilLayout.createSequentialGroup()
-                        .addGap(66, 66, 66)
-                        .addComponent(jButton25)))
-                .addContainerGap(26, Short.MAX_VALUE))
-        );
-        PerfilLayout.setVerticalGroup(
-            PerfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PerfilLayout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(jButton25)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
-                .addGroup(PerfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel11)
-                    .addComponent(jLabel12))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(PerfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(21, 21, 21)
-                .addComponent(jLabel10)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel9)
-                .addGap(18, 18, 18)
-                .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel13)
-                .addGap(18, 18, 18)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel14)
-                .addGap(18, 18, 18)
-                .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(48, 48, 48)
-                .addComponent(jButton16)
-                .addGap(96, 96, 96))
-        );
+        jLabel20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/PerfIlBG-01.jpg"))); // NOI18N
+        Perfil.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         Body.add(Perfil, "Perfil");
 
         CambiarContraseña.setBackground(new java.awt.Color(255, 255, 255));
+        CambiarContraseña.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        CambiarContraseña.add(jTextField14, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 202, 280, -1));
+        CambiarContraseña.add(jTextField15, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 310, 280, -1));
+        CambiarContraseña.add(jTextField16, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 420, 280, -1));
 
-        jLabel15.setText("Contraseña Actual");
-
-        jLabel16.setText("Nueva contraseña");
-
-        jLabel17.setText("Confirme nueva contraseña");
-
-        jButton18.setText("Guardar");
-        jButton18.addActionListener(new java.awt.event.ActionListener() {
+        ChangePassSave_Boton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/SaveBoton.png"))); // NOI18N
+        ChangePassSave_Boton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton18ActionPerformed(evt);
+                ChangePassSave_BotonActionPerformed(evt);
             }
         });
+        CambiarContraseña.add(ChangePassSave_Boton, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 560, 160, -1));
 
         jButton26.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Head_Logo.png"))); // NOI18N
         jButton26.addActionListener(new java.awt.event.ActionListener() {
@@ -696,51 +496,10 @@ public class InterfazPrincipal extends javax.swing.JFrame {
                 jButton26ActionPerformed(evt);
             }
         });
+        CambiarContraseña.add(jButton26, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, -1, -1));
 
-        javax.swing.GroupLayout CambiarContraseñaLayout = new javax.swing.GroupLayout(CambiarContraseña);
-        CambiarContraseña.setLayout(CambiarContraseñaLayout);
-        CambiarContraseñaLayout.setHorizontalGroup(
-            CambiarContraseñaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(CambiarContraseñaLayout.createSequentialGroup()
-                .addGroup(CambiarContraseñaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(CambiarContraseñaLayout.createSequentialGroup()
-                        .addGap(91, 91, 91)
-                        .addComponent(jButton26))
-                    .addGroup(CambiarContraseñaLayout.createSequentialGroup()
-                        .addGap(14, 14, 14)
-                        .addGroup(CambiarContraseñaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel17)
-                            .addComponent(jLabel16)
-                            .addComponent(jLabel15)
-                            .addComponent(jTextField14)
-                            .addComponent(jTextField15)
-                            .addComponent(jTextField16, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(CambiarContraseñaLayout.createSequentialGroup()
-                        .addGap(131, 131, 131)
-                        .addComponent(jButton18, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(15, Short.MAX_VALUE))
-        );
-        CambiarContraseñaLayout.setVerticalGroup(
-            CambiarContraseñaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, CambiarContraseñaLayout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addComponent(jButton26)
-                .addGap(73, 73, 73)
-                .addComponent(jLabel15)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jTextField14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel16)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jTextField15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel17)
-                .addGap(18, 18, 18)
-                .addComponent(jTextField16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(79, 79, 79)
-                .addComponent(jButton18)
-                .addContainerGap(184, Short.MAX_VALUE))
-        );
+        jLabel22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/ChangePasBG-01.jpg"))); // NOI18N
+        CambiarContraseña.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         Body.add(CambiarContraseña, "CambiarContraseña");
 
@@ -771,21 +530,19 @@ public class InterfazPrincipal extends javax.swing.JFrame {
         Body.add(AgregarAlerta, "AgregarAlerta");
 
         ContactosModificar.setBackground(new java.awt.Color(255, 255, 255));
+        ContactosModificar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        ContactosModificar.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(38, 162, 310, -1));
+        ContactosModificar.add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 230, 310, -1));
+        ContactosModificar.add(jTextField7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 300, 310, -1));
+        ContactosModificar.add(jTextField8, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 370, 310, -1));
 
-        jLabel5.setText("Nombre");
-
-        jLabel6.setText("Apellidos");
-
-        jLabel7.setText("Telefono");
-
-        jLabel8.setText("Email");
-
-        jButton11.setText("Guardar");
-        jButton11.addActionListener(new java.awt.event.ActionListener() {
+        ModContactosSafe_Bot.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/SaveBoton.png"))); // NOI18N
+        ModContactosSafe_Bot.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton11ActionPerformed(evt);
+                ModContactosSafe_BotActionPerformed(evt);
             }
         });
+        ContactosModificar.add(ModContactosSafe_Bot, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 440, -1, -1));
 
         jButton24.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Head_Logo.png"))); // NOI18N
         jButton24.addActionListener(new java.awt.event.ActionListener() {
@@ -793,59 +550,10 @@ public class InterfazPrincipal extends javax.swing.JFrame {
                 jButton24ActionPerformed(evt);
             }
         });
+        ContactosModificar.add(jButton24, new org.netbeans.lib.awtextra.AbsoluteConstraints(73, 6, -1, -1));
 
-        javax.swing.GroupLayout ContactosModificarLayout = new javax.swing.GroupLayout(ContactosModificar);
-        ContactosModificar.setLayout(ContactosModificarLayout);
-        ContactosModificarLayout.setHorizontalGroup(
-            ContactosModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ContactosModificarLayout.createSequentialGroup()
-                .addGap(73, 73, 73)
-                .addComponent(jButton24)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ContactosModificarLayout.createSequentialGroup()
-                .addContainerGap(24, Short.MAX_VALUE)
-                .addGroup(ContactosModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton11)
-                    .addGroup(ContactosModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jLabel8)
-                        .addComponent(jLabel7)
-                        .addGroup(ContactosModificarLayout.createSequentialGroup()
-                            .addGroup(ContactosModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel5)
-                                .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGap(25, 25, 25)
-                            .addGroup(ContactosModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel6)
-                                .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addComponent(jTextField7)
-                        .addComponent(jTextField8)))
-                .addGap(21, 21, 21))
-        );
-        ContactosModificarLayout.setVerticalGroup(
-            ContactosModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ContactosModificarLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jButton24)
-                .addGap(52, 52, 52)
-                .addGroup(ContactosModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel6))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(ContactosModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(jLabel7)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel8)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(129, 129, 129)
-                .addComponent(jButton11)
-                .addContainerGap(180, Short.MAX_VALUE))
-        );
+        jLabel23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/ModContacto-01.jpg"))); // NOI18N
+        ContactosModificar.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         Body.add(ContactosModificar, "ContactosModificar");
 
@@ -879,9 +587,9 @@ public class InterfazPrincipal extends javax.swing.JFrame {
         this.bodyCardLayout.show(this.Body, "ContactosModificar");
     }//GEN-LAST:event_jButton9ActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    private void AjustesFiltroSave_BotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AjustesFiltroSave_BotonActionPerformed
 
-    }//GEN-LAST:event_jButton5ActionPerformed
+    }//GEN-LAST:event_AjustesFiltroSave_BotonActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         this.bodyCardLayout.show(this.Body,"PanelOpciones");
@@ -913,14 +621,15 @@ public class InterfazPrincipal extends javax.swing.JFrame {
             boolean exito =  jsonObject.get("exito").getAsBoolean();
 
             if (exito){
-                JOptionPane.showMessageDialog(null, "Se han enviado alertas a sus contactos de emergencia");
+               Principal_mensaje_label.setText("Se han enviado alertas a sus contactos de emergencia");
             } else {
-                JOptionPane.showMessageDialog(null, "No se ha encontrado ningun contacto de emergencia");
+                Principal_mensaje_label.setText("No se ha encontrado ningun contacto de emergencia");
             }
 
         } else {
            PanicBot.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Start_PanicBoton_Normal.png")));
            Start_BG.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Start_BG_Normal_Blue-01.jpg"))); 
+           Principal_mensaje_label.setText("");
         }
             
     }//GEN-LAST:event_PanicBotActionPerformed
@@ -1013,16 +722,16 @@ public class InterfazPrincipal extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnAgregarContactoActionPerformed
 
-    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
+    private void ModContactosSafe_BotActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModContactosSafe_BotActionPerformed
          if(jTextField5.getText().isEmpty() || jTextField6.getText().isEmpty() || jTextField8.getText().isEmpty() || jTextField7.getText().isEmpty()){
             JOptionPane.showMessageDialog(null, "Por favor ingrese todos los datos");
         }else{
              
              
         }
-    }//GEN-LAST:event_jButton11ActionPerformed
+    }//GEN-LAST:event_ModContactosSafe_BotActionPerformed
 
-    private void jButton18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton18ActionPerformed
+    private void ChangePassSave_BotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ChangePassSave_BotonActionPerformed
         if(jTextField15.getText().isEmpty() || jTextField16.getText().isEmpty() || jTextField14.getText().isEmpty()){
             JOptionPane.showMessageDialog(null, "Por favor ingrese todos los datos");
         }else{
@@ -1033,15 +742,23 @@ public class InterfazPrincipal extends javax.swing.JFrame {
             }
             
         }
-    }//GEN-LAST:event_jButton18ActionPerformed
+    }//GEN-LAST:event_ChangePassSave_BotonActionPerformed
 
     private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
-        if(jTextField9.getText().isEmpty() || jTextField10.getText().isEmpty() || jTextField11.getText().isEmpty() || jTextField13.getText().isEmpty() || jTextField12.getText().isEmpty()){
+        if(jTextField9.getText().isEmpty() || jTextField10.getText().isEmpty() || jTextField11.getText().isEmpty() || jTextField12.getText().isEmpty()){
             JOptionPane.showMessageDialog(null, "Por favor ingrese todos los datos");
         }else{
         
         }
     }//GEN-LAST:event_jButton16ActionPerformed
+
+    private void AlertasFiltro_BotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AlertasFiltro_BotonActionPerformed
+        this.bodyCardLayout.show(this.Body,"Filtros");
+    }//GEN-LAST:event_AlertasFiltro_BotonActionPerformed
+
+    private void FiltroBack_BotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FiltroBack_BotonActionPerformed
+        this.bodyCardLayout.show(this.Body, "Alertas");
+    }//GEN-LAST:event_FiltroBack_BotonActionPerformed
 
     private JsonArray extraerAlertas(){
         Gson gson = new Gson(); //Objeto gson para serializar String a formato Json
@@ -1128,32 +845,37 @@ public class InterfazPrincipal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel AgregarAlerta;
+    private javax.swing.JButton AjustesFiltroSave_Boton;
     private javax.swing.JButton Alertas1;
+    private javax.swing.JButton AlertasFiltro_Boton;
     private javax.swing.JPanel Altertas;
+    private javax.swing.JLabel BACKGOURND;
     private javax.swing.JPanel Body;
     private javax.swing.JPanel CambiarContraseña;
+    private javax.swing.JButton ChangePassSave_Boton;
     private javax.swing.JPanel ContactosAgregar;
     private javax.swing.JPanel ContactosModificar;
+    private javax.swing.JButton FiltroBack_Boton;
     private javax.swing.JPanel Filtros;
     private javax.swing.JPanel Mapa;
     private javax.swing.JButton Maps1;
+    private javax.swing.JButton ModContactosSafe_Bot;
     private javax.swing.JPanel PanelOpciones;
     private javax.swing.JToggleButton PanicBot;
     private javax.swing.JPanel Perfil;
     private javax.swing.JPanel Principal;
+    private javax.swing.JLabel Principal_mensaje_label;
     private javax.swing.JLabel Start_BG;
     private javax.swing.JButton btnAgregarAlerta;
     private javax.swing.JButton btnAgregarContacto;
     private javax.swing.JComboBox<String> cbTiposAlertas;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
-    private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton14;
     private javax.swing.JButton jButton15;
     private javax.swing.JButton jButton16;
     private javax.swing.JButton jButton17;
-    private javax.swing.JButton jButton18;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton20;
     private javax.swing.JButton jButton21;
@@ -1163,29 +885,15 @@ public class InterfazPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton jButton25;
     private javax.swing.JButton jButton26;
     private javax.swing.JButton jButton27;
-    private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton9;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel jLabel19;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
     private javax.swing.JList<String> jList1;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane1;
@@ -1197,7 +905,6 @@ public class InterfazPrincipal extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField10;
     private javax.swing.JTextField jTextField11;
     private javax.swing.JTextField jTextField12;
-    private javax.swing.JTextField jTextField13;
     private javax.swing.JTextField jTextField14;
     private javax.swing.JTextField jTextField15;
     private javax.swing.JTextField jTextField16;
