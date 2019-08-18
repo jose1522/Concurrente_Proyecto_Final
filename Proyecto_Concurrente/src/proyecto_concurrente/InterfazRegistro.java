@@ -12,6 +12,7 @@ import java.util.HashMap;
 import javax.swing.JOptionPane;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import com.sun.glass.events.KeyEvent;
 
 /**
  *
@@ -184,7 +185,6 @@ public class InterfazRegistro extends javax.swing.JFrame {
         });
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/ForgotPassw_BG-01.jpg"))); // NOI18N
-        jLabel2.setText("jLabel2");
 
         javax.swing.GroupLayout RecuperarContraseñaLayout = new javax.swing.GroupLayout(RecuperarContraseña);
         RecuperarContraseña.setLayout(RecuperarContraseñaLayout);
@@ -222,6 +222,12 @@ public class InterfazRegistro extends javax.swing.JFrame {
         Registrar1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         Registrar1.add(correo, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 320, 290, -1));
         Registrar1.add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 380, 290, -1));
+
+        Nombre.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                NombreKeyTyped(evt);
+            }
+        });
         Registrar1.add(Nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, 290, -1));
 
         jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Register_Back.png"))); // NOI18N
@@ -239,7 +245,19 @@ public class InterfazRegistro extends javax.swing.JFrame {
             }
         });
         Registrar1.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 550, 210, -1));
+
+        apellido.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                apellidoKeyTyped(evt);
+            }
+        });
         Registrar1.add(apellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 250, 290, -1));
+
+        cedula.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                cedulaKeyTyped(evt);
+            }
+        });
         Registrar1.add(cedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 510, 290, -1));
         Registrar1.add(confirmarPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 450, 290, -1));
 
@@ -342,7 +360,7 @@ public class InterfazRegistro extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(PanelPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, 375, Short.MAX_VALUE)
+            .addComponent(PanelPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, 375, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -475,6 +493,29 @@ public class InterfazRegistro extends javax.swing.JFrame {
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton10ActionPerformed
+
+    private void NombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_NombreKeyTyped
+        char c = evt.getKeyChar();
+        if(!(Character.isAlphabetic(c) || c==KeyEvent.VK_BACKSPACE || c==KeyEvent.VK_SHIFT)){
+            evt.consume();
+        }
+    }//GEN-LAST:event_NombreKeyTyped
+
+    private void apellidoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_apellidoKeyTyped
+        // TODO add your handling code here:
+        char c = evt.getKeyChar();
+        if(!(Character.isAlphabetic(c) || c==KeyEvent.VK_BACKSPACE || c==KeyEvent.VK_SHIFT)){
+            evt.consume();
+        }
+    }//GEN-LAST:event_apellidoKeyTyped
+
+    private void cedulaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cedulaKeyTyped
+        // TODO add your handling code here:
+        char c = evt.getKeyChar();
+        if(!(Character.isDigit(c) || c==KeyEvent.VK_BACKSPACE || c==KeyEvent.VK_SHIFT)){
+            evt.consume();
+        }
+    }//GEN-LAST:event_cedulaKeyTyped
 
     /**
      * @param args the command line arguments

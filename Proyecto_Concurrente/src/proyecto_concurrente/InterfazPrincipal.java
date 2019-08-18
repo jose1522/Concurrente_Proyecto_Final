@@ -9,6 +9,7 @@ import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import com.sun.glass.events.KeyEvent;
 import java.awt.CardLayout;
 import java.awt.Color;
 import java.util.Calendar;
@@ -70,7 +71,12 @@ public class InterfazPrincipal extends javax.swing.JFrame {
         jButton16.setBackground(new Color(0,0,0,0));
         ModContactosSafe_Bot.setBackground(new Color(0,0,0,0));
         ChangePassSave_Boton.setBackground(new Color(0,0,0,0));
- 
+        jButton3.setBackground(new Color(0,0,0,0));
+        jButton4.setBackground(new Color(0,0,0,0));
+        jButton5.setBackground(new Color(0,0,0,0));
+        jButton8.setBackground(new Color(0,0,0,0));
+
+        
     }    
     /**
      * This method is called from within the constructor to initialize the form.
@@ -102,6 +108,7 @@ public class InterfazPrincipal extends javax.swing.JFrame {
         Mapa = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
         jButton20 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
         Filtros = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jList1 = new javax.swing.JList<>();
@@ -129,6 +136,7 @@ public class InterfazPrincipal extends javax.swing.JFrame {
         jButton9 = new javax.swing.JButton();
         jButton10 = new javax.swing.JButton();
         jButton23 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
         jLabel21 = new javax.swing.JLabel();
         Perfil = new javax.swing.JPanel();
         jTextField9 = new javax.swing.JTextField();
@@ -136,6 +144,7 @@ public class InterfazPrincipal extends javax.swing.JFrame {
         jTextField11 = new javax.swing.JTextField();
         jTextField12 = new javax.swing.JTextField();
         jButton16 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
         jButton25 = new javax.swing.JButton();
         jLabel20 = new javax.swing.JLabel();
         CambiarContraseña = new javax.swing.JPanel();
@@ -144,10 +153,12 @@ public class InterfazPrincipal extends javax.swing.JFrame {
         jTextField16 = new javax.swing.JTextField();
         ChangePassSave_Boton = new javax.swing.JButton();
         jButton26 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
         jLabel22 = new javax.swing.JLabel();
         AgregarAlerta = new javax.swing.JPanel();
         jButton27 = new javax.swing.JButton();
         ContactosModificar = new javax.swing.JPanel();
+        jButton8 = new javax.swing.JButton();
         jTextField5 = new javax.swing.JTextField();
         jTextField6 = new javax.swing.JTextField();
         jTextField7 = new javax.swing.JTextField();
@@ -268,6 +279,7 @@ public class InterfazPrincipal extends javax.swing.JFrame {
         Body.add(Altertas, "Alertas");
 
         jPanel7.setBackground(new java.awt.Color(0, 153, 102));
+        jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jButton20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Head_Logo.png"))); // NOI18N
         jButton20.addActionListener(new java.awt.event.ActionListener() {
@@ -275,23 +287,10 @@ public class InterfazPrincipal extends javax.swing.JFrame {
                 jButton20ActionPerformed(evt);
             }
         });
+        jPanel7.add(jButton20, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 0, -1, -1));
 
-        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
-        jPanel7.setLayout(jPanel7Layout);
-        jPanel7Layout.setHorizontalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel7Layout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addComponent(jButton20)
-                .addContainerGap(116, Short.MAX_VALUE))
-        );
-        jPanel7Layout.setVerticalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel7Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jButton20)
-                .addContainerGap(585, Short.MAX_VALUE))
-        );
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/BG-01.jpg"))); // NOI18N
+        jPanel7.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         javax.swing.GroupLayout MapaLayout = new javax.swing.GroupLayout(Mapa);
         Mapa.setLayout(MapaLayout);
@@ -333,7 +332,7 @@ public class InterfazPrincipal extends javax.swing.JFrame {
                 jButton21ActionPerformed(evt);
             }
         });
-        Filtros.add(jButton21, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, -1, -1));
+        Filtros.add(jButton21, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 0, -1, -1));
 
         FiltroBack_Boton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Register_Back.png"))); // NOI18N
         FiltroBack_Boton.addActionListener(new java.awt.event.ActionListener() {
@@ -384,7 +383,7 @@ public class InterfazPrincipal extends javax.swing.JFrame {
                 jButton22ActionPerformed(evt);
             }
         });
-        PanelOpciones.add(jButton22, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, -1, -1));
+        PanelOpciones.add(jButton22, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 0, -1, -1));
 
         BACKGOURND.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/BG-01.jpg"))); // NOI18N
         PanelOpciones.add(BACKGOURND, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -393,8 +392,26 @@ public class InterfazPrincipal extends javax.swing.JFrame {
 
         ContactosAgregar.setBackground(new java.awt.Color(255, 255, 255));
         ContactosAgregar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        tbNombreContacto.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                tbNombreContactoKeyTyped(evt);
+            }
+        });
         ContactosAgregar.add(tbNombreContacto, new org.netbeans.lib.awtextra.AbsoluteConstraints(37, 152, 140, -1));
+
+        tbApellidosContactos.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                tbApellidosContactosKeyTyped(evt);
+            }
+        });
         ContactosAgregar.add(tbApellidosContactos, new org.netbeans.lib.awtextra.AbsoluteConstraints(215, 152, 140, -1));
+
+        tbTelefonoContacto.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                tbTelefonoContactoKeyTyped(evt);
+            }
+        });
         ContactosAgregar.add(tbTelefonoContacto, new org.netbeans.lib.awtextra.AbsoluteConstraints(33, 230, 320, -1));
         ContactosAgregar.add(tbEmailContacto, new org.netbeans.lib.awtextra.AbsoluteConstraints(33, 300, 320, -1));
 
@@ -438,7 +455,15 @@ public class InterfazPrincipal extends javax.swing.JFrame {
                 jButton23ActionPerformed(evt);
             }
         });
-        ContactosAgregar.add(jButton23, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, -1, -1));
+        ContactosAgregar.add(jButton23, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 0, -1, -1));
+
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Register_Back.png"))); // NOI18N
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        ContactosAgregar.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 610, -1, -1));
 
         jLabel21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/AddContactBG-01.jpg"))); // NOI18N
         ContactosAgregar.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -448,8 +473,26 @@ public class InterfazPrincipal extends javax.swing.JFrame {
         Perfil.setBackground(new java.awt.Color(255, 255, 255));
         Perfil.setAutoscrolls(true);
         Perfil.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jTextField9.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextField9KeyTyped(evt);
+            }
+        });
         Perfil.add(jTextField9, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, 290, -1));
+
+        jTextField10.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextField10KeyTyped(evt);
+            }
+        });
         Perfil.add(jTextField10, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, 290, -1));
+
+        jTextField11.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextField11KeyTyped(evt);
+            }
+        });
         Perfil.add(jTextField11, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, 290, -1));
 
         jTextField12.setEditable(false);
@@ -463,13 +506,21 @@ public class InterfazPrincipal extends javax.swing.JFrame {
         });
         Perfil.add(jButton16, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 530, -1, -1));
 
+        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Register_Back.png"))); // NOI18N
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+        Perfil.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 610, -1, -1));
+
         jButton25.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Head_Logo.png"))); // NOI18N
         jButton25.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton25ActionPerformed(evt);
             }
         });
-        Perfil.add(jButton25, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, -1, -1));
+        Perfil.add(jButton25, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 0, -1, -1));
 
         jLabel20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/PerfIlBG-01.jpg"))); // NOI18N
         Perfil.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -496,7 +547,15 @@ public class InterfazPrincipal extends javax.swing.JFrame {
                 jButton26ActionPerformed(evt);
             }
         });
-        CambiarContraseña.add(jButton26, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, -1, -1));
+        CambiarContraseña.add(jButton26, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 0, -1, -1));
+
+        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Register_Back.png"))); // NOI18N
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+        CambiarContraseña.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 610, -1, -1));
 
         jLabel22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/ChangePasBG-01.jpg"))); // NOI18N
         CambiarContraseña.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -531,8 +590,34 @@ public class InterfazPrincipal extends javax.swing.JFrame {
 
         ContactosModificar.setBackground(new java.awt.Color(255, 255, 255));
         ContactosModificar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Register_Back.png"))); // NOI18N
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
+        ContactosModificar.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 610, -1, -1));
+
+        jTextField5.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextField5KeyTyped(evt);
+            }
+        });
         ContactosModificar.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(38, 162, 310, -1));
+
+        jTextField6.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextField6KeyTyped(evt);
+            }
+        });
         ContactosModificar.add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 230, 310, -1));
+
+        jTextField7.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextField7KeyTyped(evt);
+            }
+        });
         ContactosModificar.add(jTextField7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 300, 310, -1));
         ContactosModificar.add(jTextField8, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 370, 310, -1));
 
@@ -550,7 +635,7 @@ public class InterfazPrincipal extends javax.swing.JFrame {
                 jButton24ActionPerformed(evt);
             }
         });
-        ContactosModificar.add(jButton24, new org.netbeans.lib.awtextra.AbsoluteConstraints(73, 6, -1, -1));
+        ContactosModificar.add(jButton24, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 0, -1, -1));
 
         jLabel23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/ModContacto-01.jpg"))); // NOI18N
         ContactosModificar.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -565,7 +650,7 @@ public class InterfazPrincipal extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Body, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(Body, javax.swing.GroupLayout.DEFAULT_SIZE, 667, Short.MAX_VALUE)
         );
 
         pack();
@@ -760,6 +845,88 @@ public class InterfazPrincipal extends javax.swing.JFrame {
         this.bodyCardLayout.show(this.Body, "Alertas");
     }//GEN-LAST:event_FiltroBack_BotonActionPerformed
 
+    private void tbNombreContactoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbNombreContactoKeyTyped
+       char c = evt.getKeyChar();
+        if(!(Character.isAlphabetic(c) || c==KeyEvent.VK_BACKSPACE || c==KeyEvent.VK_SHIFT)){
+            evt.consume();
+        }
+    }//GEN-LAST:event_tbNombreContactoKeyTyped
+
+    private void tbApellidosContactosKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbApellidosContactosKeyTyped
+        char c = evt.getKeyChar();
+        if(!(Character.isAlphabetic(c) || c==KeyEvent.VK_BACKSPACE || c==KeyEvent.VK_SHIFT)){
+            evt.consume();
+        }
+    }//GEN-LAST:event_tbApellidosContactosKeyTyped
+
+    private void tbTelefonoContactoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbTelefonoContactoKeyTyped
+        char c = evt.getKeyChar();
+        if(!(Character.isDigit(c) || c==KeyEvent.VK_BACKSPACE || c==KeyEvent.VK_SHIFT)){
+            evt.consume();
+        }
+    }//GEN-LAST:event_tbTelefonoContactoKeyTyped
+
+    private void jTextField10KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField10KeyTyped
+        char c = evt.getKeyChar();
+        if(!(Character.isAlphabetic(c) || c==KeyEvent.VK_BACKSPACE || c==KeyEvent.VK_SHIFT)){
+            evt.consume();
+        }
+    }//GEN-LAST:event_jTextField10KeyTyped
+
+    private void jTextField11KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField11KeyTyped
+char c = evt.getKeyChar();
+        if(!(Character.isAlphabetic(c) || c==KeyEvent.VK_BACKSPACE || c==KeyEvent.VK_SHIFT)){
+            evt.consume();
+        }
+    }//GEN-LAST:event_jTextField11KeyTyped
+
+    private void jTextField9KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField9KeyTyped
+        char c = evt.getKeyChar();
+        if(!(Character.isDigit(c) || c==KeyEvent.VK_BACKSPACE || c==KeyEvent.VK_SHIFT)){
+            evt.consume();
+        }
+    }//GEN-LAST:event_jTextField9KeyTyped
+
+    private void jTextField5KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField5KeyTyped
+        // TODO add your handling code here:
+        char c = evt.getKeyChar();
+        if(!(Character.isAlphabetic(c) || c==KeyEvent.VK_BACKSPACE || c==KeyEvent.VK_SHIFT)){
+            evt.consume();
+        }
+    }//GEN-LAST:event_jTextField5KeyTyped
+
+    private void jTextField6KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField6KeyTyped
+        // TODO add your handling code here:
+        char c = evt.getKeyChar();
+        if(!(Character.isAlphabetic(c) || c==KeyEvent.VK_BACKSPACE || c==KeyEvent.VK_SHIFT)){
+            evt.consume();
+        }
+    }//GEN-LAST:event_jTextField6KeyTyped
+
+    private void jTextField7KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField7KeyTyped
+        // TODO add your handling code here:
+        char c = evt.getKeyChar();
+        if(!(Character.isDigit(c) || c==KeyEvent.VK_BACKSPACE || c==KeyEvent.VK_SHIFT)){
+            evt.consume();
+        }
+    }//GEN-LAST:event_jTextField7KeyTyped
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        this.bodyCardLayout.show(this.Body, "PanelOpciones");
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        this.bodyCardLayout.show(this.Body, "PanelOpciones");
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        this.bodyCardLayout.show(this.Body, "PanelOpciones");
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        this.bodyCardLayout.show(this.Body, "ContactosAgregar");
+    }//GEN-LAST:event_jButton8ActionPerformed
+
     private JsonArray extraerAlertas(){
         Gson gson = new Gson(); //Objeto gson para serializar String a formato Json
         ClienteTCP client = new ClienteTCP(); //Cliente TCP para enviar datos
@@ -885,9 +1052,14 @@ public class InterfazPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton jButton25;
     private javax.swing.JButton jButton26;
     private javax.swing.JButton jButton27;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
+    private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel20;
