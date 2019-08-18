@@ -12,9 +12,16 @@ import com.google.gson.JsonParser;
 import com.sun.glass.events.KeyEvent;
 import java.awt.CardLayout;
 import java.awt.Color;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -108,6 +115,7 @@ public class InterfazPrincipal extends javax.swing.JFrame {
         jLabel18 = new javax.swing.JLabel();
         Mapa = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
+        MapaLabel = new javax.swing.JLabel();
         jButton20 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         Filtros = new javax.swing.JPanel();
@@ -273,6 +281,17 @@ public class InterfazPrincipal extends javax.swing.JFrame {
 
         jPanel7.setBackground(new java.awt.Color(0, 153, 102));
         jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        MapaLabel.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                MapaLabelAncestorAdded(evt);
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
+        jPanel7.add(MapaLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 340, 530));
 
         jButton20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Head_Logo.png"))); // NOI18N
         jButton20.addActionListener(new java.awt.event.ActionListener() {
@@ -984,6 +1003,38 @@ char c = evt.getKeyChar();
         perfilApellido.setText(nombre);
     }//GEN-LAST:event_perfilApellidoAncestorAdded
 
+    private void MapaLabelAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_MapaLabelAncestorAdded
+  //        String marker = null;
+//        String latitud = "9.941295";
+//        String longitud = "-84.079674";
+//        marker += "&markers="+latitud+"%2C+"+longitud; 
+//        String startURL = "http://maps.googleapis.com/maps/api/staticmap?center=9.9360505%2C+-84.0790755&zoom=16&size=300x650&scale=1&format=png&maptype=terrain";
+//        String endURL = "&region=es&language=es&sensor=false&key=AIzaSyAWZLD2A6ltEb4HMzzRgNbOEgLJ1Sm89KI=";
+          String msg = "http://maps.googleapis.com/maps/api/staticmap?center=9.9360505%2C+-84.0790755&zoom=16&size=340x530&scale=1&format=png&maptype=terrain&markers9.941295%2C-84.079674&region=es&language=es&sensor=false&key=AIzaSyAWZLD2A6ltEb4HMzzRgNbOEgLJ1Sm89KI=";
+        try {
+            //
+            URL url = new URL(msg);
+            BufferedImage image = ImageIO.read(url);
+            MapaLabel.setIcon(new javax.swing.ImageIcon(image));
+//        try {
+//            url = new URL(msg);
+//        } catch (MalformedURLException ex) {
+//            Logger.getLogger(InterfazPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//        try {
+//            image = ImageIO.read(url);
+//        } catch (IOException ex) {
+//            Logger.getLogger(InterfazPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//        System.out.println(image);
+//        MapaLabel.setIcon(new javax.swing.ImageIcon(image));
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(InterfazPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(InterfazPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_MapaLabelAncestorAdded
+
     private JsonArray extraerAlertas(){
         Gson gson = new Gson(); //Objeto gson para serializar String a formato Json
         ClienteTCP client = new ClienteTCP(); //Cliente TCP para enviar datos
@@ -1081,6 +1132,7 @@ char c = evt.getKeyChar();
     private javax.swing.JButton FiltroBack_Boton;
     private javax.swing.JPanel Filtros;
     private javax.swing.JPanel Mapa;
+    private javax.swing.JLabel MapaLabel;
     private javax.swing.JButton Maps1;
     private javax.swing.JButton ModContactosSafe_Bot;
     private javax.swing.JPanel PanelOpciones;
