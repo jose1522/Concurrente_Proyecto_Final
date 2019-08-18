@@ -141,17 +141,17 @@ public class InterfazPrincipal extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
         jLabel21 = new javax.swing.JLabel();
         Perfil = new javax.swing.JPanel();
-        jTextField9 = new javax.swing.JTextField();
-        jTextField10 = new javax.swing.JTextField();
-        jTextField11 = new javax.swing.JTextField();
-        jTextField12 = new javax.swing.JTextField();
+        perfilCedula = new javax.swing.JTextField();
+        perfilNombre = new javax.swing.JTextField();
+        perfilApellido = new javax.swing.JTextField();
+        perfilCorrreo = new javax.swing.JTextField();
         jButton16 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jButton25 = new javax.swing.JButton();
         jLabel20 = new javax.swing.JLabel();
         CambiarContraseña = new javax.swing.JPanel();
-        jTextField14 = new javax.swing.JTextField();
-        jTextField15 = new javax.swing.JTextField();
+        actualPasswrd = new javax.swing.JTextField();
+        nuevoPass = new javax.swing.JTextField();
         jTextField16 = new javax.swing.JTextField();
         ChangePassSave_Boton = new javax.swing.JButton();
         jButton26 = new javax.swing.JButton();
@@ -476,29 +476,65 @@ public class InterfazPrincipal extends javax.swing.JFrame {
         Perfil.setAutoscrolls(true);
         Perfil.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTextField9.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                jTextField9KeyTyped(evt);
+        perfilCedula.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                perfilCedulaAncestorAdded(evt);
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
             }
         });
-        Perfil.add(jTextField9, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, 290, -1));
-
-        jTextField10.addKeyListener(new java.awt.event.KeyAdapter() {
+        perfilCedula.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                jTextField10KeyTyped(evt);
+                perfilCedulaKeyTyped(evt);
             }
         });
-        Perfil.add(jTextField10, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, 290, -1));
+        Perfil.add(perfilCedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, 290, -1));
 
-        jTextField11.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                jTextField11KeyTyped(evt);
+        perfilNombre.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                perfilNombreAncestorAdded(evt);
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
             }
         });
-        Perfil.add(jTextField11, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, 290, -1));
+        perfilNombre.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                perfilNombreKeyTyped(evt);
+            }
+        });
+        Perfil.add(perfilNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, 290, -1));
 
-        jTextField12.setEditable(false);
-        Perfil.add(jTextField12, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 370, 290, -1));
+        perfilApellido.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                perfilApellidoAncestorAdded(evt);
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
+        perfilApellido.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                perfilApellidoKeyTyped(evt);
+            }
+        });
+        Perfil.add(perfilApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, 290, -1));
+
+        perfilCorrreo.setEditable(false);
+        perfilCorrreo.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+                perfilCorrreoAncestorMoved(evt);
+            }
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
+        Perfil.add(perfilCorrreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 370, 290, -1));
 
         jButton16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/SaveBoton.png"))); // NOI18N
         jButton16.addActionListener(new java.awt.event.ActionListener() {
@@ -531,8 +567,8 @@ public class InterfazPrincipal extends javax.swing.JFrame {
 
         CambiarContraseña.setBackground(new java.awt.Color(255, 255, 255));
         CambiarContraseña.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        CambiarContraseña.add(jTextField14, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 202, 280, -1));
-        CambiarContraseña.add(jTextField15, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 310, 280, -1));
+        CambiarContraseña.add(actualPasswrd, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 202, 280, -1));
+        CambiarContraseña.add(nuevoPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 310, 280, -1));
         CambiarContraseña.add(jTextField16, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 420, 280, -1));
 
         ChangePassSave_Boton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/SaveBoton.png"))); // NOI18N
@@ -805,6 +841,7 @@ public class InterfazPrincipal extends javax.swing.JFrame {
         
         String payload = gson.toJson(usuario);
         client.enviaServidor(payload);
+        
         }
         
     }//GEN-LAST:event_btnAgregarContactoActionPerformed
@@ -819,20 +856,39 @@ public class InterfazPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_ModContactosSafe_BotActionPerformed
 
     private void ChangePassSave_BotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ChangePassSave_BotonActionPerformed
-        if(jTextField15.getText().isEmpty() || jTextField16.getText().isEmpty() || jTextField14.getText().isEmpty()){
+        if(nuevoPass.getText().isEmpty() || jTextField16.getText().isEmpty() || actualPasswrd.getText().isEmpty()){
             JOptionPane.showMessageDialog(null, "Por favor ingrese todos los datos");
-        }else{
-            if(jTextField15.getText().equals(jTextField16.getText())){
-                 JOptionPane.showMessageDialog(null, "Se cambio la contraseña");
-            }else{
-                JOptionPane.showMessageDialog(null, "Las contraseña no son iguales");
+        }else if(nuevoPass.getText().length() <6){
+            JOptionPane.showMessageDialog(null, "Por favor ingrese una contrasena de mas de 6 digitos");
+        }else if (!nuevoPass.getText().equals(jTextField16.getText())){
+            JOptionPane.showMessageDialog(null, "Las contraseña no son iguales");
+        }else {
+            if(nuevoPass.getText().equals(jTextField16.getText())){
+                
+                Gson gson = new Gson();
+                ClienteTCP client = new ClienteTCP();
+                HashMap usuario = new HashMap();
+                
+                usuario.put("email",this.email);
+                usuario.put("contrasena actual", actualPasswrd.getText());                
+                usuario.put("nueva contrasena",nuevoPass.getText());
+                usuario.put("accion","cambiar contraseña");
+                String payload =gson.toJson(usuario);
+                String resultado = client.enviaServidor(payload);
+                JsonObject jsonObject = new JsonParser().parse(resultado).getAsJsonObject();
+                boolean exito =  jsonObject.get("exito").getAsBoolean();
+                
+                 if (exito){
+                     JOptionPane.showMessageDialog(null, "Se cambio la contraseña");
+                 }
+            
             }
             
         }
     }//GEN-LAST:event_ChangePassSave_BotonActionPerformed
 
     private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
-        if(jTextField9.getText().isEmpty() || jTextField10.getText().isEmpty() || jTextField11.getText().isEmpty() || jTextField12.getText().isEmpty()){
+        if(perfilCedula.getText().isEmpty() || perfilNombre.getText().isEmpty() || perfilApellido.getText().isEmpty() || perfilCorrreo.getText().isEmpty()){
             JOptionPane.showMessageDialog(null, "Por favor ingrese todos los datos");
         }else{
         
@@ -868,26 +924,26 @@ public class InterfazPrincipal extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_tbTelefonoContactoKeyTyped
 
-    private void jTextField10KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField10KeyTyped
+    private void perfilNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_perfilNombreKeyTyped
         char c = evt.getKeyChar();
         if(!(Character.isAlphabetic(c) || c==KeyEvent.VK_BACKSPACE || c==KeyEvent.VK_SHIFT)){
             evt.consume();
         }
-    }//GEN-LAST:event_jTextField10KeyTyped
+    }//GEN-LAST:event_perfilNombreKeyTyped
 
-    private void jTextField11KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField11KeyTyped
+    private void perfilApellidoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_perfilApellidoKeyTyped
 char c = evt.getKeyChar();
         if(!(Character.isAlphabetic(c) || c==KeyEvent.VK_BACKSPACE || c==KeyEvent.VK_SHIFT)){
             evt.consume();
         }
-    }//GEN-LAST:event_jTextField11KeyTyped
+    }//GEN-LAST:event_perfilApellidoKeyTyped
 
-    private void jTextField9KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField9KeyTyped
+    private void perfilCedulaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_perfilCedulaKeyTyped
         char c = evt.getKeyChar();
         if(!(Character.isDigit(c) || c==KeyEvent.VK_BACKSPACE || c==KeyEvent.VK_SHIFT)){
             evt.consume();
         }
-    }//GEN-LAST:event_jTextField9KeyTyped
+    }//GEN-LAST:event_perfilCedulaKeyTyped
 
     private void jTextField5KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField5KeyTyped
         // TODO add your handling code here:
@@ -928,6 +984,27 @@ char c = evt.getKeyChar();
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         this.bodyCardLayout.show(this.Body, "ContactosAgregar");
     }//GEN-LAST:event_jButton8ActionPerformed
+
+    private void perfilNombreAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_perfilNombreAncestorAdded
+//        Gson gson = new Gson();
+//        ClienteTCP client = new ClienteTCP();
+//        HashMap usuario = new HashMap();
+//        
+//        usuario.put("nombre",this.);
+
+    }//GEN-LAST:event_perfilNombreAncestorAdded
+
+    private void perfilApellidoAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_perfilApellidoAncestorAdded
+        // TODO add your handling code here:
+    }//GEN-LAST:event_perfilApellidoAncestorAdded
+
+    private void perfilCedulaAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_perfilCedulaAncestorAdded
+        // TODO add your handling code here:
+    }//GEN-LAST:event_perfilCedulaAncestorAdded
+
+    private void perfilCorrreoAncestorMoved(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_perfilCorrreoAncestorMoved
+        // TODO add your handling code here:
+    }//GEN-LAST:event_perfilCorrreoAncestorMoved
 
     private JsonArray extraerAlertas(){
         Gson gson = new Gson(); //Objeto gson para serializar String a formato Json
@@ -1035,6 +1112,7 @@ char c = evt.getKeyChar();
     private javax.swing.JPanel Principal;
     private javax.swing.JLabel Principal_mensaje_label;
     private javax.swing.JLabel Start_BG;
+    private javax.swing.JTextField actualPasswrd;
     private javax.swing.JButton btnAgregarAlerta;
     private javax.swing.JButton btnAgregarContacto;
     private javax.swing.JComboBox<String> cbTiposAlertas;
@@ -1076,17 +1154,16 @@ char c = evt.getKeyChar();
     private javax.swing.JSlider jSlider1;
     private javax.swing.JSlider jSlider2;
     private javax.swing.JTable jTable2;
-    private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField11;
-    private javax.swing.JTextField jTextField12;
-    private javax.swing.JTextField jTextField14;
-    private javax.swing.JTextField jTextField15;
     private javax.swing.JTextField jTextField16;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextField8;
-    private javax.swing.JTextField jTextField9;
+    private javax.swing.JTextField nuevoPass;
+    private javax.swing.JTextField perfilApellido;
+    private javax.swing.JTextField perfilCedula;
+    private javax.swing.JTextField perfilCorrreo;
+    private javax.swing.JTextField perfilNombre;
     private javax.swing.JTextField tbApellidosContactos;
     private javax.swing.JTextField tbEmailContacto;
     private javax.swing.JTextField tbNombreContacto;

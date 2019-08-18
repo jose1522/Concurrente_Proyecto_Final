@@ -391,6 +391,8 @@ public class InterfazRegistro extends javax.swing.JFrame {
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         if(correo.getText().isEmpty() || password.getText().isEmpty() || Nombre.getText().isEmpty() || apellido.getText().isEmpty() || confirmarPassword.getText().isEmpty()|| cedula.getText().isEmpty()){
             JOptionPane.showMessageDialog(null, "Por favor ingrese todos los datos");
+        }else if(password.getText().length() <6){
+            JOptionPane.showMessageDialog(null, "Por favor ingrese una contrasena de mas de 6 digitos");
         }else{
             if(password.getText().equals(confirmarPassword.getText())){
 
@@ -513,6 +515,8 @@ public class InterfazRegistro extends javax.swing.JFrame {
         // TODO add your handling code here:
         char c = evt.getKeyChar();
         if(!(Character.isDigit(c) || c==KeyEvent.VK_BACKSPACE || c==KeyEvent.VK_SHIFT)){
+            evt.consume();
+        }else if(cedula.getText().length() >=9){
             evt.consume();
         }
     }//GEN-LAST:event_cedulaKeyTyped
