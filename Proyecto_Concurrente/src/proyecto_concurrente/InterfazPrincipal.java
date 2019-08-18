@@ -140,10 +140,10 @@ public class InterfazPrincipal extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
         jLabel21 = new javax.swing.JLabel();
         Perfil = new javax.swing.JPanel();
-        perfilCedula = new javax.swing.JTextField();
         perfilNombre = new javax.swing.JTextField();
         perfilApellido = new javax.swing.JTextField();
-        perfilCorrreo = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         jButton16 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jButton25 = new javax.swing.JButton();
@@ -467,22 +467,6 @@ public class InterfazPrincipal extends javax.swing.JFrame {
         Perfil.setAutoscrolls(true);
         Perfil.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        perfilCedula.addAncestorListener(new javax.swing.event.AncestorListener() {
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
-            }
-            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
-                perfilCedulaAncestorAdded(evt);
-            }
-            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
-            }
-        });
-        perfilCedula.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                perfilCedulaKeyTyped(evt);
-            }
-        });
-        Perfil.add(perfilCedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, 290, -1));
-
         perfilNombre.addAncestorListener(new javax.swing.event.AncestorListener() {
             public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
             }
@@ -497,7 +481,7 @@ public class InterfazPrincipal extends javax.swing.JFrame {
                 perfilNombreKeyTyped(evt);
             }
         });
-        Perfil.add(perfilNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, 290, -1));
+        Perfil.add(perfilNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, 290, -1));
 
         perfilApellido.addAncestorListener(new javax.swing.event.AncestorListener() {
             public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
@@ -513,19 +497,17 @@ public class InterfazPrincipal extends javax.swing.JFrame {
                 perfilApellidoKeyTyped(evt);
             }
         });
-        Perfil.add(perfilApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, 290, -1));
+        Perfil.add(perfilApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 360, 290, -1));
 
-        perfilCorrreo.setEditable(false);
-        perfilCorrreo.addAncestorListener(new javax.swing.event.AncestorListener() {
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
-                perfilCorrreoAncestorMoved(evt);
-            }
-            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
-            }
-            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
-            }
-        });
-        Perfil.add(perfilCorrreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 370, 290, -1));
+        jLabel3.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("Apellido");
+        Perfil.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 340, -1, -1));
+
+        jLabel2.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("Nombre");
+        Perfil.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, -1, -1));
 
         jButton16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/SaveBoton.png"))); // NOI18N
         jButton16.addActionListener(new java.awt.event.ActionListener() {
@@ -551,7 +533,7 @@ public class InterfazPrincipal extends javax.swing.JFrame {
         });
         Perfil.add(jButton25, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 0, -1, -1));
 
-        jLabel20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/PerfIlBG-01.jpg"))); // NOI18N
+        jLabel20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/BG-01.jpg"))); // NOI18N
         Perfil.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         Body.add(Perfil, "Perfil");
@@ -879,7 +861,7 @@ public class InterfazPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_ChangePassSave_BotonActionPerformed
 
     private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
-        if(perfilCedula.getText().isEmpty() || perfilNombre.getText().isEmpty() || perfilApellido.getText().isEmpty() || perfilCorrreo.getText().isEmpty()){
+        if(perfilNombre.getText().isEmpty() || perfilApellido.getText().isEmpty()){
             JOptionPane.showMessageDialog(null, "Por favor ingrese todos los datos");
         }else{
         
@@ -925,13 +907,6 @@ char c = evt.getKeyChar();
         }
     }//GEN-LAST:event_perfilApellidoKeyTyped
 
-    private void perfilCedulaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_perfilCedulaKeyTyped
-        char c = evt.getKeyChar();
-        if(!(Character.isDigit(c) || c==KeyEvent.VK_BACKSPACE || c==KeyEvent.VK_SHIFT)){
-            evt.consume();
-        }
-    }//GEN-LAST:event_perfilCedulaKeyTyped
-
     private void jTextField5KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField5KeyTyped
         // TODO add your handling code here:
         char c = evt.getKeyChar();
@@ -973,25 +948,41 @@ char c = evt.getKeyChar();
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void perfilNombreAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_perfilNombreAncestorAdded
-//        Gson gson = new Gson();
-//        ClienteTCP client = new ClienteTCP();
-//        HashMap usuario = new HashMap();
-//        
-//        usuario.put("nombre",this.);
+        Gson gson = new Gson();
+        ClienteTCP client = new ClienteTCP();
+        HashMap usuario = new HashMap();
+        
+        usuario.put("email",this.email);
+        usuario.put("accion", "mis datos");
+        String payload = gson.toJson(usuario);//Serializa parametros en formato JSON
+        String resultado= client.enviaServidor(payload); //Agrega el mensaje devuelto por el servidor a un string
+        JsonObject jsonObject = new JsonParser().parse(resultado).getAsJsonObject();
+        System.out.println(jsonObject.toString());
+        String stringTemporal = jsonObject.get("reporte").getAsString();
+        jsonObject = new JsonParser().parse(stringTemporal).getAsJsonObject();
+        String nombre = jsonObject.get("nombre").getAsString();
+        perfilNombre.setText(nombre);
+
+        
 
     }//GEN-LAST:event_perfilNombreAncestorAdded
 
     private void perfilApellidoAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_perfilApellidoAncestorAdded
-        // TODO add your handling code here:
+        Gson gson = new Gson();
+        ClienteTCP client = new ClienteTCP();
+        HashMap usuario = new HashMap();
+        
+        usuario.put("email",this.email);
+        usuario.put("accion", "mis datos");
+        String payload = gson.toJson(usuario);//Serializa parametros en formato JSON
+        String resultado= client.enviaServidor(payload); //Agrega el mensaje devuelto por el servidor a un string
+        JsonObject jsonObject = new JsonParser().parse(resultado).getAsJsonObject();
+        System.out.println(jsonObject.toString());
+        String stringTemporal = jsonObject.get("reporte").getAsString();
+        jsonObject = new JsonParser().parse(stringTemporal).getAsJsonObject();
+        String nombre = jsonObject.get("apellidos").getAsString();
+        perfilApellido.setText(nombre);
     }//GEN-LAST:event_perfilApellidoAncestorAdded
-
-    private void perfilCedulaAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_perfilCedulaAncestorAdded
-        // TODO add your handling code here:
-    }//GEN-LAST:event_perfilCedulaAncestorAdded
-
-    private void perfilCorrreoAncestorMoved(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_perfilCorrreoAncestorMoved
-        // TODO add your handling code here:
-    }//GEN-LAST:event_perfilCorrreoAncestorMoved
 
     private JsonArray extraerAlertas(){
         Gson gson = new Gson(); //Objeto gson para serializar String a formato Json
@@ -1128,10 +1119,12 @@ char c = evt.getKeyChar();
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JList<String> jList1;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane1;
@@ -1147,8 +1140,6 @@ char c = evt.getKeyChar();
     private javax.swing.JTextField jTextField8;
     private javax.swing.JTextField nuevoPass;
     private javax.swing.JTextField perfilApellido;
-    private javax.swing.JTextField perfilCedula;
-    private javax.swing.JTextField perfilCorrreo;
     private javax.swing.JTextField perfilNombre;
     private javax.swing.JTextField tbApellidosContactos;
     private javax.swing.JTextField tbEmailContacto;

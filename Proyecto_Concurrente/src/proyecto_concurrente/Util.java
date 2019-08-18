@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package proyecto_concurrente;
 
 import java.security.MessageDigest;
@@ -32,6 +27,12 @@ public class Util {
         return output;
     }
     
+    public static double numeroAleatorio(double Max, double Min){
+        /*
+        Devuelve un numero aleatorio del 1 a max
+        */
+        double aux = (Math.random() * (Max-Min) + Min); 
+        
+        return aux;        
+    }
 }
-
-

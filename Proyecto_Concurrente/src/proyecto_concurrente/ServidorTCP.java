@@ -218,9 +218,9 @@ public class ServidorTCP {
         Date fecha = Calendar.getInstance().getTime();
 
         Eventos e = new Eventos(email, fecha, nombre);
-        e.setLatitud(0);
-        e.setLongitud(0);
-        e.setBarrio("San Jose");
+//        e.setLatitud(0);
+//        e.setLongitud(0);
+        //e.setBarrio("San Jose");
         eventos.add(e);
         return true;
     }
@@ -288,20 +288,37 @@ public class ServidorTCP {
    public String misDatos(String payload){
         JsonObject jsonObject = new JsonParser().parse(payload).getAsJsonObject(); //Objeto para deserializar el input que recibe el servidor
         String email = jsonObject.get("email").getAsString(); //Se extrae un objeto especifico
+        System.out.println("Email del usuario " + email);
+        System.out.println("Tamano de usuarios: "+usuarios.size());
         String reporteString = "";
         HashMap reporte = new HashMap();
         
         //Se agregan eventos a la lista. Se extrae un maximo de 25 eventos, empezando desde el mas reciente
         if(usuarios.size()>0){
-            for (int i = 0; i > usuarios.size(); i++) {
-                 if (usuarios.get(i).getEmail().equals(email)){
-                    reporte.put("nombre", usuarios.get(i).getNombre());
-                    reporte.put("apellidos", usuarios.get(i).getApellidos());
-                    reporte.put("telefono", usuarios.get(i).getCelular());
-                    reporte.put("genero", usuarios.get(i).getGenero());
+            System.out.println("Entra a if.");
+            for (Usuario usuario : usuarios) {
+                System.out.println("Entra a for.");
+                    if (usuario.getEmail().equals(email)){
+                        System.out.println("Entra a if #2.");
+                        reporte.put("nombre", usuario.getNombre());
+                        reporte.put("apellidos", usuario.getApellidos());
+                        reporte.put("cedula", usuario.getCedula());
+                        reporte.put("genero", usuario.getGenero());
+                        System.out.println(reporte.toString());
                     break;
-                }           
+                }  
             }
+//            for (int i = 0; i > usuarios.size(); i++) {
+//                System.out.println("Email en lista " + usuarios.get(i).getEmail());
+//                 if (usuarios.get(i).getEmail().equals(email)){
+//                    reporte.put("nombre", usuarios.get(i).getNombre());
+//                    reporte.put("apellidos", usuarios.get(i).getApellidos());
+//                    reporte.put("telefono", usuarios.get(i).getCelular());
+//                    reporte.put("genero", usuarios.get(i).getGenero());
+//                    System.out.println(reporte.toString());
+//                    break;
+//                }           
+//            }
             reporteString = gson.toJson(reporte);
             System.out.println(reporteString);
         }
