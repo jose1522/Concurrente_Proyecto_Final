@@ -35,7 +35,8 @@ import java.util.Date;
 //           for (int i = 0; i < eventos.size(); i++) {
 //                System.out.println(eventos.get(i).toString());
 //           }
-
+//            ClienteUDP c = new ClienteUDP();
+//            System.out.println(c.enviaServidor());
        }
     
         public static void crearUsuario(){

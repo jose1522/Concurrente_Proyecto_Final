@@ -11,6 +11,7 @@ public class AppServidor {
     public static void main(String[] args) {
         ServidorTCP srv = new ServidorTCP();
         ClienteAPI api = new ClienteAPI();
+        
         Thread hilo = new Thread() {
             @Override
             public void run() {
@@ -19,7 +20,7 @@ public class AppServidor {
         };
 //        srv.run();
         hilo.start();
-        api.crearMapa();
+        api.inciarUDP();
         
         
     }   

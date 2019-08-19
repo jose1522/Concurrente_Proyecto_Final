@@ -153,19 +153,38 @@ public class ServidorTCP {
     
     public boolean modificarContactoEmergencia(String payload){
         JsonObject jsonObject = new JsonParser().parse(payload).getAsJsonObject();
+        System.out.println(payload);
         String email = jsonObject.get("email").getAsString();
         String nombre = jsonObject.get("nombre").getAsString();
         String apellidos = jsonObject.get("apellidos").getAsString();
         String celular = jsonObject.get("celular").getAsString();
         String id = jsonObject.get("id").getAsString(); //es el unique ID, NO EL EMAIL
         
-        for (int i = 0; i < contactos.size(); i++) {
-            ContactoEmergencia aux = contactos.get(i);
+        for (ContactoEmergencia contacto:contactos) {
+            ContactoEmergencia aux = contacto;
+            System.out.println(aux.getId());
             if (aux.getId().equals(id)){
                 aux.setEmail(email);
                 aux.setNombre(nombre);
                 aux.setApellidos(apellidos);
                 aux.setCelular(celular);
+                return true;
+            }
+        }
+        
+        return false;
+    }
+    
+    public boolean eliminarContactoEmergencia(String payload){
+        JsonObject jsonObject = new JsonParser().parse(payload).getAsJsonObject();
+        System.out.println(payload);
+        String id = jsonObject.get("id").getAsString(); //es el unique ID, NO EL EMAIL
+        
+        for (ContactoEmergencia contacto:contactos) {
+            ContactoEmergencia aux = contacto;
+            System.out.println(aux.getId());
+            if (aux.getId().equals(id)){
+                contactos.remove(contacto);
                 return true;
             }
         }
@@ -255,24 +274,20 @@ public class ServidorTCP {
     }
     public String reporteAlertas(String payload){
         JsonObject jsonObject = new JsonParser().parse(payload).getAsJsonObject(); //Objeto para deserializar el input que recibe el servidor
-        String barrio = jsonObject.get("barrio").getAsString(); //Se extrae un objeto especifico
-        String tipoAlerta = jsonObject.get("tipoAlerta").getAsString(); //Se extrae un objeto especifico
-        int dias = jsonObject.get("dias").getAsInt(); //Se extrae un objeto especifico
-        Date hoy = Calendar.getInstance().getTime();
+//        String email = jsonObject.get("email").getAsString(); //Se extrae un objeto especifico
         String reporteString = "";
-//        int contador = 0;
+        int contador = 0;
         HashMap reporte = new HashMap();
         ArrayList <Eventos> items = new ArrayList<Eventos>(); //Lista auxiliar de los eventos especificos del usuario
         
+        //Se agregan eventos a la lista. Se extrae un maximo de 25 eventos, empezando desde el mas reciente
         if(eventos.size()>0){
             for (int i = eventos.size()-1; i > -1; i--) {
-                Date fecha = eventos.get(i).getFecha();
-                int deltaDias = fecha.compareTo(hoy);
-                 if (deltaDias <= dias){
-                    if (eventos.get(i).getBarrio().equals(barrio)&eventos.get(i).getTipoAlerta().equals(tipoAlerta)){
+                 if (contador <=25){
+//                    if (eventos.get(i).getIdUsuario().equals(email)){
                         items.add(eventos.get(i));
-//                        contador++;                       
-                    }
+//                        contador++;
+//                    }
                 } else {
                     break;
                 }               
@@ -281,9 +296,41 @@ public class ServidorTCP {
             reporteString = gson.toJson(reporte);
             System.out.println(reporteString);
         }
+        
         System.out.println("Reporte Generado exitosamente");
         return reporteString;
     }
+//    public String reporteAlertas(String payload){
+//        JsonObject jsonObject = new JsonParser().parse(payload).getAsJsonObject(); //Objeto para deserializar el input que recibe el servidor
+//        String barrio = jsonObject.get("barrio").getAsString(); //Se extrae un objeto especifico
+//        String tipoAlerta = jsonObject.get("tipoAlerta").getAsString(); //Se extrae un objeto especifico
+//        int dias = jsonObject.get("dias").getAsInt(); //Se extrae un objeto especifico
+//        Date hoy = Calendar.getInstance().getTime();
+//        String reporteString = "";
+////        int contador = 0;
+//        HashMap reporte = new HashMap();
+//        ArrayList <Eventos> items = new ArrayList<Eventos>(); //Lista auxiliar de los eventos especificos del usuario
+//        
+//        if(eventos.size()>0){
+//            for (int i = eventos.size()-1; i > -1; i--) {
+//                Date fecha = eventos.get(i).getFecha();
+//                int deltaDias = fecha.compareTo(hoy);
+//                 if (deltaDias <= dias){
+//                    if (eventos.get(i).getBarrio().equals(barrio)&eventos.get(i).getTipoAlerta().equals(tipoAlerta)){
+//                        items.add(eventos.get(i));
+////                        contador++;                       
+//                    }
+//                } else {
+//                    break;
+//                }               
+//            }
+//            reporte.put("eventos", gson.toJson(items));
+//            reporteString = gson.toJson(reporte);
+//            System.out.println(reporteString);
+//        }
+//        System.out.println("Reporte Generado exitosamente");
+//        return reporteString;
+//    }
     
    public String misDatos(String payload){
         JsonObject jsonObject = new JsonParser().parse(payload).getAsJsonObject(); //Objeto para deserializar el input que recibe el servidor
@@ -295,11 +342,11 @@ public class ServidorTCP {
         
         //Se agregan eventos a la lista. Se extrae un maximo de 25 eventos, empezando desde el mas reciente
         if(usuarios.size()>0){
-            System.out.println("Entra a if.");
+//            System.out.println("Entra a if.");
             for (Usuario usuario : usuarios) {
-                System.out.println("Entra a for.");
+//                System.out.println("Entra a for.");
                     if (usuario.getEmail().equals(email)){
-                        System.out.println("Entra a if #2.");
+//                        System.out.println("Entra a if #2.");
                         reporte.put("nombre", usuario.getNombre());
                         reporte.put("apellidos", usuario.getApellidos());
                         reporte.put("cedula", usuario.getCedula());
@@ -331,18 +378,18 @@ public class ServidorTCP {
         String email = jsonObject.get("email").getAsString(); //Se extrae un objeto especifico
         String nombre = jsonObject.get("nombre").getAsString(); //Se extrae un objeto especifico
         String apellidos = jsonObject.get("apellidos").getAsString(); //Se extrae un objeto especifico
-        String telefono = jsonObject.get("telefono").getAsString(); //Se extrae un objeto especifico
-        String genero = jsonObject.get("genero").getAsString(); //Se extrae un objeto especifico
+//        String telefono = jsonObject.get("telefono").getAsString(); //Se extrae un objeto especifico
+//        String genero = jsonObject.get("genero").getAsString(); //Se extrae un objeto especifico
         boolean output = false;
         
         //Se agregan eventos a la lista. Se extrae un maximo de 25 eventos, empezando desde el mas reciente
         if(usuarios.size()>0){
-            for (int i = 0; i > usuarios.size(); i++) {
-                 if (usuarios.get(i).getEmail().equals(email)){
-                    usuarios.get(i).setNombre(nombre);
-                    usuarios.get(i).setApellidos(apellidos);
-                    usuarios.get(i).setCelular(telefono);
-                    usuarios.get(i).setGenero(genero);
+            for (Usuario usuario : usuarios) {
+                 if (usuario.getEmail().equals(email)){
+                    usuario.setNombre(nombre);
+                    usuario.setApellidos(apellidos);
+//                    usuarios.get(i).setCelular(telefono);
+//                    usuarios.get(i).setGenero(genero);
                     output = true;
                     break;
                 }              
@@ -362,9 +409,9 @@ public class ServidorTCP {
         
         //Se agregan eventos a la lista. Se extrae un maximo de 25 eventos, empezando desde el mas reciente
         if(contactos.size()>0){
-            for (int i = 0; i > contactos.size(); i++) {
-                 if (contactos.get(i).getIdUsuarioPrincipal().equals(email)){
-                    items.add(contactos.get(i));
+            for (ContactoEmergencia contacto:contactos) {
+                 if (contacto.getIdUsuarioPrincipal().equals(email)){
+                    items.add(contacto);
                 }         
             }
             reporte.put("contactos", gson.toJson(items));
@@ -398,13 +445,19 @@ public class ServidorTCP {
                 break;
 
             case "modificar contacto de emergencia":
-                if (this.crearContactoEmergencia(payload)){
+                if (this.modificarContactoEmergencia(payload)){
                     respuesta.put("exito", true);
                 } else {
                     respuesta.put("exito", false);
                 }               
                 break;
-                
+            case "eliminar contacto de emergencia":
+                if (this.eliminarContactoEmergencia(payload)){
+                    respuesta.put("exito", true);
+                } else {
+                    respuesta.put("exito", false);
+                }               
+                break;                
             case "autenticar usuario":
                 if (this.autenticarUsuario(payload)){
                     respuesta.put("exito", true);
@@ -464,6 +517,11 @@ public class ServidorTCP {
                 
             case "mis datos":
                 respuesta.put("reporte",this.misDatos(payload));
+                respuesta.put("exito", true);
+                break;
+
+            case "mis contactos":
+                respuesta.put("reporte",this.misContactos(payload));
                 respuesta.put("exito", true);
                 break;
                 

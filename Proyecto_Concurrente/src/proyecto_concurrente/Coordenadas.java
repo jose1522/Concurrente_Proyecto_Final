@@ -15,8 +15,8 @@ public class Coordenadas {
         DecimalFormat df = new DecimalFormat("#.######");
         df.setRoundingMode(RoundingMode.HALF_EVEN);
             //Llamada API para obtener coordenadas actuales
-            this.longitud = new String(df.format(Util.numeroAleatorio(9.929829,9.942156)));
-            this.latitud = new String(df.format(Util.numeroAleatorio(-84.076135,-84.08196)));
+            this.longitud = new String(df.format(Util.numeroAleatorio(9.931258,9.940981)));
+            this.latitud = new String(df.format(Util.numeroAleatorio(-84.075752,-84.081359)));
             this.barrio = "San Jose";
     }
 

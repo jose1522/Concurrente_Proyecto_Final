@@ -16,16 +16,15 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
-import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import org.jsoup.Jsoup;
 
 /**
  *
@@ -35,7 +34,10 @@ public class InterfazPrincipal extends javax.swing.JFrame {
     CardLayout bodyCardLayout;
     String email = "usuario@correo.com";
     DefaultTableModel tablaAlertas;
-
+    DefaultTableModel tablaContactos;
+    ArrayList <ContactoEmergencia> contactos = new ArrayList();
+    String idContacto;
+    
     public String getEmail() {
         return email;
     }
@@ -50,6 +52,7 @@ public class InterfazPrincipal extends javax.swing.JFrame {
     public InterfazPrincipal() {
         initComponents();
         tablaAlertas = (DefaultTableModel) this.tblAlertas.getModel();
+        tablaContactos = (DefaultTableModel) this.tblContactos.getModel();
         this.setLocationRelativeTo(null);
         this.bodyCardLayout = (CardLayout)(this.Body.getLayout());
         PanicBot.setBackground(new Color(0,0,0,0));
@@ -140,7 +143,7 @@ public class InterfazPrincipal extends javax.swing.JFrame {
         tbTelefonoContacto = new javax.swing.JTextField();
         tbEmailContacto = new javax.swing.JTextField();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        tblContactos = new javax.swing.JTable();
         btnAgregarContacto = new javax.swing.JButton();
         jButton9 = new javax.swing.JButton();
         jButton10 = new javax.swing.JButton();
@@ -168,13 +171,20 @@ public class InterfazPrincipal extends javax.swing.JFrame {
         jButton27 = new javax.swing.JButton();
         ContactosModificar = new javax.swing.JPanel();
         jButton8 = new javax.swing.JButton();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
-        jTextField7 = new javax.swing.JTextField();
-        jTextField8 = new javax.swing.JTextField();
+        tbModificarContactoNombre = new javax.swing.JTextField();
+        tbModificarContactoApellido = new javax.swing.JTextField();
+        tbModificarContactoNumero = new javax.swing.JTextField();
+        tbModificarContactoCorreo = new javax.swing.JTextField();
         ModContactosSafe_Bot = new javax.swing.JButton();
         jButton24 = new javax.swing.JButton();
         jLabel23 = new javax.swing.JLabel();
+        Creditos = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jButton28 = new javax.swing.JButton();
+        jButton11 = new javax.swing.JButton();
+        BG = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(375, 667));
@@ -379,6 +389,11 @@ public class InterfazPrincipal extends javax.swing.JFrame {
         PanelOpciones.add(jButton14, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 280, -1, -1));
 
         jButton15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/OpcionesBoton.png"))); // NOI18N
+        jButton15.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton15ActionPerformed(evt);
+            }
+        });
         PanelOpciones.add(jButton15, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 390, 176, -1));
 
         jButton17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/EdotarPassword_Boton.png"))); // NOI18N
@@ -427,18 +442,15 @@ public class InterfazPrincipal extends javax.swing.JFrame {
         ContactosAgregar.add(tbTelefonoContacto, new org.netbeans.lib.awtextra.AbsoluteConstraints(33, 230, 320, -1));
         ContactosAgregar.add(tbEmailContacto, new org.netbeans.lib.awtextra.AbsoluteConstraints(33, 300, 320, -1));
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        tblContactos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
                 "Nombre", "Apellidos", "Telefono", "Email"
             }
         ));
-        jScrollPane3.setViewportView(jTable2);
+        jScrollPane3.setViewportView(tblContactos);
 
         ContactosAgregar.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(26, 386, 330, 203));
 
@@ -459,6 +471,11 @@ public class InterfazPrincipal extends javax.swing.JFrame {
         ContactosAgregar.add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 600, 150, -1));
 
         jButton10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/EliminarBoton.png"))); // NOI18N
+        jButton10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton10ActionPerformed(evt);
+            }
+        });
         ContactosAgregar.add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 600, 160, -1));
 
         jButton23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Head_Logo.png"))); // NOI18N
@@ -629,27 +646,27 @@ public class InterfazPrincipal extends javax.swing.JFrame {
         });
         ContactosModificar.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 610, -1, -1));
 
-        jTextField5.addKeyListener(new java.awt.event.KeyAdapter() {
+        tbModificarContactoNombre.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                jTextField5KeyTyped(evt);
+                tbModificarContactoNombreKeyTyped(evt);
             }
         });
-        ContactosModificar.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(38, 162, 310, -1));
+        ContactosModificar.add(tbModificarContactoNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(38, 162, 310, -1));
 
-        jTextField6.addKeyListener(new java.awt.event.KeyAdapter() {
+        tbModificarContactoApellido.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                jTextField6KeyTyped(evt);
+                tbModificarContactoApellidoKeyTyped(evt);
             }
         });
-        ContactosModificar.add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 230, 310, -1));
+        ContactosModificar.add(tbModificarContactoApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 230, 310, -1));
 
-        jTextField7.addKeyListener(new java.awt.event.KeyAdapter() {
+        tbModificarContactoNumero.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                jTextField7KeyTyped(evt);
+                tbModificarContactoNumeroKeyTyped(evt);
             }
         });
-        ContactosModificar.add(jTextField7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 300, 310, -1));
-        ContactosModificar.add(jTextField8, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 370, 310, -1));
+        ContactosModificar.add(tbModificarContactoNumero, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 300, 310, -1));
+        ContactosModificar.add(tbModificarContactoCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 370, 310, -1));
 
         ModContactosSafe_Bot.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/SaveBoton.png"))); // NOI18N
         ModContactosSafe_Bot.addActionListener(new java.awt.event.ActionListener() {
@@ -672,6 +689,45 @@ public class InterfazPrincipal extends javax.swing.JFrame {
 
         Body.add(ContactosModificar, "ContactosModificar");
 
+        Creditos.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel4.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel4.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel4.setText("Christian Harding");
+        Creditos.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 180, -1, -1));
+
+        jLabel5.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel5.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel5.setText("Daniela Pacheco");
+        Creditos.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 250, -1, -1));
+
+        jLabel6.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel6.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel6.setText("Jose Moya");
+        Creditos.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 320, -1, -1));
+
+        jButton28.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Head_Logo.png"))); // NOI18N
+        jButton28.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton28ActionPerformed(evt);
+            }
+        });
+        Creditos.add(jButton28, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 0, -1, -1));
+
+        jButton11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Register_Back.png"))); // NOI18N
+        jButton11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton11ActionPerformed(evt);
+            }
+        });
+        Creditos.add(jButton11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 610, -1, -1));
+
+        BG.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/BG-01.jpg"))); // NOI18N
+        BG.setText("Daniela Pacheco Theodoluz");
+        Creditos.add(BG, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        Body.add(Creditos, "creditos");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -680,7 +736,7 @@ public class InterfazPrincipal extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Body, javax.swing.GroupLayout.DEFAULT_SIZE, 667, Short.MAX_VALUE)
+            .addComponent(Body, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -691,6 +747,7 @@ public class InterfazPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton12ActionPerformed
 
     private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
+        this.refrescarTablaContactos();
         this.bodyCardLayout.show(this.Body, "ContactosAgregar");
     }//GEN-LAST:event_jButton14ActionPerformed
 
@@ -699,7 +756,29 @@ public class InterfazPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton17ActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+        int filaSeleccionada = tblContactos.getSelectedRow();
+        if(filaSeleccionada>-1){
+        String nombre = tablaContactos.getValueAt(filaSeleccionada, 0).toString();
+        String apellidos = tablaContactos.getValueAt(filaSeleccionada, 1).toString();
+        String telefono = tablaContactos.getValueAt(filaSeleccionada, 2).toString();
+        String email = tablaContactos.getValueAt(filaSeleccionada, 3).toString();
+        
+        for (ContactoEmergencia contacto:contactos){
+            if (contacto.getEmail().equals(email)){
+                this.idContacto = contacto.getId();
+            }
+        }
+        
+        tbModificarContactoNombre.setText(nombre);
+        tbModificarContactoApellido.setText(apellidos);
+        tbModificarContactoCorreo.setText(email);
+        tbModificarContactoNumero.setText(telefono);
         this.bodyCardLayout.show(this.Body, "ContactosModificar");
+        
+        } else {
+            JOptionPane.showMessageDialog(null, "Por favor seleccione alguno de los contactos en la tabla.");
+        }
+        
     }//GEN-LAST:event_jButton9ActionPerformed
 
     private void AjustesFiltroSave_BotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AjustesFiltroSave_BotonActionPerformed
@@ -832,18 +911,45 @@ public class InterfazPrincipal extends javax.swing.JFrame {
         usuario.put("celular",tbTelefonoContacto.getText());
         
         String payload = gson.toJson(usuario);
-        client.enviaServidor(payload);
-        
+        String resultado = client.enviaServidor(payload);
+        JsonObject jsonObject = new JsonParser().parse(resultado).getAsJsonObject();
+        boolean exito =  jsonObject.get("exito").getAsBoolean();
+
+         if (exito){
+            this.refrescarTablaContactos();
+         } 
+
         }
         
     }//GEN-LAST:event_btnAgregarContactoActionPerformed
 
     private void ModContactosSafe_BotActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModContactosSafe_BotActionPerformed
-         if(jTextField5.getText().isEmpty() || jTextField6.getText().isEmpty() || jTextField8.getText().isEmpty() || jTextField7.getText().isEmpty()){
+         if(tbModificarContactoNombre.getText().isEmpty() || tbModificarContactoApellido.getText().isEmpty() || tbModificarContactoCorreo.getText().isEmpty() || tbModificarContactoNumero.getText().isEmpty()){
             JOptionPane.showMessageDialog(null, "Por favor ingrese todos los datos");
         }else{
-             
-             
+            HashMap usuario = new HashMap();
+            ClienteTCP client = new ClienteTCP();
+            Gson gson = new Gson();
+
+            usuario.put("accion","modificar contacto de emergencia");
+            usuario.put("id",this.idContacto);
+            usuario.put("email",tbModificarContactoCorreo.getText());
+            usuario.put("nombre",tbModificarContactoNombre.getText());
+            usuario.put("apellidos",tbModificarContactoApellido.getText());
+            usuario.put("celular",tbModificarContactoNumero.getText());
+
+            String payload = gson.toJson(usuario);
+            String resultado = client.enviaServidor(payload);
+            JsonObject jsonObject = new JsonParser().parse(resultado).getAsJsonObject();
+            boolean exito =  jsonObject.get("exito").getAsBoolean();
+
+             if (exito){
+                 this.refrescarTablaContactos();
+                 JOptionPane.showMessageDialog(null, "Se modificaron los datos del contacto.");
+             } else {
+                 JOptionPane.showMessageDialog(null, "Error: No se modificaron los datos del contacto.");
+             } 
+            
         }
     }//GEN-LAST:event_ModContactosSafe_BotActionPerformed
 
@@ -883,7 +989,22 @@ public class InterfazPrincipal extends javax.swing.JFrame {
         if(perfilNombre.getText().isEmpty() || perfilApellido.getText().isEmpty()){
             JOptionPane.showMessageDialog(null, "Por favor ingrese todos los datos");
         }else{
-        
+                Gson gson = new Gson();
+                ClienteTCP client = new ClienteTCP();
+                HashMap usuario = new HashMap();
+                
+                usuario.put("email",this.email);
+                usuario.put("nombre", perfilNombre.getText());                
+                usuario.put("apellidos",perfilApellido.getText());
+                usuario.put("accion","modificar mis datos");
+                String payload =gson.toJson(usuario);
+                String resultado = client.enviaServidor(payload);
+                JsonObject jsonObject = new JsonParser().parse(resultado).getAsJsonObject();
+                boolean exito =  jsonObject.get("exito").getAsBoolean();
+                
+                 if (exito){
+                     JOptionPane.showMessageDialog(null, "Se cambio la contraseña");
+                 }            
         }
     }//GEN-LAST:event_jButton16ActionPerformed
 
@@ -926,29 +1047,29 @@ char c = evt.getKeyChar();
         }
     }//GEN-LAST:event_perfilApellidoKeyTyped
 
-    private void jTextField5KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField5KeyTyped
+    private void tbModificarContactoNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbModificarContactoNombreKeyTyped
         // TODO add your handling code here:
         char c = evt.getKeyChar();
         if(!(Character.isAlphabetic(c) || c==KeyEvent.VK_BACKSPACE || c==KeyEvent.VK_SHIFT)){
             evt.consume();
         }
-    }//GEN-LAST:event_jTextField5KeyTyped
+    }//GEN-LAST:event_tbModificarContactoNombreKeyTyped
 
-    private void jTextField6KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField6KeyTyped
+    private void tbModificarContactoApellidoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbModificarContactoApellidoKeyTyped
         // TODO add your handling code here:
         char c = evt.getKeyChar();
         if(!(Character.isAlphabetic(c) || c==KeyEvent.VK_BACKSPACE || c==KeyEvent.VK_SHIFT)){
             evt.consume();
         }
-    }//GEN-LAST:event_jTextField6KeyTyped
+    }//GEN-LAST:event_tbModificarContactoApellidoKeyTyped
 
-    private void jTextField7KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField7KeyTyped
+    private void tbModificarContactoNumeroKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbModificarContactoNumeroKeyTyped
         // TODO add your handling code here:
         char c = evt.getKeyChar();
         if(!(Character.isDigit(c) || c==KeyEvent.VK_BACKSPACE || c==KeyEvent.VK_SHIFT)){
             evt.consume();
         }
-    }//GEN-LAST:event_jTextField7KeyTyped
+    }//GEN-LAST:event_tbModificarContactoNumeroKeyTyped
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         this.bodyCardLayout.show(this.Body, "PanelOpciones");
@@ -1010,7 +1131,9 @@ char c = evt.getKeyChar();
 //        marker += "&markers="+latitud+"%2C+"+longitud; 
 //        String startURL = "http://maps.googleapis.com/maps/api/staticmap?center=9.9360505%2C+-84.0790755&zoom=16&size=300x650&scale=1&format=png&maptype=terrain";
 //        String endURL = "&region=es&language=es&sensor=false&key=AIzaSyAWZLD2A6ltEb4HMzzRgNbOEgLJ1Sm89KI=";
-          String msg = "http://maps.googleapis.com/maps/api/staticmap?center=9.9360505%2C+-84.0790755&zoom=16&size=340x530&scale=1&format=png&maptype=terrain&markers9.941295%2C-84.079674&region=es&language=es&sensor=false&key=AIzaSyAWZLD2A6ltEb4HMzzRgNbOEgLJ1Sm89KI=";
+          ClienteUDP udp = new ClienteUDP();
+          String msg = udp.enviaServidor();
+          System.out.println(msg);
         try {
             //
             URL url = new URL(msg);
@@ -1034,6 +1157,49 @@ char c = evt.getKeyChar();
             Logger.getLogger(InterfazPrincipal.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_MapaLabelAncestorAdded
+
+    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
+        int filaSeleccionada = tblContactos.getSelectedRow();
+        if(filaSeleccionada>-1){
+        String nombre = tablaContactos.getValueAt(filaSeleccionada, 0).toString();
+        String apellidos = tablaContactos.getValueAt(filaSeleccionada, 1).toString();
+        String telefono = tablaContactos.getValueAt(filaSeleccionada, 2).toString();
+        String email = tablaContactos.getValueAt(filaSeleccionada, 3).toString();
+        this.idContacto="";
+        for (ContactoEmergencia contacto:contactos){
+            if (contacto.getEmail().equals(email)){
+                this.idContacto = contacto.getId();
+            }
+        }
+        Gson gson = new Gson(); //Objeto gson para serializar String a formato Json
+        ClienteTCP client = new ClienteTCP(); //Cliente TCP para enviar datos
+        HashMap reporte = new HashMap(); //Hashmap para enviar parametros al servidor
+        JsonArray output = null; //Crea objeto nuevo de tipo JsonArray para poder acceder a cada evento individualmente
+        
+        //Agrega parametros
+        reporte.put("accion","eliminar contacto de emergencia");  
+        reporte.put("id",this.idContacto);
+        
+        String payload = gson.toJson(reporte);//Serializa parametros en formato JSON
+        String resultado = client.enviaServidor(payload); //Agrega el mensaje devuelto por el servidor a un string
+        refrescarTablaContactos();
+        
+        } else {
+            JOptionPane.showMessageDialog(null, "Por favor seleccione alguno de los contactos en la tabla.");
+        }
+    }//GEN-LAST:event_jButton10ActionPerformed
+
+    private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
+       this.bodyCardLayout.show(this.Body, "creditos");
+    }//GEN-LAST:event_jButton15ActionPerformed
+
+    private void jButton28ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton28ActionPerformed
+        this.bodyCardLayout.show(this.Body, "Principal");
+    }//GEN-LAST:event_jButton28ActionPerformed
+
+    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
+        this.bodyCardLayout.show(this.Body, "PanelOpciones");
+    }//GEN-LAST:event_jButton11ActionPerformed
 
     private JsonArray extraerAlertas(){
         Gson gson = new Gson(); //Objeto gson para serializar String a formato Json
@@ -1081,6 +1247,51 @@ char c = evt.getKeyChar();
         }
     }
     
+    private void refrescarTablaContactos(){
+        JsonArray arrayContactos = this.extraerContactos();
+        tablaContactos.setRowCount(0);
+        if (arrayContactos!=null){
+            
+            for (int i = 0; i < arrayContactos.size(); i++) {
+                JsonObject jsonObject = arrayContactos.get(i).getAsJsonObject();
+                //Se extraen elementos especificos y se agregan a un array string
+                String nombre = jsonObject.get("nombre").getAsString();
+                String apellidos = jsonObject.get("apellidos").getAsString();
+                String celular = jsonObject.get("celular").getAsString();
+                String email = jsonObject.get("email").getAsString();
+                String id = jsonObject.get("id").getAsString();
+                String [] row = {nombre, apellidos, celular,email};
+                tablaContactos.addRow(row);
+                ContactoEmergencia c = new ContactoEmergencia(this.email, id, email, nombre, apellidos, celular);
+                contactos.add(c);
+            }  
+        }
+        
+    }
+    
+    private JsonArray extraerContactos(){
+        Gson gson = new Gson();
+        ClienteTCP client = new ClienteTCP();
+        HashMap usuario = new HashMap();
+        JsonArray arrayContactos = null;
+
+        usuario.put("email",email);
+        usuario.put("accion","mis contactos");  
+        String payload = gson.toJson(usuario);
+        String resultado = client.enviaServidor(payload);
+        JsonObject jsonObject = new JsonParser().parse(resultado).getAsJsonObject();
+        boolean exito =  jsonObject.get("exito").getAsBoolean();
+
+        String stringTemporal = jsonObject.get("reporte").getAsString();
+        if (!stringTemporal.equals("")){
+            jsonObject = new JsonParser().parse(stringTemporal).getAsJsonObject();
+            stringTemporal = jsonObject.get("contactos").getAsString();
+            arrayContactos = new JsonParser().parse(stringTemporal).getAsJsonArray();
+
+        }
+        
+        return arrayContactos;
+    }
     /**
      * @param args the command line arguments
      */
@@ -1124,11 +1335,13 @@ char c = evt.getKeyChar();
     private javax.swing.JButton Alertas1;
     private javax.swing.JPanel Altertas;
     private javax.swing.JLabel BACKGOURND;
+    private javax.swing.JLabel BG;
     private javax.swing.JPanel Body;
     private javax.swing.JPanel CambiarContraseña;
     private javax.swing.JButton ChangePassSave_Boton;
     private javax.swing.JPanel ContactosAgregar;
     private javax.swing.JPanel ContactosModificar;
+    private javax.swing.JPanel Creditos;
     private javax.swing.JButton FiltroBack_Boton;
     private javax.swing.JPanel Filtros;
     private javax.swing.JPanel Mapa;
@@ -1147,6 +1360,7 @@ char c = evt.getKeyChar();
     private javax.swing.JComboBox<String> cbTiposAlertas;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
+    private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton14;
     private javax.swing.JButton jButton15;
@@ -1161,6 +1375,7 @@ char c = evt.getKeyChar();
     private javax.swing.JButton jButton25;
     private javax.swing.JButton jButton26;
     private javax.swing.JButton jButton27;
+    private javax.swing.JButton jButton28;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
@@ -1177,6 +1392,9 @@ char c = evt.getKeyChar();
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JList<String> jList1;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane1;
@@ -1184,19 +1402,19 @@ char c = evt.getKeyChar();
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JSlider jSlider1;
     private javax.swing.JSlider jSlider2;
-    private javax.swing.JTable jTable2;
     private javax.swing.JTextField jTextField16;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
     private javax.swing.JTextField nuevoPass;
     private javax.swing.JTextField perfilApellido;
     private javax.swing.JTextField perfilNombre;
     private javax.swing.JTextField tbApellidosContactos;
     private javax.swing.JTextField tbEmailContacto;
+    private javax.swing.JTextField tbModificarContactoApellido;
+    private javax.swing.JTextField tbModificarContactoCorreo;
+    private javax.swing.JTextField tbModificarContactoNombre;
+    private javax.swing.JTextField tbModificarContactoNumero;
     private javax.swing.JTextField tbNombreContacto;
     private javax.swing.JTextField tbTelefonoContacto;
     private javax.swing.JTable tblAlertas;
+    private javax.swing.JTable tblContactos;
     // End of variables declaration//GEN-END:variables
 }
